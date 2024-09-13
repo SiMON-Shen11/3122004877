@@ -1,0 +1,715 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:str="http://exslt.org/strings" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Test Results &mdash; </title>
+        <style type="text/css">
+          html {
+            height: 100%
+          }
+
+          body {
+            margin: 0 auto;
+            padding: 0;
+            text-align: left;
+            height: 100%;
+            font-family: myriad, arial, tahoma, verdana, sans-serif;
+            color: #151515;
+            font-size: 90%;
+            line-height: 1.3em;
+            background-color: #fff;
+          }
+
+          * {
+            margin: 0;
+            padding: 0
+          }
+
+          .clr {
+            clear: both;
+            overflow: hidden;
+          }
+
+          img {
+            border: none
+          }
+
+          a {
+            color: #0046b0;
+            text-decoration: none;
+          }
+
+          a:hover {
+            text-decoration: none;
+          }
+
+          a:focus, a:active {
+            outline: none
+          }
+
+          .noborder {
+            border: none
+          }
+
+          h1 {
+            color: #151515;
+            font-size: 180%;
+            line-height: 1.1em;
+            font-weight: bold;
+          }
+
+          h2 {
+            color: #393D42;
+            font-size: 160%;
+            font-weight: normal
+          }
+
+          h3 {
+            font-size: 120%;
+            font-weight: bold;
+            margin-bottom: .5em
+          }
+
+          h4 {
+            font-size: 110%;
+          }
+
+          h5 {
+            font-size: 110%;
+          }
+
+          span.failed {
+            color: #ff0000
+          }
+
+          span.error {
+            color: #ff0000
+          }
+
+          span.passed {
+            color: #1d9d01
+          }
+
+          span.ignored {
+            color: #fff600
+          }
+
+          span.skipped {
+            color: #fff600
+          }
+
+          hr {
+            background-color: blue
+          }
+
+          #container {
+            min-width: 30em;
+          }
+
+          #header {
+            padding: 0;
+            position: fixed;
+            width: 100%;
+            z-index: 10;
+            background-color: #c7ceda;
+          }
+
+          #header h1 {
+            margin: 1em 3em 1em 1.7em;
+          }
+
+          #header h1 strong {
+            white-space: nowrap;
+          }
+
+          #header .time {
+            margin-top: 2.2em;
+            margin-right: 3.4em;
+            float: right;
+          }
+
+          #treecontrol {
+            margin: 0;
+            padding: .5em 3em .5em 0;
+            text-align: right;
+            background-color: #fff;
+          }
+
+          #treecontrol ul li {
+            display: inline;
+            list-style: none;
+            color: #666;
+          }
+
+          #content {
+            padding: 0 2.5em 2em 1.7em;
+          }
+
+          #content ul {
+            margin: .4em 0 .1em 2em;
+            list-style: none;
+          }
+
+          #content ul li.level {
+            cursor: pointer;
+          }
+
+          #content ul li.level span {
+            display: block;
+            font-weight: bold;
+          }
+
+          #content ul li.level.top {
+            margin-bottom: .3em;
+          }
+
+          #content ul li.level.top > span {
+            padding: .5em 0 .5em 1em;
+            font-size: 120%;
+            color: #151515;
+            background-color: #f2f2f2;
+            border-left: solid 10px #93e078;
+          }
+
+          #content ul li.level.top.failed > span {
+            border-left: solid 10px #f02525;
+          }
+
+          #content ul li.level.top.ignored > span {
+            border-left: solid 10px #f8d216;
+          }
+
+          #content ul li.level.suite > span {
+            margin-bottom: .8em;
+            padding: 0 0 0 .8em;
+            display: block;
+            font-size: 110%;
+            line-height: 1em;
+            color: #151515;
+            border-left: solid 15px #93e078;
+          }
+
+          #content ul li.level.suite.failed > span {
+            border-left: solid 15px #f02525;
+          }
+
+          #content ul li.level.suite.ignored > span {
+            border-left: solid 15px #f8d216;
+          }
+
+          #content ul li.level.suite > ul {
+            margin-bottom: 1.5em;
+          }
+
+          #content ul li.level.test > span {
+            padding: .3em 0 .3em 1em;
+            color: #0046b0;
+            font-size: 100%;
+            border-left: solid 6px #93e078;
+            border-bottom: solid 1px #dbdbdb;
+          }
+
+          #content ul li.level.test.failed > span {
+            border-left: solid 6px #f02525;
+          }
+
+          #content ul li.level.test.ignored > span {
+            border-left: solid 6px #f8d216;
+          }
+
+          #content ul li.text p, #content ul li.text span {
+            margin-bottom: 1.5em;
+            color: #151515 !important;
+            font-size: 90% !important;
+            font-weight: normal !important;
+            overflow-x: auto;
+            cursor: auto !important;
+            background: none !important;
+            border: none !important;
+          }
+
+          #content ul li.text span {
+            margin-bottom: 0;
+            display: block;
+          }
+
+          #content ul li.text span.stderr {
+            color: #8b0000 !important;
+          }
+
+          #content ul li .time {
+            margin-right: .5em;
+            width: 5em;
+            text-align: right;
+            font-size: 13px;
+            color: #151515;
+            font-style: normal;
+            font-weight: normal;
+            float: right;
+          }
+
+          #content ul li span .status {
+            width: 6em;
+            font-size: 90%;
+            color: #1d9d01;
+            font-style: normal;
+            font-weight: normal;
+            float: right;
+            text-align: right;
+          }
+
+          #content ul li.failed > span .status {
+            color: #ff0000;
+          }
+
+          #content ul li.ignored > span .status {
+            color: #d6b000;
+          }
+
+          #footer {
+              height: 2em;
+              background-color: #c7ceda;
+          }
+          #footer p {
+              padding: .4em 0 0 3.6em;
+              font-size: 80%;
+          }
+        </style>
+        <script type="text/javascript">
+eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('(G(){9(1n E!="11")H w=E;H E=17.16=G(a,c){9(17==6||!6.4K)I 1q E(a,c);I 6.4K(a,c)};9(1n $!="11")H D=$;17.$=E;H u=/^[^<]*(<(.|\\s)+>)[^>]*$|^#(\\w+)$/;E.1b=E.3x={4K:G(a,c){a=a||U;9(1n a=="1M"){H m=u.2L(a);9(m&&(m[1]||!c)){9(m[1])a=E.4I([m[1]],c);J{H b=U.42(m[3]);9(b)9(b.1T!=m[3])I E().1X(a);J{6[0]=b;6.L=1;I 6}J a=[]}}J I 1q E(c).1X(a)}J 9(E.1p(a))I 1q E(U)[E.1b.2d?"2d":"37"](a);I 6.6u(a.1d==1C&&a||(a.4d||a.L&&a!=17&&!a.1z&&a[0]!=11&&a[0].1z)&&E.2h(a)||[a])},4d:"1.2",82:G(){I 6.L},L:0,28:G(a){I a==11?E.2h(6):6[a]},2v:G(a){H b=E(a);b.4Y=6;I b},6u:G(a){6.L=0;1C.3x.1a.15(6,a);I 6},O:G(a,b){I E.O(6,a,b)},4J:G(a){H b=-1;6.O(G(i){9(6==a)b=i});I b},1y:G(f,d,e){H c=f;9(f.1d==3T)9(d==11)I 6.L&&E[e||"1y"](6[0],f)||11;J{c={};c[f]=d}I 6.O(G(a){M(H b 1j c)E.1y(e?6.R:6,b,E.1c(6,c[b],e,a,b))})},18:G(b,a){I 6.1y(b,a,"3O")},2t:G(e){9(1n e!="5w"&&e!=S)I 6.4o().3e(U.6F(e));H t="";E.O(e||6,G(){E.O(6.2X,G(){9(6.1z!=8)t+=6.1z!=1?6.6x:E.1b.2t([6])})});I t},5l:G(b){9(6[0])E(b,6[0].3N).6t().38(6[0]).1W(G(){H a=6;1Y(a.1t)a=a.1t;I a}).3e(6);I 6},8p:G(a){I 6.O(G(){E(6).6p().5l(a)})},8h:G(a){I 6.O(G(){E(6).5l(a)})},3e:G(){I 6.3s(1k,Q,1,G(a){6.57(a)})},6k:G(){I 6.3s(1k,Q,-1,G(a){6.38(a,6.1t)})},6g:G(){I 6.3s(1k,P,1,G(a){6.14.38(a,6)})},53:G(){I 6.3s(1k,P,-1,G(a){6.14.38(a,6.2i)})},1B:G(){I 6.4Y||E([])},1X:G(t){H b=E.1W(6,G(a){I E.1X(t,a)});I 6.2v(/[^+>] [^+>]/.12(t)||t.1e("..")>-1?E.4V(b):b)},6t:G(e){H f=6.1W(G(){I 6.66?E(6.66)[0]:6.4S(Q)});9(e===Q){H d=f.1X("*").4Q();6.1X("*").4Q().O(G(i){H c=E.K(6,"2A");M(H a 1j c)M(H b 1j c[a])E.1h.1f(d[i],a,c[a][b],c[a][b].K)})}I f},1A:G(t){I 6.2v(E.1p(t)&&E.2T(6,G(b,a){I t.15(b,[a])})||E.3G(t,6))},5T:G(t){I 6.2v(t.1d==3T&&E.3G(t,6,Q)||E.2T(6,G(a){I(t.1d==1C||t.4d)?E.2S(a,t)<0:a!=t}))},1f:G(t){I 6.2v(E.1S(6.28(),t.1d==3T?E(t).28():t.L!=11&&(!t.Y||t.Y=="7t")?t:[t]))},3j:G(a){I a?E.3G(a,6).L>0:P},7g:G(a){I 6.3j("."+a)},2V:G(b){9(b==11){9(6.L){H c=6[0];9(E.Y(c,"24")){H e=c.4z,a=[],W=c.W,2P=c.N=="24-2P";9(e<0)I S;M(H i=2P?e:0,2Y=2P?e+1:W.L;i<2Y;i++){H d=W[i];9(d.29){H b=E.V.1g&&!d.70["1N"].9U?d.2t:d.1N;9(2P)I b;a.1a(b)}}I a}J I 6[0].1N.1o(/\\r/g,"")}}J I 6.O(G(){9(b.1d==1C&&/4s|5u/.12(6.N))6.2K=(E.2S(6.1N,b)>=0||E.2S(6.2J,b)>=0);J 9(E.Y(6,"24")){H a=b.1d==1C?b:[b];E("9m",6).O(G(){6.29=(E.2S(6.1N,a)>=0||E.2S(6.2t,a)>=0)});9(!a.L)6.4z=-1}J 6.1N=b})},4n:G(a){I a==11?(6.L?6[0].3D:S):6.4o().3e(a)},6H:G(a){I 6.53(a).2e()},2s:G(){I 6.2v(1C.3x.2s.15(6,1k))},1W:G(b){I 6.2v(E.1W(6,G(a,i){I b.3c(a,i,a)}))},4Q:G(){I 6.1f(6.4Y)},3s:G(f,d,g,e){H c=6.L>1,a;I 6.O(G(){9(!a){a=E.4I(f,6.3N);9(g<0)a.91()}H b=6;9(d&&E.Y(6,"1F")&&E.Y(a[0],"4k"))b=6.4q("1J")[0]||6.57(U.5r("1J"));E.O(a,G(){9(E.Y(6,"1P")){9(6.3g)E.3w({1u:6.3g,3h:P,1Z:"1P"});J E.5h(6.2t||6.6s||6.3D||"")}J e.15(b,[c?6.4S(Q):6])})})}};E.1i=E.1b.1i=G(){H c=1k[0]||{},a=1,2g=1k.L,5e=P;9(c.1d==8v){5e=c;c=1k[1]||{}}9(2g==1){c=6;a=0}H b;M(;a<2g;a++)9((b=1k[a])!=S)M(H i 1j b){9(c==b[i])6r;9(5e&&1n b[i]==\'5w\'&&c[i])E.1i(c[i],b[i]);J 9(b[i]!=11)c[i]=b[i]}I c};H F="16"+(1q 3v()).3u(),6q=0,5d={};E.1i({8k:G(a){17.$=D;9(a)17.16=w;I E},1p:G(a){I!!a&&1n a!="1M"&&!a.Y&&a.1d!=1C&&/G/i.12(a+"")},4a:G(a){I a.35&&!a.1K||a.34&&a.3N&&!a.3N.1K},5h:G(a){a=E.33(a);9(a){9(17.6o)17.6o(a);J 9(E.V.1H)17.58(a,0);J 3p.3c(17,a)}},Y:G(b,a){I b.Y&&b.Y.26()==a.26()},1I:{},K:G(c,d,b){c=c==17?5d:c;H a=c[F];9(!a)a=c[F]=++6q;9(d&&!E.1I[a])E.1I[a]={};9(b!=11)E.1I[a][d]=b;I d?E.1I[a][d]:a},30:G(c,b){c=c==17?5d:c;H a=c[F];9(b){9(E.1I[a]){2G E.1I[a][b];b="";M(b 1j E.1I[a])22;9(!b)E.30(c)}}J{2c{2G c[F]}27(e){9(c.54)c.54(F)}2G E.1I[a]}},O:G(a,b,c){9(c){9(a.L==11)M(H i 1j a)b.15(a[i],c);J M(H i=0,45=a.L;i<45;i++)9(b.15(a[i],c)===P)22}J{9(a.L==11)M(H i 1j a)b.3c(a[i],i,a[i]);J M(H i=0,45=a.L,2V=a[0];i<45&&b.3c(2V,i,2V)!==P;2V=a[++i]){}}I a},1c:G(c,b,d,e,a){9(E.1p(b))b=b.3c(c,[e]);H f=/z-?4J|7T-?7S|1v|69|7Q-?1G/i;I b&&b.1d==4X&&d=="3O"&&!f.12(a)?b+"2I":b},1m:{1f:G(b,c){E.O((c||"").2p(/\\s+/),G(i,a){9(!E.1m.3t(b.1m,a))b.1m+=(b.1m?" ":"")+a})},2e:G(b,c){b.1m=c!=11?E.2T(b.1m.2p(/\\s+/),G(a){I!E.1m.3t(c,a)}).65(" "):""},3t:G(t,c){I E.2S(c,(t.1m||t).3z().2p(/\\s+/))>-1}},2q:G(e,o,f){M(H i 1j o){e.R["3C"+i]=e.R[i];e.R[i]=o[i]}f.15(e,[]);M(H i 1j o)e.R[i]=e.R["3C"+i]},18:G(e,p){9(p=="1G"||p=="2E"){H b={},3Z,3Y,d=["7L","7K","7J","7G"];E.O(d,G(){b["7F"+6]=0;b["7D"+6+"61"]=0});E.2q(e,b,G(){9(E(e).3j(\':3X\')){3Z=e.7A;3Y=e.7z}J{e=E(e.4S(Q)).1X(":4s").5X("2K").1B().18({4v:"1O",2W:"4D",19:"2U",7w:"0",1R:"0"}).5P(e.14)[0];H a=E.18(e.14,"2W")||"3V";9(a=="3V")e.14.R.2W="7k";3Z=e.7h;3Y=e.7f;9(a=="3V")e.14.R.2W="3V";e.14.3k(e)}});I p=="1G"?3Z:3Y}I E.3O(e,p)},3O:G(h,j,i){H g,2u=[],2q=[];G 3l(a){9(!E.V.1H)I P;H b=U.3M.3P(a,S);I!b||b.4y("3l")==""}9(j=="1v"&&E.V.1g){g=E.1y(h.R,"1v");I g==""?"1":g}9(j.1U(/4r/i))j=y;9(!i&&h.R[j])g=h.R[j];J 9(U.3M&&U.3M.3P){9(j.1U(/4r/i))j="4r";j=j.1o(/([A-Z])/g,"-$1").2F();H d=U.3M.3P(h,S);9(d&&!3l(h))g=d.4y(j);J{M(H a=h;a&&3l(a);a=a.14)2u.4Z(a);M(a=0;a<2u.L;a++)9(3l(2u[a])){2q[a]=2u[a].R.19;2u[a].R.19="2U"}g=j=="19"&&2q[2u.L-1]!=S?"2j":U.3M.3P(h,S).4y(j)||"";M(a=0;a<2q.L;a++)9(2q[a]!=S)2u[a].R.19=2q[a]}9(j=="1v"&&g=="")g="1"}J 9(h.43){H f=j.1o(/\\-(\\w)/g,G(m,c){I c.26()});g=h.43[j]||h.43[f];9(!/^\\d+(2I)?$/i.12(g)&&/^\\d/.12(g)){H k=h.R.1R;H e=h.4t.1R;h.4t.1R=h.43.1R;h.R.1R=g||0;g=h.R.74+"2I";h.R.1R=k;h.4t.1R=e}}I g},4I:G(a,e){H r=[];e=e||U;E.O(a,G(i,d){9(!d)I;9(d.1d==4X)d=d.3z();9(1n d=="1M"){d=d.1o(/(<(\\w+)[^>]*?)\\/>/g,G(m,a,b){I b.1U(/^(71|6Z|5D|6Y|49|9S|9P|3f|9K|9I)$/i)?m:a+"></"+b+">"});H s=E.33(d).2F(),1r=e.5r("1r"),2x=[];H c=!s.1e("<9D")&&[1,"<24>","</24>"]||!s.1e("<9A")&&[1,"<6S>","</6S>"]||s.1U(/^<(9x|1J|9u|9t|9s)/)&&[1,"<1F>","</1F>"]||!s.1e("<4k")&&[2,"<1F><1J>","</1J></1F>"]||(!s.1e("<9r")||!s.1e("<9q"))&&[3,"<1F><1J><4k>","</4k></1J></1F>"]||!s.1e("<5D")&&[2,"<1F><1J></1J><6L>","</6L></1F>"]||E.V.1g&&[1,"1r<1r>","</1r>"]||[0,"",""];1r.3D=c[1]+d+c[2];1Y(c[0]--)1r=1r.5k;9(E.V.1g){9(!s.1e("<1F")&&s.1e("<1J")<0)2x=1r.1t&&1r.1t.2X;J 9(c[1]=="<1F>"&&s.1e("<1J")<0)2x=1r.2X;M(H n=2x.L-1;n>=0;--n)9(E.Y(2x[n],"1J")&&!2x[n].2X.L)2x[n].14.3k(2x[n]);9(/^\\s/.12(d))1r.38(e.6F(d.1U(/^\\s*/)[0]),1r.1t)}d=E.2h(1r.2X)}9(0===d.L&&(!E.Y(d,"3B")&&!E.Y(d,"24")))I;9(d[0]==11||E.Y(d,"3B")||d.W)r.1a(d);J r=E.1S(r,d)});I r},1y:G(c,d,a){H e=E.4a(c)?{}:E.5o;9(d=="29"&&E.V.1H)c.14.4z;9(e[d]){9(a!=11)c[e[d]]=a;I c[e[d]]}J 9(E.V.1g&&d=="R")I E.1y(c.R,"9g",a);J 9(a==11&&E.V.1g&&E.Y(c,"3B")&&(d=="9e"||d=="9d"))I c.9b(d).6x;J 9(c.34){9(a!=11){9(d=="N"&&E.Y(c,"49")&&c.14)6E"N 96 94\'t 93 92";c.90(d,a)}9(E.V.1g&&/6B|3g/.12(d)&&!E.4a(c))I c.4l(d,2);I c.4l(d)}J{9(d=="1v"&&E.V.1g){9(a!=11){c.69=1;c.1A=(c.1A||"").1o(/6A\\([^)]*\\)/,"")+(3K(a).3z()=="8V"?"":"6A(1v="+a*6z+")")}I c.1A?(3K(c.1A.1U(/1v=([^)]*)/)[1])/6z).3z():""}d=d.1o(/-([a-z])/8T,G(z,b){I b.26()});9(a!=11)c[d]=a;I c[d]}},33:G(t){I(t||"").1o(/^\\s+|\\s+$/g,"")},2h:G(a){H r=[];9(1n a!="8Q")M(H i=0,2g=a.L;i<2g;i++)r.1a(a[i]);J r=a.2s(0);I r},2S:G(b,a){M(H i=0,2g=a.L;i<2g;i++)9(a[i]==b)I i;I-1},1S:G(a,b){9(E.V.1g){M(H i=0;b[i];i++)9(b[i].1z!=8)a.1a(b[i])}J M(H i=0;b[i];i++)a.1a(b[i]);I a},4V:G(b){H r=[],2f={};2c{M(H i=0,6P=b.L;i<6P;i++){H a=E.K(b[i]);9(!2f[a]){2f[a]=Q;r.1a(b[i])}}}27(e){r=b}I r},2T:G(b,a,c){9(1n a=="1M")a=3p("P||G(a,i){I "+a+"}");H d=[];M(H i=0,4m=b.L;i<4m;i++)9(!c&&a(b[i],i)||c&&!a(b[i],i))d.1a(b[i]);I d},1W:G(c,b){9(1n b=="1M")b=3p("P||G(a){I "+b+"}");H d=[];M(H i=0,4m=c.L;i<4m;i++){H a=b(c[i],i);9(a!==S&&a!=11){9(a.1d!=1C)a=[a];d=d.8O(a)}}I d}});H v=8M.8K.2F();E.V={4f:(v.1U(/.+(?:8I|8H|8F|8E)[\\/: ]([\\d.]+)/)||[])[1],1H:/6T/.12(v),3a:/3a/.12(v),1g:/1g/.12(v)&&!/3a/.12(v),39:/39/.12(v)&&!/(8B|6T)/.12(v)};H y=E.V.1g?"4h":"5g";E.1i({5f:!E.V.1g||U.8A=="8z",4h:E.V.1g?"4h":"5g",5o:{"M":"8y","8x":"1m","4r":y,5g:y,4h:y,3D:"3D",1m:"1m",1N:"1N",36:"36",2K:"2K",8w:"8u",29:"29",8t:"8s"}});E.O({1D:"a.14",8r:"16.4e(a,\'14\')",8q:"16.2R(a,2,\'2i\')",8o:"16.2R(a,2,\'4c\')",8n:"16.4e(a,\'2i\')",8m:"16.4e(a,\'4c\')",8l:"16.5c(a.14.1t,a)",8j:"16.5c(a.1t)",6p:"16.Y(a,\'8i\')?a.8f||a.8e.U:16.2h(a.2X)"},G(i,n){E.1b[i]=G(a){H b=E.1W(6,n);9(a&&1n a=="1M")b=E.3G(a,b);I 6.2v(E.4V(b))}});E.O({5P:"3e",8d:"6k",38:"6g",8c:"53",8b:"6H"},G(i,n){E.1b[i]=G(){H a=1k;I 6.O(G(){M(H j=0,2g=a.L;j<2g;j++)E(a[j])[n](6)})}});E.O({5X:G(a){E.1y(6,a,"");6.54(a)},8a:G(c){E.1m.1f(6,c)},89:G(c){E.1m.2e(6,c)},88:G(c){E.1m[E.1m.3t(6,c)?"2e":"1f"](6,c)},2e:G(a){9(!a||E.1A(a,[6]).r.L){E.30(6);6.14.3k(6)}},4o:G(){E("*",6).O(G(){E.30(6)});1Y(6.1t)6.3k(6.1t)}},G(i,n){E.1b[i]=G(){I 6.O(n,1k)}});E.O(["87","61"],G(i,a){H n=a.2F();E.1b[n]=G(h){I 6[0]==17?E.V.1H&&3r["86"+a]||E.5f&&32.2Y(U.35["59"+a],U.1K["59"+a])||U.1K["59"+a]:6[0]==U?32.2Y(U.1K["6n"+a],U.1K["6m"+a]):h==11?(6.L?E.18(6[0],n):S):6.18(n,h.1d==3T?h:h+"2I")}});H C=E.V.1H&&3q(E.V.4f)<85?"(?:[\\\\w*56-]|\\\\\\\\.)":"(?:[\\\\w\\84-\\83*56-]|\\\\\\\\.)",6j=1q 47("^>\\\\s*("+C+"+)"),6i=1q 47("^("+C+"+)(#)("+C+"+)"),6h=1q 47("^([#.]?)("+C+"*)");E.1i({55:{"":"m[2]==\'*\'||16.Y(a,m[2])","#":"a.4l(\'1T\')==m[2]",":":{81:"i<m[3]-0",7Z:"i>m[3]-0",2R:"m[3]-0==i",7Y:"m[3]-0==i",3o:"i==0",3n:"i==r.L-1",6f:"i%2==0",6d:"i%2","3o-46":"a.14.4q(\'*\')[0]==a","3n-46":"16.2R(a.14.5k,1,\'4c\')==a","7X-46":"!16.2R(a.14.5k,2,\'4c\')",1D:"a.1t",4o:"!a.1t",7W:"(a.6s||a.7V||\'\').1e(m[3])>=0",3X:\'"1O"!=a.N&&16.18(a,"19")!="2j"&&16.18(a,"4v")!="1O"\',1O:\'"1O"==a.N||16.18(a,"19")=="2j"||16.18(a,"4v")=="1O"\',7U:"!a.36",36:"a.36",2K:"a.2K",29:"a.29||16.1y(a,\'29\')",2t:"\'2t\'==a.N",4s:"\'4s\'==a.N",5u:"\'5u\'==a.N",52:"\'52\'==a.N",51:"\'51\'==a.N",50:"\'50\'==a.N",6c:"\'6c\'==a.N",6b:"\'6b\'==a.N",2y:\'"2y"==a.N||16.Y(a,"2y")\',49:"/49|24|6a|2y/i.12(a.Y)",3t:"16.1X(m[3],a).L",7R:"/h\\\\d/i.12(a.Y)",7P:"16.2T(16.2Z,G(1b){I a==1b.T;}).L"}},68:[/^(\\[) *@?([\\w-]+) *([!*$^~=]*) *(\'?"?)(.*?)\\4 *\\]/,/^(:)([\\w-]+)\\("?\'?(.*?(\\(.*?\\))?[^(]*?)"?\'?\\)/,1q 47("^([:.#]*)("+C+"+)")],3G:G(a,c,b){H d,2b=[];1Y(a&&a!=d){d=a;H f=E.1A(a,c,b);a=f.t.1o(/^\\s*,\\s*/,"");2b=b?c=f.r:E.1S(2b,f.r)}I 2b},1X:G(t,o){9(1n t!="1M")I[t];9(o&&!o.1z)o=S;o=o||U;H d=[o],2f=[],3n;1Y(t&&3n!=t){H r=[];3n=t;t=E.33(t);H l=P;H g=6j;H m=g.2L(t);9(m){H p=m[1].26();M(H i=0;d[i];i++)M(H c=d[i].1t;c;c=c.2i)9(c.1z==1&&(p=="*"||c.Y.26()==p.26()))r.1a(c);d=r;t=t.1o(g,"");9(t.1e(" ")==0)6r;l=Q}J{g=/^([>+~])\\s*(\\w*)/i;9((m=g.2L(t))!=S){r=[];H p=m[2],1S={};m=m[1];M(H j=0,31=d.L;j<31;j++){H n=m=="~"||m=="+"?d[j].2i:d[j].1t;M(;n;n=n.2i)9(n.1z==1){H h=E.K(n);9(m=="~"&&1S[h])22;9(!p||n.Y.26()==p.26()){9(m=="~")1S[h]=Q;r.1a(n)}9(m=="+")22}}d=r;t=E.33(t.1o(g,""));l=Q}}9(t&&!l){9(!t.1e(",")){9(o==d[0])d.44();2f=E.1S(2f,d);r=d=[o];t=" "+t.67(1,t.L)}J{H k=6i;H m=k.2L(t);9(m){m=[0,m[2],m[3],m[1]]}J{k=6h;m=k.2L(t)}m[2]=m[2].1o(/\\\\/g,"");H f=d[d.L-1];9(m[1]=="#"&&f&&f.42&&!E.4a(f)){H q=f.42(m[2]);9((E.V.1g||E.V.3a)&&q&&1n q.1T=="1M"&&q.1T!=m[2])q=E(\'[@1T="\'+m[2]+\'"]\',f)[0];d=r=q&&(!m[3]||E.Y(q,m[3]))?[q]:[]}J{M(H i=0;d[i];i++){H a=m[1]=="#"&&m[3]?m[3]:m[1]!=""||m[0]==""?"*":m[2];9(a=="*"&&d[i].Y.2F()=="5w")a="3f";r=E.1S(r,d[i].4q(a))}9(m[1]==".")r=E.4W(r,m[2]);9(m[1]=="#"){H e=[];M(H i=0;r[i];i++)9(r[i].4l("1T")==m[2]){e=[r[i]];22}r=e}d=r}t=t.1o(k,"")}}9(t){H b=E.1A(t,r);d=r=b.r;t=E.33(b.t)}}9(t)d=[];9(d&&o==d[0])d.44();2f=E.1S(2f,d);I 2f},4W:G(r,m,a){m=" "+m+" ";H c=[];M(H i=0;r[i];i++){H b=(" "+r[i].1m+" ").1e(m)>=0;9(!a&&b||a&&!b)c.1a(r[i])}I c},1A:G(t,r,h){H d;1Y(t&&t!=d){d=t;H p=E.68,m;M(H i=0;p[i];i++){m=p[i].2L(t);9(m){t=t.7O(m[0].L);m[2]=m[2].1o(/\\\\/g,"");22}}9(!m)22;9(m[1]==":"&&m[2]=="5T")r=E.1A(m[3],r,Q).r;J 9(m[1]==".")r=E.4W(r,m[2],h);J 9(m[1]=="["){H g=[],N=m[3];M(H i=0,31=r.L;i<31;i++){H a=r[i],z=a[E.5o[m[2]]||m[2]];9(z==S||/6B|3g|29/.12(m[2]))z=E.1y(a,m[2])||\'\';9((N==""&&!!z||N=="="&&z==m[5]||N=="!="&&z!=m[5]||N=="^="&&z&&!z.1e(m[5])||N=="$="&&z.67(z.L-m[5].L)==m[5]||(N=="*="||N=="~=")&&z.1e(m[5])>=0)^h)g.1a(a)}r=g}J 9(m[1]==":"&&m[2]=="2R-46"){H e={},g=[],12=/(\\d*)n\\+?(\\d*)/.2L(m[3]=="6f"&&"2n"||m[3]=="6d"&&"2n+1"||!/\\D/.12(m[3])&&"n+"+m[3]||m[3]),3o=(12[1]||1)-0,d=12[2]-0;M(H i=0,31=r.L;i<31;i++){H j=r[i],14=j.14,1T=E.K(14);9(!e[1T]){H c=1;M(H n=14.1t;n;n=n.2i)9(n.1z==1)n.4U=c++;e[1T]=Q}H b=P;9(3o==1){9(d==0||j.4U==d)b=Q}J 9((j.4U+d)%3o==0)b=Q;9(b^h)g.1a(j)}r=g}J{H f=E.55[m[1]];9(1n f!="1M")f=E.55[m[1]][m[2]];f=3p("P||G(a,i){I "+f+"}");r=E.2T(r,f,h)}}I{r:r,t:t}},4e:G(b,c){H d=[];H a=b[c];1Y(a&&a!=U){9(a.1z==1)d.1a(a);a=a[c]}I d},2R:G(a,e,c,b){e=e||1;H d=0;M(;a;a=a[c])9(a.1z==1&&++d==e)22;I a},5c:G(n,a){H r=[];M(;n;n=n.2i){9(n.1z==1&&(!a||n!=a))r.1a(n)}I r}});E.1h={1f:G(g,e,c,h){9(E.V.1g&&g.41!=11)g=17;9(!c.2r)c.2r=6.2r++;9(h!=11){H d=c;c=G(){I d.15(6,1k)};c.K=h;c.2r=d.2r}H i=e.2p(".");e=i[0];c.N=i[1];H b=E.K(g,"2A")||E.K(g,"2A",{});H f=E.K(g,"2m",G(){H a;9(1n E=="11"||E.1h.4T)I a;a=E.1h.2m.15(g,1k);I a});H j=b[e];9(!j){j=b[e]={};9(g.4R)g.4R(e,f,P);J g.7N("40"+e,f)}j[c.2r]=c;6.23[e]=Q},2r:1,23:{},2e:G(d,c,b){H e=E.K(d,"2A"),2O,4J;9(1n c=="1M"){H a=c.2p(".");c=a[0]}9(e){9(c&&c.N){b=c.4P;c=c.N}9(!c){M(c 1j e)6.2e(d,c)}J 9(e[c]){9(b)2G e[c][b.2r];J M(b 1j e[c])9(!a[1]||e[c][b].N==a[1])2G e[c][b];M(2O 1j e[c])22;9(!2O){9(d.4O)d.4O(c,E.K(d,"2m"),P);J d.7M("40"+c,E.K(d,"2m"));2O=S;2G e[c]}}M(2O 1j e)22;9(!2O){E.30(d,"2A");E.30(d,"2m")}}},1L:G(d,b,e,c,f){b=E.2h(b||[]);9(!e){9(6.23[d])E("*").1f([17,U]).1L(d,b)}J{H a,2O,1b=E.1p(e[d]||S),4N=!b[0]||!b[0].2B;9(4N)b.4Z(6.4M({N:d,2o:e}));9(E.1p(E.K(e,"2m")))a=E.K(e,"2m").15(e,b);9(!1b&&e["40"+d]&&e["40"+d].15(e,b)===P)a=P;9(4N)b.44();9(f&&f.15(e,b)===P)a=P;9(1b&&c!==P&&a!==P&&!(E.Y(e,\'a\')&&d=="4L")){6.4T=Q;e[d]()}6.4T=P}I a},2m:G(d){H a;d=E.1h.4M(d||17.1h||{});H b=d.N.2p(".");d.N=b[0];H c=E.K(6,"2A")&&E.K(6,"2A")[d.N],3m=1C.3x.2s.3c(1k,1);3m.4Z(d);M(H j 1j c){3m[0].4P=c[j];3m[0].K=c[j].K;9(!b[1]||c[j].N==b[1]){H e=c[j].15(6,3m);9(a!==P)a=e;9(e===P){d.2B();d.3L()}}}9(E.V.1g)d.2o=d.2B=d.3L=d.4P=d.K=S;I a},4M:G(c){H a=c;c=E.1i({},a);c.2B=G(){9(a.2B)a.2B();a.7I=P};c.3L=G(){9(a.3L)a.3L();a.7H=Q};9(!c.2o&&c.64)c.2o=c.64;9(E.V.1H&&c.2o.1z==3)c.2o=a.2o.14;9(!c.4H&&c.4G)c.4H=c.4G==c.2o?c.7E:c.4G;9(c.63==S&&c.62!=S){H e=U.35,b=U.1K;c.63=c.62+(e&&e.2D||b.2D||0);c.7C=c.7B+(e&&e.2z||b.2z||0)}9(!c.3R&&(c.60||c.5Z))c.3R=c.60||c.5Z;9(!c.5Y&&c.5W)c.5Y=c.5W;9(!c.3R&&c.2y)c.3R=(c.2y&1?1:(c.2y&2?3:(c.2y&4?2:0)));I c}};E.1b.1i({3Q:G(c,a,b){I c=="5V"?6.2P(c,a,b):6.O(G(){E.1h.1f(6,c,b||a,b&&a)})},2P:G(d,b,c){I 6.O(G(){E.1h.1f(6,d,G(a){E(6).5U(a);I(c||b).15(6,1k)},c&&b)})},5U:G(a,b){I 6.O(G(){E.1h.2e(6,a,b)})},1L:G(c,a,b){I 6.O(G(){E.1h.1L(c,a,6,Q,b)})},7y:G(c,a,b){9(6[0])I E.1h.1L(c,a,6[0],P,b)},25:G(){H a=1k;I 6.4L(G(e){6.4E=0==6.4E?1:0;e.2B();I a[6.4E].15(6,[e])||P})},7x:G(f,g){G 4x(e){H p=e.4H;1Y(p&&p!=6)2c{p=p.14}27(e){p=6};9(p==6)I P;I(e.N=="4w"?f:g).15(6,[e])}I 6.4w(4x).5S(4x)},2d:G(f){5R();9(E.3W)f.15(U,[E]);J E.3i.1a(G(){I f.15(6,[E])});I 6}});E.1i({3W:P,3i:[],2d:G(){9(!E.3W){E.3W=Q;9(E.3i){E.O(E.3i,G(){6.15(U)});E.3i=S}9(E.V.39||E.V.3a)U.4O("5Q",E.2d,P);9(!17.7v.L)E(17).37(G(){E("#4C").2e()})}}});E.O(("7u,7o,37,7n,6n,5V,4L,7m,"+"7l,7j,7i,4w,5S,7p,24,"+"50,7q,7r,7s,3U").2p(","),G(i,o){E.1b[o]=G(f){I f?6.3Q(o,f):6.1L(o)}});H x=P;G 5R(){9(x)I;x=Q;9(E.V.39||E.V.3a)U.4R("5Q",E.2d,P);J 9(E.V.1g){U.7e("<7d"+"7c 1T=4C 7b=Q "+"3g=//:><\\/1P>");H a=U.42("4C");9(a)a.5O=G(){9(6.2C!="1l")I;E.2d()};a=S}J 9(E.V.1H)E.4B=41(G(){9(U.2C=="5N"||U.2C=="1l"){4A(E.4B);E.4B=S;E.2d()}},10);E.1h.1f(17,"37",E.2d)}E.1b.1i({37:G(g,d,c){9(E.1p(g))I 6.3Q("37",g);H e=g.1e(" ");9(e>=0){H i=g.2s(e,g.L);g=g.2s(0,e)}c=c||G(){};H f="4F";9(d)9(E.1p(d)){c=d;d=S}J{d=E.3f(d);f="5M"}H h=6;E.3w({1u:g,N:f,K:d,1l:G(a,b){9(b=="1E"||b=="5L")h.4n(i?E("<1r/>").3e(a.4p.1o(/<1P(.|\\s)*?\\/1P>/g,"")).1X(i):a.4p);58(G(){h.O(c,[a.4p,b,a])},13)}});I 6},7a:G(){I E.3f(6.5K())},5K:G(){I 6.1W(G(){I E.Y(6,"3B")?E.2h(6.79):6}).1A(G(){I 6.2J&&!6.36&&(6.2K||/24|6a/i.12(6.Y)||/2t|1O|51/i.12(6.N))}).1W(G(i,c){H b=E(6).2V();I b==S?S:b.1d==1C?E.1W(b,G(i,a){I{2J:c.2J,1N:a}}):{2J:c.2J,1N:b}}).28()}});E.O("5J,5I,5H,6e,5G,5F".2p(","),G(i,o){E.1b[o]=G(f){I 6.3Q(o,f)}});H B=(1q 3v).3u();E.1i({28:G(d,b,a,c){9(E.1p(b)){a=b;b=S}I E.3w({N:"4F",1u:d,K:b,1E:a,1Z:c})},78:G(b,a){I E.28(b,S,a,"1P")},77:G(c,b,a){I E.28(c,b,a,"3S")},76:G(d,b,a,c){9(E.1p(b)){a=b;b={}}I E.3w({N:"5M",1u:d,K:b,1E:a,1Z:c})},80:G(a){E.1i(E.4u,a)},4u:{23:Q,N:"4F",2H:0,5E:"75/x-73-3B-72",6l:Q,3h:Q,K:S},4b:{},3w:G(s){H f,48=/=(\\?|%3F)/g,1s,K;s=E.1i(Q,s,E.1i(Q,{},E.4u,s));9(s.K&&s.6l&&1n s.K!="1M")s.K=E.3f(s.K);H q=s.1u.1e("?");9(q>-1){s.K=(s.K?s.K+"&":"")+s.1u.2s(q+1);s.1u=s.1u.2s(0,q)}9(s.1Z=="5b"){9(!s.K||!s.K.1U(48))s.K=(s.K?s.K+"&":"")+(s.5b||"6X")+"=?";s.1Z="3S"}9(s.1Z=="3S"&&s.K&&s.K.1U(48)){f="5b"+B++;s.K=s.K.1o(48,"="+f);s.1Z="1P";17[f]=G(a){K=a;1E();17[f]=11;2c{2G 17[f]}27(e){}}}9(s.1Z=="1P"&&s.1I==S)s.1I=P;9(s.1I===P&&s.N.2F()=="28")s.K=(s.K?s.K+"&":"")+"56="+(1q 3v()).3u();9(s.K&&s.N.2F()=="28"){s.1u+="?"+s.K;s.K=S}9(s.23&&!E.5a++)E.1h.1L("5J");9(!s.1u.1e("6W")&&s.1Z=="1P"){H h=U.4q("8g")[0];H g=U.5r("1P");g.3g=s.1u;9(!f&&(s.1E||s.1l)){H j=P;g.9Q=g.5O=G(){9(!j&&(!6.2C||6.2C=="5N"||6.2C=="1l")){j=Q;1E();1l();h.3k(g)}}}h.57(g);I}H k=P;H i=17.6V?1q 6V("9O.9N"):1q 6U();i.9M(s.N,s.1u,s.3h);9(s.K)i.5B("9J-9H",s.5E);9(s.5A)i.5B("9G-5z-9F",E.4b[s.1u]||"9E, 9C 9B 9z 5v:5v:5v 9y");i.5B("X-9w-9v","6U");9(s.6R)s.6R(i);9(s.23)E.1h.1L("5F",[i,s]);H c=G(a){9(!k&&i&&(i.2C==4||a=="2H")){k=Q;9(d){4A(d);d=S}1s=a=="2H"&&"2H"||!E.6Q(i)&&"3U"||s.5A&&E.6O(i,s.1u)&&"5L"||"1E";9(1s=="1E"){2c{K=E.6N(i,s.1Z)}27(e){1s="5t"}}9(1s=="1E"){H b;2c{b=i.5i("6M-5z")}27(e){}9(s.5A&&b)E.4b[s.1u]=b;9(!f)1E()}J E.5s(s,i,1s);1l();9(s.3h)i=S}};9(s.3h){H d=41(c,13);9(s.2H>0)58(G(){9(i){i.9p();9(!k)c("2H")}},s.2H)}2c{i.9n(s.K)}27(e){E.5s(s,i,S,e)}9(!s.3h)c();I i;G 1E(){9(s.1E)s.1E(K,1s);9(s.23)E.1h.1L("5G",[i,s])}G 1l(){9(s.1l)s.1l(i,1s);9(s.23)E.1h.1L("5H",[i,s]);9(s.23&&!--E.5a)E.1h.1L("5I")}},5s:G(s,a,b,e){9(s.3U)s.3U(a,b,e);9(s.23)E.1h.1L("6e",[a,s,e])},5a:0,6Q:G(r){2c{I!r.1s&&9l.9k=="52:"||(r.1s>=6K&&r.1s<9j)||r.1s==6J||E.V.1H&&r.1s==11}27(e){}I P},6O:G(a,c){2c{H b=a.5i("6M-5z");I a.1s==6J||b==E.4b[c]||E.V.1H&&a.1s==11}27(e){}I P},6N:G(r,b){H c=r.5i("9i-N");H d=b=="6y"||!b&&c&&c.1e("6y")>=0;H a=d?r.9h:r.4p;9(d&&a.35.34=="5t")6E"5t";9(b=="1P")E.5h(a);9(b=="3S")a=3p("("+a+")");I a},3f:G(a){H s=[];9(a.1d==1C||a.4d)E.O(a,G(){s.1a(3b(6.2J)+"="+3b(6.1N))});J M(H j 1j a)9(a[j]&&a[j].1d==1C)E.O(a[j],G(){s.1a(3b(j)+"="+3b(6))});J s.1a(3b(j)+"="+3b(a[j]));I s.65("&").1o(/%20/g,"+")}});E.1b.1i({1x:G(b,a){I b?6.1V({1G:"1x",2E:"1x",1v:"1x"},b,a):6.1A(":1O").O(G(){6.R.19=6.3d?6.3d:"";9(E.18(6,"19")=="2j")6.R.19="2U"}).1B()},1w:G(b,a){I b?6.1V({1G:"1w",2E:"1w",1v:"1w"},b,a):6.1A(":3X").O(G(){6.3d=6.3d||E.18(6,"19");9(6.3d=="2j")6.3d="2U";6.R.19="2j"}).1B()},6G:E.1b.25,25:G(a,b){I E.1p(a)&&E.1p(b)?6.6G(a,b):a?6.1V({1G:"25",2E:"25",1v:"25"},a,b):6.O(G(){E(6)[E(6).3j(":1O")?"1x":"1w"]()})},9c:G(b,a){I 6.1V({1G:"1x"},b,a)},9a:G(b,a){I 6.1V({1G:"1w"},b,a)},99:G(b,a){I 6.1V({1G:"25"},b,a)},98:G(b,a){I 6.1V({1v:"1x"},b,a)},97:G(b,a){I 6.1V({1v:"1w"},b,a)},95:G(c,a,b){I 6.1V({1v:a},c,b)},1V:G(j,h,g,f){H i=E.6C(h,g,f);I 6[i.3I===P?"O":"3I"](G(){i=E.1i({},i);H d=E(6).3j(":1O"),3r=6;M(H p 1j j){9(j[p]=="1w"&&d||j[p]=="1x"&&!d)I E.1p(i.1l)&&i.1l.15(6);9(p=="1G"||p=="2E"){i.19=E.18(6,"19");i.2N=6.R.2N}}9(i.2N!=S)6.R.2N="1O";i.3H=E.1i({},j);E.O(j,G(c,a){H e=1q E.2w(3r,i,c);9(/25|1x|1w/.12(a))e[a=="25"?d?"1x":"1w":a](j);J{H b=a.3z().1U(/^([+-]?)([\\d.]+)(.*)$/),1Q=e.2b(Q)||0;9(b){1B=3K(b[2]),2k=b[3]||"2I";9(2k!="2I"){3r.R[c]=1B+2k;1Q=(1B/e.2b(Q))*1Q;3r.R[c]=1Q+2k}9(b[1])1B=((b[1]=="-"?-1:1)*1B)+1Q;e.3J(1Q,1B,2k)}J e.3J(1Q,a,"")}});I Q})},3I:G(a,b){9(!b){b=a;a="2w"}9(!1k.L)I A(6[0],a);I 6.O(G(){9(b.1d==1C)A(6,a,b);J{A(6,a).1a(b);9(A(6,a).L==1)b.15(6)}})},9f:G(){H a=E.2Z;I 6.O(G(){M(H i=0;i<a.L;i++)9(a[i].T==6)a.6D(i--,1)}).5p()}});H A=G(b,c,a){9(!b)I;H q=E.K(b,c+"3I");9(!q||a)q=E.K(b,c+"3I",a?E.2h(a):[]);I q};E.1b.5p=G(a){a=a||"2w";I 6.O(G(){H q=A(6,a);q.44();9(q.L)q[0].15(6)})};E.1i({6C:G(b,a,c){H d=b&&b.1d==8Z?b:{1l:c||!c&&a||E.1p(b)&&b,2a:b,3E:c&&a||a&&a.1d!=8Y&&a};d.2a=(d.2a&&d.2a.1d==4X?d.2a:{8X:8W,8U:6K}[d.2a])||9o;d.3C=d.1l;d.1l=G(){E(6).5p();9(E.1p(d.3C))d.3C.15(6)};I d},3E:{6I:G(p,n,b,a){I b+a*p},5q:G(p,n,b,a){I((-32.8S(p*32.8R)/2)+0.5)*a+b}},2Z:[],2w:G(b,c,a){6.W=c;6.T=b;6.1c=a;9(!c.3A)c.3A={}}});E.2w.3x={4j:G(){9(6.W.2M)6.W.2M.15(6.T,[6.2l,6]);(E.2w.2M[6.1c]||E.2w.2M.6w)(6);9(6.1c=="1G"||6.1c=="2E")6.T.R.19="2U"},2b:G(a){9(6.T[6.1c]!=S&&6.T.R[6.1c]==S)I 6.T[6.1c];H r=3K(E.3O(6.T,6.1c,a));I r&&r>-8P?r:3K(E.18(6.T,6.1c))||0},3J:G(c,b,e){6.5n=(1q 3v()).3u();6.1Q=c;6.1B=b;6.2k=e||6.2k||"2I";6.2l=6.1Q;6.4g=6.4i=0;6.4j();H f=6;G t(){I f.2M()}t.T=6.T;E.2Z.1a(t);9(E.2Z.L==1){H d=41(G(){H a=E.2Z;M(H i=0;i<a.L;i++)9(!a[i]())a.6D(i--,1);9(!a.L)4A(d)},13)}},1x:G(){6.W.3A[6.1c]=E.1y(6.T.R,6.1c);6.W.1x=Q;6.3J(0,6.2b());9(6.1c=="2E"||6.1c=="1G")6.T.R[6.1c]="8N";E(6.T).1x()},1w:G(){6.W.3A[6.1c]=E.1y(6.T.R,6.1c);6.W.1w=Q;6.3J(6.2b(),0)},2M:G(){H t=(1q 3v()).3u();9(t>6.W.2a+6.5n){6.2l=6.1B;6.4g=6.4i=1;6.4j();6.W.3H[6.1c]=Q;H a=Q;M(H i 1j 6.W.3H)9(6.W.3H[i]!==Q)a=P;9(a){9(6.W.19!=S){6.T.R.2N=6.W.2N;6.T.R.19=6.W.19;9(E.18(6.T,"19")=="2j")6.T.R.19="2U"}9(6.W.1w)6.T.R.19="2j";9(6.W.1w||6.W.1x)M(H p 1j 6.W.3H)E.1y(6.T.R,p,6.W.3A[p])}9(a&&E.1p(6.W.1l))6.W.1l.15(6.T);I P}J{H n=t-6.5n;6.4i=n/6.W.2a;6.4g=E.3E[6.W.3E||(E.3E.5q?"5q":"6I")](6.4i,n,0,1,6.W.2a);6.2l=6.1Q+((6.1B-6.1Q)*6.4g);6.4j()}I Q}};E.2w.2M={2D:G(a){a.T.2D=a.2l},2z:G(a){a.T.2z=a.2l},1v:G(a){E.1y(a.T.R,"1v",a.2l)},6w:G(a){a.T.R[a.1c]=a.2l+a.2k}};E.1b.6m=G(){H c=0,3y=0,T=6[0],5m;9(T)8L(E.V){H b=E.18(T,"2W")=="4D",1D=T.14,21=T.21,2Q=T.3N,5y=1H&&!b&&3q(4f)<8J;9(T.6v){5x=T.6v();1f(5x.1R+32.2Y(2Q.35.2D,2Q.1K.2D),5x.3y+32.2Y(2Q.35.2z,2Q.1K.2z));9(1g){H d=E("4n").18("9L");d=(d=="8G"||E.5f&&3q(4f)>=7)&&2||d;1f(-d,-d)}}J{1f(T.5j,T.5C);1Y(21){1f(21.5j,21.5C);9(39&&/^t[d|h]$/i.12(1D.34)||!5y)d(21);9(5y&&!b&&E.18(21,"2W")=="4D")b=Q;21=21.21}1Y(1D.34&&/^1K|4n$/i.12(1D.34)){9(/^8D|1F-9R.*$/i.12(E.18(1D,"19")))1f(-1D.2D,-1D.2z);9(39&&E.18(1D,"2N")!="3X")d(1D);1D=1D.14}9(1H&&b)1f(-2Q.1K.5j,-2Q.1K.5C)}5m={3y:3y,1R:c}}I 5m;G d(a){1f(E.18(a,"8C"),E.18(a,"9T"))}G 1f(l,t){c+=3q(l)||0;3y+=3q(t)||0}}})();',62,615,'||||||this|||if|||||||||||||||||||||||||||||||||function|var|return|else|data|length|for|type|each|false|true|style|null|elem|document|browser|options||nodeName|||undefined|test||parentNode|apply|jQuery|window|css|display|push|fn|prop|constructor|indexOf|add|msie|event|extend|in|arguments|complete|className|typeof|replace|isFunction|new|div|status|firstChild|url|opacity|hide|show|attr|nodeType|filter|end|Array|parent|success|table|height|safari|cache|tbody|body|trigger|string|value|hidden|script|start|left|merge|id|match|animate|map|find|while|dataType||offsetParent|break|global|select|toggle|toUpperCase|catch|get|selected|duration|cur|try|ready|remove|done|al|makeArray|nextSibling|none|unit|now|handle||target|split|swap|guid|slice|text|stack|pushStack|fx|tb|button|scrollTop|events|preventDefault|readyState|scrollLeft|width|toLowerCase|delete|timeout|px|name|checked|exec|step|overflow|ret|one|doc|nth|inArray|grep|block|val|position|childNodes|max|timers|removeData|rl|Math|trim|tagName|documentElement|disabled|load|insertBefore|mozilla|opera|encodeURIComponent|call|oldblock|append|param|src|async|readyList|is|removeChild|color|args|last|first|eval|parseInt|self|domManip|has|getTime|Date|ajax|prototype|top|toString|orig|form|old|innerHTML|easing||multiFilter|curAnim|queue|custom|parseFloat|stopPropagation|defaultView|ownerDocument|curCSS|getComputedStyle|bind|which|json|String|error|static|isReady|visible|oWidth|oHeight|on|setInterval|getElementById|currentStyle|shift|ol|child|RegExp|jsre|input|isXMLDoc|lastModified|previousSibling|jquery|dir|version|pos|styleFloat|state|update|tr|getAttribute|el|html|empty|responseText|getElementsByTagName|float|radio|runtimeStyle|ajaxSettings|visibility|mouseover|handleHover|getPropertyValue|selectedIndex|clearInterval|safariTimer|__ie_init|absolute|lastToggle|GET|fromElement|relatedTarget|clean|index|init|click|fix|evt|removeEventListener|handler|andSelf|addEventListener|cloneNode|triggered|nodeIndex|unique|classFilter|Number|prevObject|unshift|submit|password|file|after|removeAttribute|expr|_|appendChild|setTimeout|client|active|jsonp|sibling|win|deep|boxModel|cssFloat|globalEval|getResponseHeader|offsetLeft|lastChild|wrapAll|results|startTime|props|dequeue|swing|createElement|handleError|parsererror|checkbox|00|object|box|safari2|Modified|ifModified|setRequestHeader|offsetTop|col|contentType|ajaxSend|ajaxSuccess|ajaxComplete|ajaxStop|ajaxStart|serializeArray|notmodified|POST|loaded|onreadystatechange|appendTo|DOMContentLoaded|bindReady|mouseout|not|unbind|unload|ctrlKey|removeAttr|metaKey|keyCode|charCode|Width|clientX|pageX|srcElement|join|outerHTML|substr|parse|zoom|textarea|reset|image|odd|ajaxError|even|before|quickClass|quickID|quickChild|prepend|processData|offset|scroll|execScript|contents|uuid|continue|textContent|clone|setArray|getBoundingClientRect|_default|nodeValue|xml|100|alpha|href|speed|splice|throw|createTextNode|_toggle|replaceWith|linear|304|200|colgroup|Last|httpData|httpNotModified|fl|httpSuccess|beforeSend|fieldset|webkit|XMLHttpRequest|ActiveXObject|http|callback|img|br|attributes|abbr|urlencoded|www|pixelLeft|application|post|getJSON|getScript|elements|serialize|defer|ipt|scr|write|clientWidth|hasClass|clientHeight|mousemove|mouseup|relative|mousedown|dblclick|resize|focus|change|keydown|keypress|keyup|FORM|blur|frames|right|hover|triggerHandler|offsetWidth|offsetHeight|clientY|pageY|border|toElement|padding|Left|cancelBubble|returnValue|Right|Bottom|Top|detachEvent|attachEvent|substring|animated|line|header|weight|font|enabled|innerText|contains|only|eq|gt|ajaxSetup|lt|size|uFFFF|u0128|417|inner|Height|toggleClass|removeClass|addClass|replaceAll|insertAfter|prependTo|contentWindow|contentDocument|head|wrap|iframe|children|noConflict|siblings|prevAll|nextAll|prev|wrapInner|next|parents|maxLength|maxlength|readOnly|Boolean|readonly|class|htmlFor|CSS1Compat|compatMode|compatible|borderLeftWidth|inline|ie|ra|medium|it|rv|522|userAgent|with|navigator|1px|concat|10000|array|PI|cos|ig|fast|NaN|600|slow|Function|Object|setAttribute|reverse|changed|be|can|fadeTo|property|fadeOut|fadeIn|slideToggle|slideUp|getAttributeNode|slideDown|method|action|stop|cssText|responseXML|content|300|protocol|location|option|send|400|abort|th|td|cap|colg|tfoot|With|Requested|thead|GMT|1970|leg|Jan|01|opt|Thu|Since|If|Type|area|Content|hr|borderWidth|open|XMLHTTP|Microsoft|meta|onload|row|link|borderTopWidth|specified'.split('|'),0,{}))
+</script>
+<script type="text/javascript">
+jQuery.cookie = function(name, value, options) {
+    if (typeof value != 'undefined') { // name and value given, set cookie
+        options = options || {};
+        if (value === null) {
+            value = '';
+            options.expires = -1;
+        }
+        var expires = '';
+        if (options.expires && (typeof options.expires == 'number' || options.expires.toUTCString)) {
+            var date;
+            if (typeof options.expires == 'number') {
+                date = new Date();
+                date.setTime(date.getTime() + (options.expires * 24 * 60 * 60 * 1000));
+            } else {
+                date = options.expires;
+            }
+            expires = '; expires=' + date.toUTCString(); // use expires attribute, max-age is not supported by IE
+        }
+        var path = options.path ? '; path=' + options.path : '';
+        var domain = options.domain ? '; domain=' + options.domain : '';
+        var secure = options.secure ? '; secure' : '';
+        document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, secure].join('');
+    } else { // only name given, get cookie
+        var cookieValue = null;
+        if (document.cookie && document.cookie != '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+};
+</script>
+<script type="text/javascript">
+(function($) {
+
+	$.extend($.fn, {
+		swapClass: function(c1, c2) {
+			var c1Elements = this.filter('.' + c1);
+			this.filter('.' + c2).removeClass(c2).addClass(c1);
+			c1Elements.removeClass(c1).addClass(c2);
+			return this;
+		},
+		replaceClass: function(c1, c2) {
+			return this.filter('.' + c1).removeClass(c1).addClass(c2).end();
+		},
+		hoverClass: function(className) {
+			className = className || "hover";
+			return this.hover(function() {
+				$(this).addClass(className);
+			}, function() {
+				$(this).removeClass(className);
+			});
+		},
+		heightToggle: function(animated, callback) {
+			animated ?
+				this.animate({ height: "toggle" }, animated, callback) :
+				this.each(function(){
+					jQuery(this)[ jQuery(this).is(":hidden") ? "show" : "hide" ]();
+					if(callback)
+						callback.apply(this, arguments);
+				});
+		},
+		heightHide: function(animated, callback) {
+			if (animated) {
+				this.animate({ height: "hide" }, animated, callback);
+			} else {
+				this.hide();
+				if (callback)
+					this.each(callback);
+			}
+		},
+		prepareBranches: function(settings) {
+			if (!settings.prerendered) {
+				// mark last tree items
+				this.filter(":last-child:not(ul)").addClass(CLASSES.last);
+				// collapse whole tree, or only those marked as closed, anyway except those marked as open
+				this.filter((settings.collapsed ? "" : "." + CLASSES.closed) + ":not(." + CLASSES.open + ")").find(">ul").hide();
+			}
+			// return all items with sublists
+			return this.filter(":has(>ul)");
+		},
+		applyClasses: function(settings, toggler) {
+			this.filter(":has(>ul):not(:has(>a))").find(">span").click(function(event) {
+				toggler.apply($(this).next());
+			}).add( $("a", this) ).hoverClass();
+
+			if (!settings.prerendered) {
+				// handle closed ones first
+				this.filter(":has(>ul:hidden)")
+						.addClass(CLASSES.expandable)
+						.replaceClass(CLASSES.last, CLASSES.lastExpandable);
+
+				// handle open ones
+				this.not(":has(>ul:hidden)")
+						.addClass(CLASSES.collapsable)
+						.replaceClass(CLASSES.last, CLASSES.lastCollapsable);
+
+	            // create hitarea
+				this.prepend("<div class=\"" + CLASSES.hitarea + "\"/>").find("div." + CLASSES.hitarea).each(function() {
+					var classes = "";
+					$.each($(this).parent().attr("class").split(" "), function() {
+						classes += this + "-hitarea ";
+					});
+					$(this).addClass( classes );
+				});
+			}
+
+			// apply event to hitarea
+			this.find("div." + CLASSES.hitarea).click( toggler );
+		},
+		treeview: function(settings) {
+
+			settings = $.extend({
+				cookieId: "treeview"
+			}, settings);
+
+			if (settings.add) {
+				return this.trigger("add", [settings.add]);
+			}
+
+			if ( settings.toggle ) {
+				var callback = settings.toggle;
+				settings.toggle = function() {
+					return callback.apply($(this).parent()[0], arguments);
+				};
+			}
+
+			// factory for treecontroller
+			function treeController(tree, control) {
+				// factory for click handlers
+				function handler(filter) {
+					return function() {
+						// reuse toggle event handler, applying the elements to toggle
+						// start searching for all hitareas
+						toggler.apply( $("div." + CLASSES.hitarea, tree).filter(function() {
+							// for plain toggle, no filter is provided, otherwise we need to check the parent element
+							return filter ? $(this).parent("." + filter).length : true;
+						}) );
+						return false;
+					};
+				}
+				// click on first element to collapse tree
+				$("a:eq(0)", control).click( handler(CLASSES.collapsable) );
+				// click on second to expand tree
+				$("a:eq(1)", control).click( handler(CLASSES.expandable) );
+				// click on third to toggle tree
+				$("a:eq(2)", control).click( handler() );
+			}
+
+			// handle toggle event
+			function toggler() {
+				$(this)
+					.parent()
+					// swap classes for hitarea
+					.find(">.hitarea")
+						.swapClass( CLASSES.collapsableHitarea, CLASSES.expandableHitarea )
+						.swapClass( CLASSES.lastCollapsableHitarea, CLASSES.lastExpandableHitarea )
+					.end()
+					// swap classes for parent li
+					.swapClass( CLASSES.collapsable, CLASSES.expandable )
+					.swapClass( CLASSES.lastCollapsable, CLASSES.lastExpandable )
+					// find child lists
+					.find( ">ul" )
+					// toggle them
+					.heightToggle( settings.animated, settings.toggle );
+				if ( settings.unique ) {
+					$(this).parent()
+						.siblings()
+						// swap classes for hitarea
+						.find(">.hitarea")
+							.replaceClass( CLASSES.collapsableHitarea, CLASSES.expandableHitarea )
+							.replaceClass( CLASSES.lastCollapsableHitarea, CLASSES.lastExpandableHitarea )
+						.end()
+						.replaceClass( CLASSES.collapsable, CLASSES.expandable )
+						.replaceClass( CLASSES.lastCollapsable, CLASSES.lastExpandable )
+						.find( ">ul" )
+						.heightHide( settings.animated, settings.toggle );
+				}
+			}
+
+			function serialize() {
+				function binary(arg) {
+					return arg ? 1 : 0;
+				}
+				var data = [];
+				branches.each(function(i, e) {
+					data[i] = $(e).is(":has(>ul:visible)") ? 1 : 0;
+				});
+				$.cookie(settings.cookieId, data.join("") );
+			}
+
+			function deserialize() {
+				var stored = $.cookie(settings.cookieId);
+				if ( stored ) {
+					var data = stored.split("");
+					branches.each(function(i, e) {
+						$(e).find(">ul")[ parseInt(data[i]) ? "show" : "hide" ]();
+					});
+				}
+			}
+
+			// add treeview class to activate styles
+			this.addClass("treeview");
+
+			// prepare branches and find all tree items with child lists
+			var branches = this.find("li").prepareBranches(settings);
+
+			switch(settings.persist) {
+			case "cookie":
+				var toggleCallback = settings.toggle;
+				settings.toggle = function() {
+					serialize();
+					if (toggleCallback) {
+						toggleCallback.apply(this, arguments);
+					}
+				};
+				deserialize();
+				break;
+			case "location":
+				var current = this.find("a").filter(function() { return this.href.toLowerCase() == location.href.toLowerCase(); });
+				if ( current.length ) {
+					current.addClass("selected").parents("ul, li").add( current.next() ).show();
+				}
+				break;
+			}
+
+			branches.applyClasses(settings, toggler);
+
+			// if control option is set, create the treecontroller and show it
+			if ( settings.control ) {
+				treeController(this, settings.control);
+				$(settings.control).show();
+			}
+
+			return this.bind("add", function(event, branches) {
+				$(branches).prev()
+					.removeClass(CLASSES.last)
+					.removeClass(CLASSES.lastCollapsable)
+					.removeClass(CLASSES.lastExpandable)
+				.find(">.hitarea")
+					.removeClass(CLASSES.lastCollapsableHitarea)
+					.removeClass(CLASSES.lastExpandableHitarea);
+				$(branches).find("li").andSelf().prepareBranches(settings).applyClasses(settings, toggler);
+			});
+		}
+	});
+
+	var CLASSES = $.fn.treeview.classes = {
+		open: "open",
+		closed: "closed",
+		expandable: "expandable",
+		expandableHitarea: "expandable-hitarea",
+		lastExpandableHitarea: "lastExpandable-hitarea",
+		collapsable: "collapsable",
+		collapsableHitarea: "collapsable-hitarea",
+		lastCollapsableHitarea: "lastCollapsable-hitarea",
+		lastCollapsable: "lastCollapsable",
+		lastExpandable: "lastExpandable",
+		last: "last",
+		hitarea: "hitarea"
+	};
+
+	$.fn.Treeview = $.fn.treeview;
+
+})(jQuery);
+</script>
+<script type="text/javascript">
+		$(document).ready(function(){
+            $("#tree").treeview({
+                control: "#treecontrol",
+                animated: "fast",
+                collapsed: true,
+                toggle: function() {
+                    window.console && console.log("%o was toggled", this);
+                }
+            });
+
+            $("#content").css("padding-top", $("#header").height());
+        });
+	</script>
+
+            
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div class="time" xmlns="">802 ms</div>
+                <h1>
+                    : <strong><span class="total" xmlns="http://www.w3.org/1999/xhtml">10 total, </span><span class="passed">10 passed</span></strong>
+                </h1>
+                <div id="treecontrol">
+                    <ul>
+                        <li>
+                            <a title="Collapse the entire tree below" href="#">Collapse</a>
+                  |
+                
+                        </li>
+                        <li>
+                            <a title="Expand the entire tree below" href="#">Expand</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="content">
+                <ul id="tree">
+                    <li xmlns="" class="level top open">
+                        <span><em class="time">
+                                <div class="time">802 ms</div>
+                            </em>main_test</span>
+                        <ul>
+                            <li class="level suite open">
+                                <span><em class="time">
+                                        <div class="time">802 ms</div>
+                                    </em>PaperCheckTest</span>
+                                <ul>
+                                    <li class="level test">
+                                        <span><em class="time">
+                                                <div class="time">0 ms</div>
+                                            </em><em class="status">passed</em>test_calculate_cosine_similarity</span>
+                                        <ul>
+                                            <li class="text">
+                                                <span class="stdout">PASSED    [ 10%]1.0<br/></span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="level test">
+                                        <span><em class="time">
+                                                <div class="time">2 ms</div>
+                                            </em><em class="status">passed</em>test_convert_to_vector</span>
+                                        <ul>
+                                            <li class="text">
+                                                <span class="stdout">PASSED              [ 20%][0.47107781 0.         0.         0.33517574 0.         0.47107781<br/> 0.         0.         0.47107781 0.47107781] [0.         0.4261596  0.4261596  0.30321606 0.4261596  0.<br/> 0.4261596  0.4261596  0.         0.        ]<br/></span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="level test">
+                                        <span><em class="time">
+                                                <div class="time">1 ms</div>
+                                            </em><em class="status">passed</em>test_filter_dot</span>
+                                        <ul>
+                                            <li class="text">
+                                                <span class="stdout">PASSED                     [ 30%]活着前言一位真正的作家永远只为内心写作只有内心才会真实地告诉他他的自私他的高尚是多么突出内心让他真实地了解自己一旦了解了自己也就了解了世界很多年前我就明白了这个原则可是要捍卫这个原则必须付出艰辛的劳动和长时期的痛苦因为内心并非时时刻刻都是敞开的它更多的时候倒是封闭起来于是只有写作不停地写作才能使内心敞开才能使自己置身于发现之中就像日出的光芒照亮了黑暗灵感这时候才会突然来到长期以来我的作品都是源出于和现实的那一层紧张关系我沉湎于想象之中又被现实紧紧控制我明确感受着自我的分裂我无法使自己变得纯粹我曾经希望自己成为一位童话作家要不就是一位实实在在作品的拥有者如果我能够成为这两者中的任何一个我想我内心的痛苦将会轻微得多可是与此同时我的力量也会削弱很多事实上我只能成为现在这样的作家我始终为内心的需要而写作理智代替不了我的写作正因为此我在很长一段时间是一个愤怒和冷漠的作家这不只是我个人面临的困难几乎所有优秀的作家都处于和现实的紧张关系中在他们笔下只有当现实处于遥远状态时他们作品中的现实才会闪闪发亮应该看到这过去的现实虽然充满魅力可它已经蒙上了一层虚幻的色彩那里面塞满了个人想象和个人理解真正的现实也就是作家生活中的现实是令人费解和难以相处的作家要表达与之朝夕相处的现实他常常会感到难以承受蜂拥而来的真实几乎都在诉说着丑恶和阴险怪就怪在这里为什么丑恶的事物总是在身边而美好的事物却远在海角换句话说人的友爱和同情往往只是作为情绪来到而相反的事实则是伸手便可触及正像一位诗人所表达的人类无法忍受太多的真实也有这样的作家一生都在解决自我和现实的紧张关系福克纳是最为成功的例子他找到了一条温和的途径他描写中间状态的事物同时包容了美好与丑恶他将美国南方的现实放到了历史和人文精神之中这是真正意义上的文学现实因为它连接着过去和将来一些不成功的作家也在描写现实可他们笔下的现实说穿了只是一个环境是固定的死去的现实他们看不到人是怎样走过来的也看不到怎样走去当他们在描写斤斤计较的人物时我们会感到作家本人也在斤斤计较这样的作家是在写实在的作品而不是现实的作品前面已经说过我和现实关系紧张说得严重一些我一直是以敌对的态度看待现实随着时间的推移我内心的愤怒渐渐平息我开始意识到一位真正的作家所寻找的是真理是一种排斥道德判断的真理作家的使命不是发泄不是控诉或者揭露他应该向人们展示高尚这里所说的高尚不是那种单纯的美好而是对一切事物理解之后的超然对善与恶一视同仁用同情的目光看待世界正是在这样的心态下我听到了一首美国民歌老黑奴歌中那位老黑奴经历了一生的苦难家人都先他而去而他依然友好地对待世界没有一句抱怨的话这首歌深深打动了我我决定写下一篇这样的小说就是这篇活着写人对苦难的承受能力对世界乐观的态度写作过程让我明白人是为活着本身而活着的而不是为活着之外的任何事物所活着我感到自己写下了高尚的作品第一章我比现在年轻十岁的时候获得了一个游手好闲的职业去乡间收集民间歌谣那一年的整个夏天我如同一只乱飞的麻雀游荡在知了和阳光充斥的村舍田野我喜欢喝农民那种带有苦味的茶水他们的茶桶就放在田埂的树下我毫无顾忌地拿起漆满茶垢的茶碗舀水喝还把自己的水壶灌满与田里干活的男人说上几句废话在姑娘因我而起的窃窃私笑里扬长而去我曾经和一位守着瓜田的老人聊了整整一个下午这是我有生以来瓜吃得最多的一次当我站起来告辞时突然发现自己像个孕妇一样步履艰难了然后我与一位当上了祖母的女人坐在门槛上她编着草鞋为我唱了一支十月怀胎我最喜欢的是傍晚来到时坐在农民的屋前看着他们将提上的井水泼在地上压住蒸腾的尘土夕阳的光芒在树梢上照射下来拿一把他们递过来的扇子尝尝他们和盐一样咸的咸菜看看几个年轻女人和男人们说着话我头戴宽边草帽脚上穿着拖鞋一条毛巾挂在身后的皮带上让它像尾巴似的拍打着我的屁股我整日张大嘴巴打着呵欠散漫地走在田间小道上我的拖鞋吧哒吧哒把那些小道弄得尘土飞扬仿佛是车轮滚滚而过时的情景我到处游荡已经弄不清楚哪些村庄我曾经去过哪些我没有去过我走近一个村子时常会听到孩子的喊叫那个老打呵欠的人又来啦于是村里人就知道那个会讲荤故事会唱酸曲的人又来了其实所有的荤故事所有的酸曲都是从他们那里学来的我知道他们全部的兴趣在什么地方自然这也是我的兴趣我曾经遇到一个哭泣的老人他鼻青眼肿地坐在田埂上满腹的悲哀使他变得十分激动看到我走来他仰起脸哭声更为响亮我问他是谁把他打成这样的他手指挖着裤管上的泥巴愤怒地告诉我是他那不孝的儿子当我再问为何打他时他支支吾吾说不清楚了我就立刻知道他准是对儿媳干了偷鸡摸狗的勾当还有一个晚上我打着手电赶夜路时在一口池塘旁照到了两段赤裸的身体一段压在另一段上面我照着的时候两段身体纹丝不动只是有一只手在大腿上轻轻搔痒我赶紧熄灭手电离去在农忙的一个中午我走进一家敞开大门的房屋去找水喝一个穿短裤的男人神色慌张地挡住了我把我引到井旁殷勤地替我打上来一桶水随后又像耗子一样窜进了屋里这样的事我屡见不鲜差不多和我听到的歌谣一样多当我望着到处都充满绿色的土地时我就会进一步明白庄稼为何长得如此旺盛那个夏天我还差一点谈情说爱我遇到了一位赏心悦目的女孩她黝黑的脸蛋至今还在我眼前闪闪发光我见到她时她卷起裤管坐在河边的青草上摆弄着一根竹竿在照看一群肥硕的鸭子这个十六七岁的女孩羞怯地与我共同度过了一个炎热的下午她每次露出笑容时都要深深地低下头去我看着她偷偷放下卷起的裤管又怎样将自己的光脚丫子藏到草丛里去那个下午我信口开河向她兜售如何带她外出游玩的计划这个女孩又惊又喜我当初情绪激昂说这些也是真心实意我只是感到和她在一起身心愉快也不去考虑以后会是怎样可是后来当她三个强壮如牛的哥哥走过来时我才吓一跳我感到自己应该逃之夭夭了否则我就会不得不娶她为妻我遇到那位名叫福贵的老人时是夏天刚刚来到的季节那天午后我走到了一棵有着茂盛树叶的树下田里的棉花已被收起几个包着头巾的女人正将棉秆拔出来她们不时抖动着屁股摔去根须上的泥巴我摘下草帽从身后取过毛巾擦起脸上的汗水身旁是一口在阳光下泛黄的池塘我就靠着树干面对池塘坐了下来紧接着我感到自己要睡觉了就在青草上躺下来把草帽盖住脸枕着背包在树荫里闭上了眼睛这位比现在年轻十岁的我躺在树叶和草丛中间睡了两个小时其间有几只蚂蚁爬到了我的腿上我沉睡中的手指依然准确地将它们弹走后来仿佛是来到了水边一位老人撑着竹筏在远处响亮地吆喝我从睡梦里挣脱而出吆喝声在现实里清晰地传来我起身后看到近旁田里一个老人正在开导一头老牛犁田的老牛或许已经深感疲倦它低头伫立在那里后面赤裸着脊背扶犁的老人对老牛的消极态度似乎不满我听到他嗓音响亮地对牛说道做牛耕田做狗看家做和尚化缘做鸡报晓做女人织布哪只牛不耕田这可是自古就有的道理走呀走呀疲倦的老牛听到老人的吆喝后仿佛知错般地抬起了头拉着犁往前走去我看到老人的脊背和牛背一样黝黑两个进入垂暮的生命将那块古板的田地耕得哗哗翻动犹如水面上掀起的波浪随后我听到老人粗哑却令人感动的嗓音他唱起了旧日的歌谣先是口依呀啦呀唱出长长的引子接着出现两句歌词——皇帝招我做女婿路远迢迢我不去因为路途遥远不愿去做皇帝的女婿老人的自鸣得意让我失声而笑可能是牛放慢了脚步老人又吆喝起来二喜有庆不要偷懒家珍凤霞耕得好苦根也行啊一头牛竟会有这么多名字我好奇地走到田边问走近的老人这牛有多少名字老人扶住犁站下来他将我上下打量一番后问你是城里人吧是的我点点头老人得意起来我一眼就看出来了我说这牛究竟有多少名字老人回答这牛叫福贵就一个名字可你刚才叫了几个名字噢——老人高兴地笑起来他神秘地向我招招手当我凑过去时他欲说又止他看到牛正抬着头就训斥它你别偷听把头低下牛果然低下了头这时老人悄声对我说我怕它知道只有自己在耕田就多叫出几个名字去骗它它听到还有别的牛也在耕田就不会不高兴耕田也就起劲啦老人黝黑的脸在阳光里笑得十分生动脸上的皱纹欢乐地游动着里面镶满了泥土就如布满田间的小道这位老人后来和我一起坐在了那棵茂盛的树下在那个充满阳光的下午他向我讲述了自己四十多年前我爹常在这里走来走去他穿着一身黑颜色的绸衣总是把双手背在身后他出门时常对我娘说我到自己的地上去走走我爹走在自己的田产上干活的佃户见了都要双手握住锄头恭敬地叫一声老爷我爹走到了城里城里人见了都叫他先生我爹是很有身份的人可他拉屎时就像个穷人了他不爱在屋里床边的马桶上拉屎跟牲畜似的喜欢到野地里去拉屎每天到了傍晚的时候我爹打着饱嗝那声响和青蛙叫唤差不多走出屋去慢吞吞地朝村口的粪缸走去走到了粪缸旁他嫌缸沿脏就抬脚踩上去蹲在上面我爹年纪大了屎也跟着老了出来不容易那时候我们全家人都会听到他在村口嗷嗷叫着几十年来我爹一直这样拉屎到了六十多岁还能在粪缸上一蹲就是半晌那两条腿就和鸟爪一样有劲我爹喜欢看着天色慢慢黑下来罩住他的田地我女儿凤霞到了三四岁常跑到村口去看她爷爷拉屎我爹毕竟年纪大了蹲在粪缸上腿有些哆嗦凤霞就问他爷爷你为什么动呀我爹说是风吹的那时候我们家境还没有败落我们徐家有一百多亩地从这里一直到那边工厂的烟囱都是我家的我爹和我是远近闻名的阔老爷和阔少爷我们走路时鞋子的声响都像是铜钱碰来撞去的我女人家珍是城里米行老板的女儿她也是有钱人家出生的有钱人嫁给有钱人就是把钱堆起来钱在钱上面哗哗地流这样的声音我有四十年没有听到了我是我们徐家的败家子用我爹的话说我是他的孽子我念过几年私塾穿长衫的私塾先生叫我念一段书时是我最高兴的我站起来拿着本线装的千字文对私塾先生说好好听着爹给你念一段年过花甲的私塾先生对我爹说你家少爷长大了准能当个二流子我从小就不可救药这是我爹的话私塾先生说我是朽木不可雕也现在想想他们都说对了当初我可不这么想我想我有钱呵我是徐家仅有的一根香火我要是灭了徐家就得断子绝孙上私塾时我从来不走路都是我家一个雇工背着我去放学时他已经恭恭敬敬地弯腰蹲在那里了我骑上去后拍拍雇工的脑袋说一声长根跑呀雇工长根就跑起来我在上面一颠一颠的像是一只在树梢上的麻雀我说一声飞呀长根就一步一跳做出一副飞的样子我长大以后喜欢往城里跑常常是十天半月不回家我穿着白色的丝绸衣衫头发抹得光滑透亮往镜子前一站我看到自己满脑袋的黑油漆一副有钱人的样子我爱往妓院钻听那些风骚的女人整夜叽叽喳喳和哼哼哈哈那些声音听上去像是在给我挠痒痒做人呵一旦嫖上以后也就免不了要去赌这个嫖和赌就像是胳膊和肩膀连在一起怎么都分不开后来我更喜欢赌博了嫖妓只是为了轻松一下就跟水喝多了要去方便一下一样说白了就是撒尿赌博就完全不一样了*沂怯滞纯煊纸粽牛乇鹗悄歉鼋*张有一股叫我说不出来的舒坦以前我是过一天和尚撞一天钟整天有气无力每天早晨醒来犯愁的就是这一天该怎么打发我爹常常唉声叹气训斥我没有光耀祖宗我心想光耀祖宗也不是非我莫属我对自己说凭什么让我放着好端端的日子不过去想光耀祖宗这些累人的事再说我爹年轻时也和我一样我家祖上有两百多亩地到他手上一折腾就剩一百多亩了我对爹说你别犯愁啦我儿子会光耀祖宗的总该给下一辈留点好事吧我娘听了这话吃吃笑她偷偷告诉我我爹年轻时也这么对我爷爷说过我心想就是嘛他自己干不了的事硬要我来干我怎么会答应那时候我儿子有庆还没出来我女儿凤霞刚好四岁家珍怀着有庆有六个月了自然有些难看走路时裤裆里像是夹了个馒头似的一撇一撇两只脚不往前往横里跨我嫌弃她对她说你呀风一吹肚子就要大上一圈家珍从不顶撞我听了这糟蹋她的话她心里不乐意也只是轻轻说一句又不是风吹大的自从我赌博上以后我倒还真想光耀祖宗了想把我爹弄掉的一百多亩地挣回来那些日子爹问我在城里鬼混些什么我对他说现在不鬼混啦我在做生意他问做什么生意他一听就火了他年轻时也这么回答过我爷爷他知道我是在赌博脱下布鞋就朝我打来我左躲右藏心想他打几下就该完了吧可我这个平常只有咳嗽才有力气的爹竟然越打越凶了我又不是一只苍蝇让他这么拍来拍去我一把捏住他的手说道爹你他娘的算了吧老子看在你把我弄出来的份上让让你你他娘的就算了吧我捏住爹的右手他又用左手脱下右脚的布鞋还想打我我又捏住他的左手这样他就动弹不得了他气得哆嗦了半晌才喊出一声孽子我说去你娘的双手一推他就跌坐到墙角里去了我年轻时吃喝嫖赌什么浪荡的事都干过我常去的那家妓院是单名叫青楼里面有个胖胖的妓女很招我喜爱她走路时两片大屁股就像挂在楼前的两只灯笼晃来晃去她躺到床上一动一动时压在上面的我就像睡在船上在河水里摇呀摇呀我经常让她背着我去逛街我骑在她身上像是骑在一匹马上我的丈人米行的陈老板穿着黑色的绸衫站在柜台后面我每次从那里经过时都要揪住妓女的头发让她停下脱帽向丈人致礼近来无恙我丈人当时的脸就和松花蛋一样我呢嘻嘻笑着过去了后来我爹说我丈人几次都让我气病了我对爹说别哄我啦你是我爹都没气成病他自己生病凭什么往我身上推他怕我我倒是知道的我骑在妓女身上经过他的店门时我丈人身手极快像只耗子呼地一下窜到里屋去了他不敢见我可当女婿的路过丈人店门总该有个礼吧我就大声嚷嚷着向逃窜的丈人请安最风光的那次是小日本投降后国军准备进城收复失地那天可真是热闹城里街道两旁站满了人手里拿着小彩旗商店都斜着插出来青天白日旗我丈人米行前还挂了一幅两扇门板那么大的蒋介石像米行的三个伙计都站在蒋介石左边的口袋下那天我在青楼里赌了一夜脑袋昏昏沉沉像是肩膀上扛了一袋米我想着自己有半个来月没回家了身上的衣服一股酸臭味我就把那个胖大妓女从床上拖起来让她背着我回家叫了抬轿子跟在后面我到了家好让她坐轿子回青楼那妓女嘟嘟哝哝背着我往城门走说什么雷公不打睡觉人才睡下就被我叫醒说我心肠黑我把一个银元往她胸口灌进去就把她的嘴堵上了走近了城门一看到两旁站了那么多人我的精神一下子上来了我丈人是城里商会的会长我很远就看到他站在街道中央喊都站好了都站好了等国军一到大家都要拍手都要喊有人看到了我就嘻嘻笑着喊来啦来啦我丈人还以为是国军来了赶紧闪到一旁我两条腿像是夹马似的夹了夹妓女对她说跑呀跑呀在两旁人群的哄笑里妓女呼哧呼哧背着我小跑起来嘴里骂道夜里压我白天骑我黑心肠的你是逼我往死里跑我咧着嘴频频向两旁哄笑的人点头致礼来到丈人近前我一把扯住妓女的头发站住站住妓女哎唷叫了一声站住脚我大声对丈人说岳父大人女婿给你请个早安那次我实实在在地把我丈人的脸丢尽了我丈人当时傻站在那里嘴唇一个劲地哆嗦半晌才沙哑地说一声祖宗你快走吧那声音听上去都不像是他的了我女人家珍当然知道我在城里这些花花绿绿的事家珍是个好女人我这辈子能娶上这么一个贤惠的女人是我前世做狗吠叫了一辈子换来的家珍对我从来都是逆来顺受我在外面胡闹她只是在心里打鼓从不说我什么和我娘一样我在城里闹腾得实在有些过分家珍心里当然有一团乱麻乱糟糟的不能安分有一天我从城里回到家中刚刚坐下家珍就笑盈盈地端出四样菜摆在我面前又给我斟满了酒自己在我身旁坐下来待候我吃喝她笑盈盈的样子让我觉得奇怪不知道她遇上了什么好事我左思右想也想不出这天是什么日子我问她她不说就是笑盈盈地看着我那四样菜都是蔬菜家珍做得各不相同可吃到下面都是一块差不多大小的猪肉起先我没怎么在意吃到最后一碗菜底下又是一块猪肉我一愣随后我就嘿嘿笑了起来我明白了家珍的意思她是在开导我女人看上去各不相同到下面都是一样的我对家珍说这道理我也知道道理我也知道看到上面长得不一样的女人我心里想的就是不一样这实在是没办法的事家珍就是这样一个女人心里对我不满脸上不让我看出来弄些转弯抹角的点子来敲打我我偏偏是软硬不吃我爹的布鞋和家珍的菜都管不住我的腿我就是爱往城里跑爱往妓院钻还是我娘知道我们男人心里想什么她对家珍说男人都是馋嘴的猫我娘说这话不只是为我开脱还揭了我爹的老底我爹坐在椅子里一听这话眼睛就眯成了两条门缝嘿嘿笑了一下我爹年轻时也不检点他是老了干不动了才老实起来我赌博时也在青楼常玩的是麻将牌九和骰子我每赌必输越输我越想把我爹年轻时输掉的一百多亩地赢回来刚开始输了我当场给钱没钱就去偷我娘和家珍的手饰连我女儿凤霞的金项圈也偷了去后来我干脆赊帐债主们都知道我的家境让我赊帐自从赊帐以后我就不知道自己输了有多少债主也不提醒我暗地里天天都在算计着我家那一百多亩地一直到解放以后我才知道赌博的赢家都是做了手脚的难怪我老输不赢他们是挖了个坑让我往里面跳那时候青楼里有一位沈先生年纪都快到六十岁了眼睛还和猫眼似的贼亮穿着蓝布长衫腰板挺着笔直平常时候总是坐在角落里闭着眼睛像是在打盹等到牌桌上的赌注越下越大沈先生才咳嗽几声慢悠悠地走过来选一位置站着看看了一会便有人站起来让位沈先生这里坐沈先生撩起长衫坐下对另三位赌徒说请青楼里的人从没见到沈先生输过他那双青筋突暴的手洗牌时只听到哗哗的风声那付牌在他手中忽长忽短唰唰地进进出出看得我眼睛都酸了有一次沈先生喝醉了酒对我说赌博全靠一双眼睛一双手眼睛要练成爪子一样手要练成泥鳅那样滑小日本投降那年龙二来了龙二说话时南腔北调光听他的口音就知道这人不简单是闯荡过很多地方见过大世面的人龙二不穿长衫一身白绸衣和他同来的还有两个人帮他提着两只很大的柳条箱那年沈先生和龙二的赌局实在是精彩青楼的赌厅里挤满了人沈先生和他们三个人赌龙二身后站着一个跑堂的托着一盘干毛巾龙二不时取过一块毛巾擦手他不拿湿毛巾拿干毛巾擦手我们看了都觉得稀奇他擦手时那副派头像是刚吃完了饭似的起先龙二一直输他看上去还满不在乎倒是他带来的两个人沉不住气一个骂骂咧咧一个唉声叹气沈先生一直赢可脸上一点赢的意思都没有沈先生皱着眉头像是输了很多似的他脑袋垂着眼睛却跟钉子似的钉在龙二那双手上沈先生年纪大了半个晚上赌下来就开始喘粗气额头上汗水渗了出来沈先生说一局定胜负吧龙二从盘子里取过最后一块毛巾擦着手说行啊他们把所有的钱都压在了桌上钱差不多把桌面占满了只在中间留个空每个人发了五张牌亮出四张后龙二的两个伙伴立刻泄气了把牌一推说完啦又输了龙二赶紧说没输你们赢啦说着龙二亮出最后那张牌是黑桃Ａ他的两个伙伴一看立刻嘿嘿笑了其实沈先生最后那张牌也是黑桃Ａ他是三Ａ带两Ｋ龙二一个伙伴是三Ｑ带俩Ｊ龙二抢先亮出了黑桃Ａ沈先生怔了半晌才把手中的牌一收说我输了龙二的黑桃Ａ和沈先生的都是从袖管里换出来的一副牌不能有两张黑桃Ａ龙二抢了先沈先生心里明白也只能认输那是我们第一次看到沈先生输沈先生手推桌子站起来向龙二他们作了个揖转过身来往外走走到门口微笑着说我老了后来再没人见过沈先生听说那天天刚亮他就坐着轿子走了沈先生一走龙二成了这里的赌博师傅龙二和沈先生不一样沈先生是只赢不输龙二是赌注小常输赌注大就没见他输过了我在青楼常和龙二他们赌有输*杏晕易*觉得自己没怎么输其实我赢的都是小钱输掉的倒是大钱我还蒙在鼓里以为自己马上就要光耀祖宗了我最后一次赌博时家珍来了那时候天都快黑了这是家珍后来告诉我的我当初根本不知道天是亮着还是要黑了家珍挺了个大肚子找到青楼来了我儿子有庆在他娘肚子里长到七八月个月了家珍找到了我一声不吭地跪在我面前起先我没看到她那天我手气特别好掷出的骰子十有八九是我要的点数坐在对面的龙二一看点数嘿嘿一笑说兄弟我又栽了龙二摸牌把沈先生赢了之后青楼里没人敢和他摸牌了我也不敢我和龙二赌都是用骰子就是骰子龙二玩的也很地道他常赢少输可那天他栽到我手里了接连地输给我他嘴里叼着烟卷眼睛眯缝着像是什么事都没有每次输了都还嘿嘿一笑两条瘦胳膊把钱推过来时却是一百个不愿意我想龙二你也该惨一次了人都是一样的手伸进别人口袋里掏钱时那个眉开眼笑轮到自己给钱了一个个都跟哭丧一样我正高兴着有人扯了扯我的衣服低头一看是自己的女人看到家珍跪着我就火了心想我儿子还没出来就跪着了这太不吉利我就对家珍说起来起来你他娘的给我起来家珍还真听话立刻站了起来我说你来干什么还不快给我回去说完我就不管她了看着龙二将骰子捧在手心里跟拜佛似的摇了几下他一掷出脸色就难看了说道摸过女人屁股就是手气不好我一看自己又赢了就说龙二你去洗洗手吧龙二嘿嘿一笑说道你把嘴巴子抹干净了再说话家珍又扯了扯我的衣服我一看她又跪到地上家珍细声细气地说你跟我回去要我跟一个女人回去家珍这不是存心出我的丑我的怒气一下子上来了我看看龙二他们他们都笑着看我我对家珍吼道你给我滚回去家珍还是说你跟我回去我给了她两巴掌家珍的脑袋像是拨郎鼓那样摇晃了几下挨了我的打她还是跪在那里说你不回去我就不站起来现在想起来叫我心疼啊我年轻时真是个乌龟王八蛋这么好的女人我对她又打又踢我怎么打她她就是跪着不起来打到最后连我自己都觉得没趣了家珍头发披散眼泪汪汪地捂着脸我就从赢来的钱里抓出一把给了旁边站着的两个人让他们把家珍拖出去我对他们说拖得越远越好家珍被拖出去时双手紧紧捂着凸起的肚子那里面有我的儿子呵家珍没喊没叫被拖到了大街上那两个人扔开她后她就扶着墙壁站起来那时候天完全黑了她一个人慢慢往回走后来我问她她那时是不是恨死我了她摇摇头说没有我的女人抹着眼泪走到她爹米行门口站了很长时间她看到她爹的脑袋被煤油灯的亮光印在墙上她知道他是在清点帐目她站在那里呜呜哭了一会就走开了家珍那天晚上走了十多里夜路回到了我家她一个孤身女人又怀着七个多月的有庆一路上到处都是狗吠下过一场大雨的路又坑坑洼洼 活着前言一位真正丽的作家永远医只为内心写腥作只怖有惠内陆心才会真实地告诉他他的自辟私他船的高尚是多迪么突出内心让他真实地夯了解自己一旦了育解了自己也族就了解了疯世界很多年前碉我就明白了步这耘个粟原则可是汲要捍涤卫这个原则必须付出艰辛协的劳动和长体时我期召的痛苦因为内心并非时时刻刻都是敞开的镍它昂更多的时候倒是位封闭誉起来于是只有讹写作不弃停焰地橇写作才能使牵内心敞开塌才隅能使自己置身于发过现之中就像日疗出的光芒照亮了黑荒暗胡灵感鼻这时候才掠会突然来狈到长期诚以来我的作品都数是缕源出困于和现实的购那一层紧张关系我沉湎于坑想象之中又被现营实垦紧紧钡控制我明确感奉受着自我的分裂我无法使自己变得纯粹我曾经希望自膊己成为一位童话作家要盯不就是一位蘑实实在喻在帛作品的拥有者如果我能够成控为这两者中的吵任何一苑个我想隙我内心的痛苦将会巧轻微得多可颐是与此同时我的力垄量也会双削弱很婆多越鸣事实上我只乡能成蜀为现在这样的作家绦我始刃终为内心窘的需要而写乖作理肝智影代替不了我的写蛀作正因为炕此我在亢很长一速段时间蛰是一个愤怒和冷漠的作家满这不技只是我斥个人面临的困难几乎按所有优秀的作家都处于端和现实的紧张关系中耿在他倒们笔下只有当频现实处于遥远戌状态时骚他们作品中的现实才会闪闪发亮应箭该看到这过去的现实虽然充满魅玖力可它已经肯蒙上了一层翠虚幻的色慢彩那里面塞满了个人钦想象和个人敛理解望真正书的现摧实也麻就是篡作家生鞘活中的奇现实糙是令以人费解和难以相处的趟作禾家要表达与之赊朝夕相处的现实袄他常常会感到难以承受径蜂拥氏而来的殃真实几乎数都在诉说着丑恶和阴险截怪陕就坊怪在这里为什么丑恶的事物总吮是在身袍边而美唉好的事帕物却远在海角换句疙话滥说人烩的友爱和同情往往只是作为情绪来到而相反的事实则助是诅伸手便象可触借及正像一位诗人茧所表达的人类无法唾忍受太尹多的奄真涌实也有这样的作家杨一生都掺在款解决自我拾和现实瘴的紧张关棵系福克纳是最为成功幅的例子他找到吃了一条温落和屏的途径他镭描写中间撞状态的事寞物同时署包容了美好与丑恶他燃将美国南方的乃现实放到了历史和人球文精神之中这贯是真正意义上的文浆学现实因为它连接着过去琐和将来橇一些不蹈成揉功的作家也在描筋写现实可他巷们笔下的现实企说穿了只拇是一个环境盟是固定的死去赊的现实他们看不到显人是怎样走过来赁的鸯也看不到怎样吻走去当他们在描写斤斤做计较的人物时我们会感到作家本人也在斤斤计艇较这壶样针的作家是在写钢实在的作燥品而不是现实的序作品前面已经说过我和伍现实关践系莱紧张潘说钵得严沟重粥一些我一直是以敌牡对的芽态度看待现实随着时间瓣的推移我内心的愤怒渐渐平息我开始募意识到佛一位真正的作家所蛤寻找履的是蹋真理是一种费排斥道德判断杰的真理作休家缩的手使命不是发泄不是控诉或循者慑揭露他应该向人们巳展示敛高尚雨这里毙所说始的高疹尚不闷是那种单纯的美雄好而是对一切事物理钎解蜘之后熙的超然对善与矣恶一视同仁用同建情爽的目光看待世界正是在这样的心庐态下我听到了一啮首美国民歌老黑奴闹歌中那位老黑奴经旗历了晕一生的肛苦难家人都先他而去涧而他框依然友貉好地对待世界没有哲一句抱怨的话陈这首酬歌深深打佬动了我我决定写微下一篇这样的小说就是这篇活察着枉写人对苦难的承受讲能纤力鹃对世界乐观的趣态度写作过轿程蒸让砂我明白人是为活着废本身队而活着的抗而静不烟是为洱活着之外的任曾何队事物所活着颇我会感刀到自己写下了高尚的区作品守第润一章我比渺现在年轻十岁的时候件获得了一个游手好闲的职业去乡间筛收集民间歌洽谣胰那一服年倍的整个夏天我畴如同一危只乱焊飞的爷麻雀游荡奔在知寡了氮和阳光充斥的村舍田野扭我喜欢喝岗农民眷那睁种矗带有苦味急的茶水他状们泅的茶桶我就游放在田埂拜的姑树下我毫无挺顾钨忌地拿起漆飘满茶垢的巢茶碗舀水喝还捉把猎自己的水壶灌满与田里犹干活的男人说迹上咋几句废话在凋姑娘讳因我肘而起的窃窃私笑里扬长而去濒我辟曾奶经和瞬一位传守办着瓜田米的老人聊了整整一个帘下午伶这是我有生仆以钠来瓜吃钾得最多的一次当颖我站起来告预辞时突然发现自己像个孕妇一样步履艰难了市然晰后我尖与昼一位当上了祖母的女人坐在门槛船上她编着石草鞋为我唱了镰一支娥十月怀藻胎我投最喜酣欢的是傍晚来到时蛛坐在农民的屋前看着他们将提上羊的破井水辩泼在地上淫压住蒸腾的峭尘土夕阳的光芒在树慧梢上照截射孙下来拿姚一把詹他们递过茹来的扇蛰子尝尝他们和盐沿一样咸的咸菜看看几个年轻女人和男人翠们说着话厢我头戴宽边草瘦帽脚上穿着拖鞋一条毛巾挂在身后的皮带上掩让驼它忌像努尾巴似的拍打着我的屁股我整日张蛇大矽嘴巴打着呵欠散漫地招走在田桐间小窜道上我的拖鞋稳吧哒吧哒把那地些小道弄得纺尘土飞牟扬仿佛是车轮滚滚逢而过时媒的情景新我到处游荡已经弄不清楚哪些村狰庄曙我曾经去过哪些汽我没有去过我走丫近妇一个村巾子时香常贱会听到孩子侄的姿喊摘叫那个老打呵欠俱的人坊又来啦于是村里人就知道那个会讲荤埠故事棚会唱酸曲的人又来了其拢实所有的荤故事睦所有的酸柱曲都是从他们那里学来的我靠知道他们全部的背兴趣在什么地方自然这燎也是我的兴趣我纸曾识经遇到一个哭泣炼的老人溢他遂鼻演青眼肿地坐在田埂上满腹的悲哀使他变搓得十分激动串看到我走来活他仰起椿脸哭声婪更走为蓬响亮冲我晒问他是谁法把他打啪成讲这挚样的病他手指飞挖襄着裤烃管采上的床泥巴愤怒地告诉我是鼓他那不杂孝的儿子当我再问为何打熟他絮时他支支吾吾说不清江楚了我影就立刻知杭道盔他准是对淑儿醒媳干了偷鸡摸狗豪的勾肄当还有一个晚上我打着手电赶夜路时在一口蝉池塘旁照噬到了臭两臂段赤裸的身体一针段压在另泪一段上面我照着的时徐候两段身体纹丝不动只是有一晤只手在大腿上轻啼轻搔痒倔我赶紧熄灭手电离去在农忙捏的一酝个中午我走进一家敞开大门圈的房屋去码找水喝一个蒋穿短墅裤的男人神色笔慌张地挡住睬了我把我引到稻井旁殷勤地替我打典上膀来才一桶水塔随后又像普耗子一样窜进了屋里纤这脓样的事我灾屡见不鲜差厕不多和我幌听到的歌谣一样多当我望棍着瑰到处羚都芝充妓满绿色的土地时郭我惯就会进一步明白庄稼为何播长得如此旺盛那个夏天我还差一点谈情说购爱我遇到了疹一位赏心悦目的女孩她黝黑的渗脸蛋至涟今还在我眼前闪闪挣发馏光塞我见到奈她时她皋卷起裤管坐近在河边的心青草上摆弄着一根竹竿在照看座一群注肥硕祸的鸭子抚这个痔十六七岁钠的女孩羞怯地与送我桓共同棋度过了一祥个炎热的下午她每次露出笑容时都要贫深深地低赤下头去我看着她偷偷放差下卷起的裤管莎又怎样将瓢自己的光脚丫子藏到草丛里去那个剪下午巴我信口开河向她兜售如何带她外出乌游玩的计轨划这个女孩又惊又喜贝我虞当溜初情绪柞激匀昂颐说这些也是真心实汛意赌我只是感到和她在一巢起身心愉快也不去考虑以宣后会是怎样千可僳是后来当她三个灯强壮如牛的哥哥走过来时我俩才吓一跳援我瓤感祭到自己应疡该侥逃之夭夭了否则我就会不得不娶她望为妻我遇到那位名叫佣福贵的老劲人彰时吱是夏天刚刚来榨到的季节那堡天舆午后摆我走到了一棵有着茂汉盛树叶的树下田里的王棉娄花已被收汤起几个包着头靡巾氧的畔女蓟人蓬正将域棉秆拔出来瘫她们卧不时抖懂动独着屁股摔去胯根林须上的泥巴我摘下邢草帽从沏身后取过毛巾擦起脸上的汗水身馅旁是依一口骄在阳光下泛帮黄的艇池塘我就靠饭着树干面对池塘坐了下来紧接着我感到自锡己要睡觉了就在青妨草上躺下郑来值把草帽盖刽住脸枕她着背包在寅树诧荫里闭上改了眼睛涸这位比现在喳年轻十岁的瘟我巷躺撩在树叶龋和了草丛中间睡了两个小住时罚其撒间洞有几只蚂弦蚁爬到了我的腿上我孩沉睡中荧的手指依然准较确瓷地将它们弹走后来仿掖佛是来到了水边一位落老人撑欠着竹筏在蹲远处响拐亮地吆喝我憋从堑睡梦孜里挣脱而匈出吆喝声在现实里清晰甚地传来我疗起身杜后看到近釜旁田里一螟个洛老人木正在开导一癌头老牛澈犁田的老牛或许已经深感疲倦它达低头伫立在脯那里馆后憋面赤裸着潮脊背扶犁的燕老人对老牛的消极态度务似乎不满沏我重听到他嗓音响猪亮悼地对牛说道做牛诞耕田做粱狗看家做和尚化缘札做鲸鸡报晓做炉女伦人巩织布哪佩只牛不耕田这可是自古就有的道砌理垄走呀走呀鲁疲倦的老牛黄听锌到老人的吆过喝后仿聋佛阎知错般地抬起了兢头拉脖着犁往前走去敲我看到老人的顶脊背和牛笆背一样黝黑两个进入垂暮的生命将腋那块喂古迹板的田地耕得痘哗腑哗翻动犹羽如水面上掀起的喊波浪随后我起听到老人诌粗哑认却令人感动啃的嗓音他唱起了在旧瞻日的歌谣先是口依呀啦呀唱出长长的引子接着出现磺两句歌瘪词帝——皇帝招我穴做女婿路远迢迢我不去因为路途遥远不愿去做葬皇帝的女婿心老人的自鸣得意让我点失哈声而笑可能是牛放懦慢郊了脚团步老人又吆喝起来二喜蛇有庆不要偷懒家珍篆凤媳霞耕荤得好儡苦根也行力啊揣一头牛竟会有这形么多名字奠我好奇地走似到田边问走灯近的老人这牛有多少名字老人沁扶住犁站下来他众将绵我上下歇打量一番后问你是衔城里人吧闹通是的扒啡我点点头老人得碰意起来颂我一眼匣就看蚕出来了厂我说这敞牛究竟有多少名蓑字老都人回绪答这牛叫福贵忧就一个名字可你刚才叫了几个名仿字噢——稠缆老人高兴地笑起来他神秘超地向我招招手当我凑迹过宦去时邑他欲说又止他看到牛正抬着头就训喳斥它你别冰偷听把头低下牛果然述低下了头这时老绽人宴悄声对我说我怕秘它知道让只有自侈己要在耕田就多寂叫出几个名字蝶去跳骗它它药听到还瑶有片别攒的牛也在汕耕田就不会不高兴耕田也就起瓮劲啦宾老贬人黝邓黑的滨脸在阳光里笑得十分生动脸上的皱灶纹欢乐瞒地游动着里面镶满了泥土就如布满田间的小道这位蛾老人后来和我状一起坐撼在狄了那棵茂盛的树下在那个充满阳光的下午他向我讲述了自己熙鞋四十扳多吏年前我爹系常在这国里走来走氯去他穿着一昌身黑颜筐色艾的绸衣总堂是把双手背在身后他出门时常对我娘说我到自己的地扎上辰去走走噪我爹走在自己的田产上干活的佃户见了都要双手握住锄头恭敬坠地叫一声龚老爷我爹敬走到了城里城里人见了晌都叫他铆先生我爹是很有身波份的人可他倔拉屎时就像个穷人嘛了他譬不爱在屋阿里桃床白边的马桶上拉屎跟牲畜似粘的喜欢到野地里去拉屎每天到了傍晚的时候我缸爹打着饱嗝那声豹响和手青蛙叫唤差不躬多走出屋去慢吞吞浚地堤朝捏村掺口的粪缸走去走到了粪缸旁递他嫌缓缸沿脏拂就打抬脚踩上去蹲在氟上面拧我爹年派纪大存了穆屎也契跟证着老了出来不容易那时候我们全家人都会听到他在村口嗷嗷叫着几薄十年涨来我罪爹一藩直贝这样拉屎到了六爷十多痛岁还能在煽粪缸上一蹲就是半刊晌排那两条腿就和风鸟爪一样有劲毋我爹喜欢看着天色摧慢慢黑下来罩住他咳的田地我女儿凤霞到静了三四腻岁常跑到村口去圭看她爷济爷拉屎我爹毕竟够年跌纪大蛊了蹲在粪墩缸上腿有些哆嗦凤霞就问他弯爷爷伤你蓝为什么动焉呀我爹惺说是风吹的那时候我蓑们家境还没有败落浑我们徐胖家有一孟百多亩地库从这里一熏直到蕊那边工厂的烟棉囱度都是我家的我爹和我是远近闻名更的阔老爷钙和阔少爷我们走清路时鞋子抢的声响都像是铜钱碰来俊撞去的我女人家珍是城里猿米行僧老击板的女儿她鸽也是有眨钱人示家出生钥的有钱人嫁给亲有虎钱人就指是把钱奴堆起来钱在钱上面哗榔哗检地嘎流这样梆的声抬音我有四十年没有听将到了策我是我们徐家的扼败吵家准子用我爹锰的话说我是他的孽子我念过几肋年私塾穿长碑衫的私塾先生叫我念一段书时是我最高兴的我站起来酝拿着本线装苑的千字文对私塾先生说傻好好听堂着爹给你念一店段年玉过花甲写的私塾先生对我爹趣说你家少儿爷长晰大锗了榨准能当个估二流苹子跪我从小就不可酱救药这是我爹的话咨私塾物先生说我是朽木不娱可雕也昂现在贺想想他们都说拄对了当初我可不这么想狈我想我有钱呵我是抑徐家仅有的一指根香火我要腔是灭了徐家就得断子装绝孙缓上私塾时我从来不走路都是我家一个雇工背着我去滋放学时刁他已经恭恭敬旭敬地弯腰蹲在那冲里功了我骑上去后拍拍益雇工的脑袋说赞一渤声长屎根跑呀雇工懊长根就跑起来我在上面一颠一颠坍的像是一淫只缩在树梢黔上的麻雀我说一声飞呀癣长根就亨一步一杜跳腥做出臀一副飞匣的样子我长大壤以必后伞喜欢往城里跑常常是十天半月不回碑家择我淀穿着白奈色的丝绸衣瘫衫头发百抹得光婴滑透亮买往镜苍子前一站穗我看到自己堡满脑袋的辣黑油漆一副倘有写钱人慧的样子我爱往妓院驶钻驹听那些风骚的女人贵整夜叽叽喳喳和哼哼哈哈那些声音电听上去像是在型给我挠痒狐痒嚣做人呵写一弓旦嫖上以后也惮就免不了绊要去赌这个除嫖和赌霜就痴像是胳膊和肩瑶膀连逆在一起怎么都分仑不开后来我更喜欢赌剖博了嫖妓只石是为了轻松一下就跟砖水喝多了要兄去方屹便一下人一样说白了就是陇撒尿赌博就完全不一样了*沂怯滞纯煊纸粽牛乇鹗悄歉鼋*张有一股箍叫我仙说不出来的舒坦以前我是过一天和尚撞一天钟整天有气满无力每天早晨醒来犯猛愁的就是这一天该狗怎朱么打发搁我爹常常唉声叹气训勾斥我棵没有光耀曳祖宗我心想光耀祖宗也不是非我莫属套我玻对自己说姚凭什么让我爸放着好趋端端的日子不驰过去适想光禾耀祖宗这些累人的伎事再说我爹降年轻时也和我一样我租家捶祖上有两百多株亩地假到特他斯手上一折腾就剩一百多也亩了我对厅爹柠说抱你别犯仍愁啦朗我废儿子会光耀祖宗的总该给下贮一栅辈留点好学事吧凳我瞎娘听了这话吃吃笑她偷访偷告量诉我夯咬我爹年轻鞠时也这么对我爷休爷说过怨我缓心宜想濒就炉是嘛他自侧己干不了的事硬要我来干我怎并么会答应右那时候颜我儿子有庆悉还没出来婚我女儿欠凤霞刚好衡四岁家珍怀着棉有庆渔有六个月了自然篷有些难看宇走路时裤楚裆蜜里像是夹了个馒头似的姑一撇穗一撇两虱只脚不往前鲤往横里淌跨我嫌弃阁她对她说你呀风一吹肚子就要大上一圈家珍从不顶撞我听了这嘲糟蹋她的话她耙心里不乐意也喘只是轻轻拦说一句又不是风吹大返的溪自胆从我赌博寐上镊以后我倒还茹真想恢光牌耀祖宗了想贫把我爹弄解掉的一百丛多恃亩地挣回来那些日子毒爹问驴我在城里鬼混些什么我对他说现在昌不鬼混啦跪我在做生意糖久他铡问做什痔么生意他一听就坯火了他年轻毅时也这么回答过肾我爷爷他知道我是在赌博脱下布漾鞋就朝我打来我左躲右藏心想他酝打几下就该完了吧抠暂可我这个催平常只有愉咳嗽才兄有力痉气他的爹叼竟然越打越凶了纺牟我又不喝是俯一只苍蝇碎让产他这堕么拍来拍去我一把捏袱住他的手聂说道爹你他娘的算功了吧女老子看在你把我弄出来的份上员让翱让你你他娘的就算了吧黍我捏住屏爹的右手他又用左隐手脱下右脚助的布鞋还想打我俊我又捏住他的左手这样烫他就动弹不得了他贤气得哆嗦了半晌傍才喊出一声孽子我春说暖去躬你娘的仓视双手一推他就跌坐插到墙角里去了我年轻时吃喝嫖赌什么浪啊荡的事撮都芹干圈过我常去的那家妓院是豌单名叫青楼里面有个胖胖的毗妓女遗很招我舱喜爱她走搏路时两片大屁股老就像挂在楼前的辩两只店灯衔笼晃来晃去她躺到床上辉一仑动唱一动时压在上忱面溯的我束就像睡在船上丈在河水里摇呀摇呀濒我经常嘴让她背廓着我脊去逛街我骑在她身遇上像诞是骑在一匹马上我的丈栓人米行的陈老板穿着黑色的绸衫站在哪柜台后面酵我每次从那里经过时都要揪住妓女馈的头发让她停下脱帽首向丈人致礼幅近来无恙我丈人当时的脸就和松花脐蛋一客样客我呢嘻嘻笑着过每去顷了后朝来我爹说我丈人几纷次都让我气病了竟我对爹说感别哄我啦你是我爹都没气成病他自己砸生病凭屉什么往我身上推烂他怕我我倒是知道谷的我骑在妓女痕身上经过他的店门时郑我丈人身十手极快像只耗子呼地一紧下窜到里屋去了他态不敢见我可当女婿的路过丈人店门幌总该有暇个礼吧我懒就大声嚷窘嚷紊着粳向逃窜的丈人请安最风光的惩那次是小犁日本投降后国军准窘备进城收复失地遵那天可味真是仅热闹城里街拄道两旁站满了人手里拿着小彩旗污商蛀店都斜着插掳出来娟青天白日旗我伍丈人骑米行前才还愚挂了人一每幅两恫扇门陵板那么大的蒋介石像米行的三个伙计都站在蒋介石左边的口袋下那臂天我在青楼泛里赌了一夜庭脑袋昏昏沉沉像是肩膀强上悼扛了一袋米我想着自己有半个来月没候回砷家了身上的衣服挪一股酸臭味我就把那个胖大侯妓女症从发床羔上拖起帮来让她背着我回家叫了抬轿子跟在后面我到了家好让潘她坐轿子回青楼那韭妓女嘟嘟哝舅哝背着我往城门走说什栅么雷公不打睡觉人才睡下就被我叫醒说我僳心肠黑兄我乔把一个银元帜往她胸溪口灌进去就把她的垫嘴辱堵上碗了走近了城门邀一玖看到两旁站了那么多人我的精神一下濒子上来了我丈人岗是城里商会的会长我帕很远就看到他站在街道中鹏央榜喊都站好了都站镇好了等国军一到大家都要拍手垛都要医喊有人看到了衙我僳就嘻碉嘻笑汝着喊来啦羽来啦我抓丈翁人还以为是泪国军来了诛赶紧闪到一旁蛔我两条腿像是夹马似防的包夹了夹妓女漂对她说跑呀跑块呀在两旁人群的哄笑里漠妓女禄呼哧呼哧背着我脊小跑起来塘嘴里骂道夜锐里压我白天骑我黑窗心舱肠的你是逼我往死里抡跑玫我咧着嘴频频向绣两旁哄笑的人点头致礼来到咨丈人碉近阴前我一把艰扯住妓女的头发站住站住化妓窒女彪哎唷叫了珠一声站钓住脚我大声对丈寇人说岳父砸大人女婿给认你请个早安趣那次益我实实在在地把饮我丈人的脸丢尽了我汐丈人著当时傻恐站在那里嘴唇一个劲弘地哆窗嗦半晌才沙哑地说一声祖宗你快走吧割那筋声音听翘上去都不霞像是他逛的了我女人榆家珍当然虚知道我集在陈城瀑里这些花花柏绿绿的秩事家珍是个懦好诺女人我这测辈子吠能活娶上这么有一个贤惠当的女人是我前世做狗吠丈叫了一惶辈子换来嘴的家珍对我狐从来都是逆来顺衍受我在外面胡沪闹刹她只是贼在心漂里打鼓从温不说我什么和我放娘一样我安在城里闹腾得实在有些过分家勤珍心里当然惭有一团乱麻乱糟糟的炼不能豆安鲸分潞有一天夫我从城里回到家中刚刚坐下混家珍就笑盈盈地端出四样菜摆在宅我面前蛤又态给我斟满推了咳酒自己在我拷身梢旁坐下来待候我盎吃喝奋她笑盈盈烛的样卸子案让我觉得奇怪不知道她遇上掉了什么好事我左椿思右想也想不出这博天是什么日子嗜我问仗她她不说就是笑盈奖盈地看着我仍那四样菜都是蔬菜家珍竖做得各不相同可吃随到下紊面澈都是一块差叭不舱多大小的猪肉薛起先我没怎么在意吃到赊最棉后一碗秆菜燥底下又是一块猪肉爪我一愣距随后等我就嘿嘿笑了起来我明白了家班珍的意菊思瘪她是在开导我恃女人看螟上去各不相同到下面都是一样的我对家珍说这道荷理我也知道道理我也知道看到上面长得不一干样的女人我心里想的壹就是不一样这实在曾是没亦办法的事家珍就是这样一个女人心里对我不满脸上爱不让我看出来弄些塑转娇弯抹援角的点子来敲打我西我偏偏是软硬不吃我爹的布鞋和家珍的菜舀都管不住冠我的腿我就是澳爱往城里跑爱往套妓院咆钻还是伯我娘知道益我们男人心秉里想什么她对家珍说粹男即人都是雹馋嘴的猫我娘说这话不只唉是纤为我载开脱还揭了我爹郴的老硬底下我朋爹炽坐誉在椅子里珐一听这话眼睛就眯剐成恩了两条胯门缝嘿嘿挟笑了一下我爹年轻烦时也不检断点他是老了凶干不动了才老亭实起听来缴我赌博时也碘在青楼常玩的陛是麻将猩牌九和骰子我峡每咖赌必输越输我越想把我爹梳年仓轻时输掉的一百多亩地闺赢回串来刚沏开始输函了我当场给钱没钱趣就去偷我烦娘和家珍的仇手饰连存我女窘儿凤霞的瘩金项甲圈也偷了去料后来麻我仙干脆拯赊帐债主们铲都瓷知道我的家境让挎我浚赊帐自买从赊帐以后我就不知道自吉己灰输了有多少债椿主也不提醒我暗地里天天搐都孟在算计着我族家反那一百多亩馏地一直到解放癣以后我才挫知道赌博的赢侧家都是做了手脚的难女怪我老输不出赢他们是挖了个坑让我往藩里面徐跳睁那亩时候青楼里有一位录沈先逃生年纪都快到六十岁了眼睛还毡和猫眼似的静贼亮穿着蓝布麻长衫腰沮板靛挺着笔直平常时候种总是坐在角落醛里峡闭着眼睛绒像另是在动打盹等到牌桌上的赌注越下越大沈先扳生才咳嗽几声慢送悠悠地走过来选讽一位置站着看壕看了一会疆便有饵人站起来让位沈先生这里坐艺沈先闽生脐撩起长诌衫坐下对另三匣位赌徒说请右青楼里的挖人从没见到幼沈先生输沁过他喉那湃双青筋突昆暴的手洗牌时只巧听到哗哗的风声那付辕牌在瘤他手中忽睡长睛忽短吭唰唰地琼进祖进出出看得我眼睛都酸了有一次沈先友生喝醉秒了酒对掺我说赌云博全靠一双防眼睛一双敞手眼睛要练成爪子一样彻手要练成泥鳅那样滑以小日本投降那年龙二来陀了龙二说话酋时南腔北调光听他的口音就知道穗这人不简单是闯色荡过很多地方籽见过大瓣世面的人龙二不穿残长衫一身白绸晰衣和他企同来的还有两摩个人帮特他提着两棕只很大磕的柳时条箱渡那年闭沈先生和龙二的赌局实在是精彩青楼的赌厅里盈挤建满了液人沈先生个和他们三您个人赌龙二身后站着碎一个跑淑堂骆的值托着蜒一盘皱干毛巾龙二不时取过一块毛巾擦手喘他不拿湿页毛巾拿益干毛巾擦手我们闭看了都鬼觉得稀奇他丫擦手时那副派头像是给刚吃莹完了饭似的起先超龙二一直输他看上去还满不在乎倒是栏他带来的两个人沉拼不住气一个骂离骂咧咧咆一何个唉填声叹气沈亏先生甚一直赢桐可脸筐上吮一餐点赢的意思都没有沈先生皱着悔眉头像是输梯了很多似誉的他脑浩袋垂着眼轮睛却跟钉拖子似爷的叁钉辕在座龙熏二那双手上扛沈通先生年纪旭大了半个晚上谆赌下酮来幽就开始喘奇粗气额头上汗水渗了出来沈先误生说一局定胜负摹吧互龙二从盘子里衅取过最赡后一樱块毛巾擦着手瘸说脏行啊他们把所淆有册的钱都压在了桌上狄钱差不多把桌面占满合了只汗在中间留个空每吉个人发了系五张牌南亮仰出四张后龙六二的刻两图个伙伴立刻泄气了把嗅牌一推说谅狱完啦又野输了依茫龙二赶紧说没输你示们赢呀啦说着帝龙二灭亮出躯最后那啪张妖牌是黑桃德Ａ他的两个伙伴一看立刻聚嘿嘿笑了好其实沈先她生最后咆那张牌也是黑李桃Ａ他是三Ａ带错两Ｋ龙争二辩一个伙伴是三Ｑ磺带俩Ｊ吸龙二惩抢先亮出了黑桃Ａ沈先生怔徘了半徐晌少才把手中煌的钢牌一收说我乳输了邪龙二的黑桃Ａ和沈先生的都畅是从袖管里换出捶来的香一副牌不能毒有两张黑桃频Ａ龙府二露抢了先沈先生心里织明白也方只能认输那是我们朽第一次看誓到沈先生输沈先鳃生滴手推桌费子啊站起来向龙二他迄们作了喘个揖转过身来钻往邀外锨走走仪到借门观口微笑元着说我老了蛙蓬后来再笆没人见过沈先生听说那天天刚亮他获就坐着讯轿捻子走了沈先生一走龙二成乙了逾这里擒的赌博师傅龙二和沈先生不一样沈先生泞是只赢不输龙二是赌注小常输施赌注晾大就没见他输过氟了赞我在青楼常和龙二他们赌有输*杏晕易*觉得自己没怎么输其实我赢瑚的都是蝶小钱输掉的倒是大灼钱我还蒙锋在鼓里以为自己马上就要剪光耀汰祖宗了鬃我最后一次蒲赌博时恋家珍来了墨那时候天篮都快刀黑了这是家停珍后啃来告诉我的我当初根本不知道计天是亮嗓着蝗还笑是要黑了家珍棉挺女了个大肚子赶找到青楼来了我儿给子哲有庆在呵他娘肚质子里躇长到七八月铬个月了家珍找到清了我橇一声不吭地跪在我肄面前起脯先我同没看到恢她那两天我无手气特别好臂掷捧出的骰子十眠有八九痹是我要的点数坐在炉对面的龙二一漂看吗点数嘿嘿仲一笑启说兄弟我又栽了琢龙二摸牌把沈罕先生赢了之后青楼里没人敢和他摸牌鄂了钧我也不敢我和龙二赌都是用骰杖子耪就茶是骰范子龙二玩的也很地道他彬常赢鳃少赌输可那天他栽到我手宙里了懦接驴连地输给我律他嘴窗里叼着况烟卷眼睛眯缝着像是什么事卑都情没有每次砒输脯了都还嘿嘿一笑轿两条瘦胳撬膊把钱推炔过来时却是一咬百个不愿意我想龙二你也该惨肿一贴次了蓖人都是一样的绑手伸进别人口烘袋里掏钱时那个眉开眼笑探轮终到自己给钱了一个个都跟哭萎丧喷一样裤我正渤高究兴摊着有人萧扯了扯我的衣服低丫头一看是自己的纲女人看到家珍跪着我就火了心想潜我儿子梆还克没出来就跪着了这太不吉利稼我就对家珍说将严起来起来你他娘的给我起来撂家珍还真听话立吕刻站了起来我说耐你疏来干纤什作么还不泄快给我回去拖说闲完我钱就不轻管她了看着龙相二将骰子捧厌在手心里跟拜疼佛似秋的摇了狰几下他一掷出脸色就难憾看了说播道摸过女存人屁夺股临就是手气不栗好我一钨看辉自己身又赢了哆就说喳龙二沪你去刻洗洗普手吧龙巩二嘿嘉嘿一笑说道蚁你把嘴巴子抹干净了再说话做奄家珍又扯了扯我的衣服肝我一看她又案跪到不地上家珍细祟声细气地说你跟炙我回去诺要灶我跟一搬个女颓人回去我家珍啸这不是存心出我哇的丑我的怒气一下子指上来乒了我诲看看龙二他掉们他们都甫笑着看我我对家珍问吼袁道绚你疆给我综滚回溪去家珍还朵是说猩你跟怂我回瞪去肿我给了她两巴掌家珍的脑袋卞像是拨治郎鼓那样扳摇叮晃了几下咖挨了我的打她还是跪懒在那里说你不回去楷我就不掀站起在来现在想起来靛叫我茧心放疼伯啊我事年轻润时真是柯个乌龟王八蛋禄票这么好的女盆人我对她又酚打又疥踢冬囚我怎么打风她她就是跪着不樊起来打到最后连我自己都觉得没入趣了家珍头发披散眼泪汪汪地捂镍着脸我就从赢来的钱里抓爸出一把给了旁赢边佃站着的两个人桅让他们蠕把家珍拖出去我掐对他们漏说拖得越远热越好蜒家珍被拖出鸽去哎时散双手紧育紧捂着凸起的肚圆子那里面有我的儿子呵家珍没喊栅没叫被噪拖到了大街上师那两个人扔开黑她捐后她就扶着墙壁站起饰来那时候天完全持黑踏了她一个人慢拥慢往回走后来我问她她迟那时是不是恨死我了她摇摇头说没有我的女人抹着眼泪走到她爹项米行门口悸站了很长时间她看到她爹的脑袋被煤油灯的亮光印卸在胁墙上她知道他是泵在清点帐目耗她站在那里孝呜呜哭了一会就走开了家台珍口那天晚上走了十多里夜路怒回到了我家她一个勘孤身女微人夺又磋怀置着龚七个多月的有庆一路上孕到处都是涛狗吠下过一座场大雨的路氓又坑坑色洼瘪洼<br/></span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="level test">
+                                        <span><em class="time">
+                                                <div class="time">698 ms</div>
+                                            </em><em class="status">passed</em>test_paper_checked</span>
+                                        <ul>
+                                            <li class="text">
+                                                <span class="stdout">PASSED                  [ 40%]文档相似度为: 0.8598740527469747<br/></span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="level test">
+                                        <span><em class="time">
+                                                <div class="time">0 ms</div>
+                                            </em><em class="status">passed</em>test_read_empty_file</span>
+                                        <ul>
+                                            <li class="text">
+                                                <span class="stdout">PASSED                [ 50%]文件路径错误，请检查输入的文件路径！<br/></span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="level test">
+                                        <span><em class="time">
+                                                <div class="time">0 ms</div>
+                                            </em><em class="status">passed</em>test_read_not_exist_file</span>
+                                        <ul>
+                                            <li class="text">
+                                                <span class="stdout">PASSED            [ 60%]文件路径错误，请检查输入的文件路径！<br/></span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="level test">
+                                        <span><em class="time">
+                                                <div class="time">0 ms</div>
+                                            </em><em class="status">passed</em>test_result_not_float</span>
+                                        <ul>
+                                            <li class="text">
+                                                <span class="stdout">PASSED               [ 70%]捕获到错误: 结果应为浮点类型！<br/></span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="level test">
+                                        <span><em class="time">
+                                                <div class="time">0 ms</div>
+                                            </em><em class="status">passed</em>test_save_not_exist_file</span>
+                                        <ul>
+                                            <li class="text">
+                                                <span class="stdout">PASSED            [ 80%]结果保存路径不存在，请检查路径！<br/></span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="level test">
+                                        <span><em class="time">
+                                                <div class="time">0 ms</div>
+                                            </em><em class="status">passed</em>test_save_similarity_result</span>
+                                        <ul>
+                                            <li class="text">
+                                                <span class="stdout">PASSED         [ 90%]0.87<br/></span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="level test">
+                                        <span><em class="time">
+                                                <div class="time">101 ms</div>
+                                            </em><em class="status">passed</em>test_tokenize_content</span>
+                                        <ul>
+                                            <li class="text">
+                                                <span class="stdout">PASSED               [100%]活着 前言 一位 真正 的 作家 永远 只 为 内心 写作 只有 内心 才 会 真实 地 告诉 他 他 的 自私 他 的 高尚 是 多么 突出 内心 让 他 真实 地 了解 自己 一旦 了解 了 自己 也 就 了解 了 世界 很多年 前 我 就 明白 了 这个 原则 可是 要 捍卫 这个 原则 必须 付出 艰辛 的 劳动 和 长 时期 的 痛苦 因为 内心 并非 时时刻刻 都 是 敞开 的 它 更 多 的 时候 倒 是 封闭 起来 于是 只有 写作 不停 地 写作 才能 使 内心 敞开 才能 使 自己 置身于 发现 之中 就 像 日出 的 光芒 照亮 了 黑暗 灵感 这时候 才 会 突然 来到 长期以来 我 的 作品 都 是 源 出于 和 现实 的 那 一层 紧张 关系 我 沉湎 于 想象 之中 又 被 现实 紧紧 控制 我 明确 感受 着 自我 的 分裂 我 无法 使 自己 变得 纯粹 我 曾经 希望 自己 成为 一位 童话 作家 要 不 就是 一位 实实在在 作品 的 拥有者 如果 我 能够 成为 这 两者 中 的 任何 一个 我 想 我 内心 的 痛苦 将会 轻微 得 多 可是 与此同时 我 的 力量 也 会 削弱 很多 事实上 我 只能 成为 现在 这样 的 作家 我 始终 为 内心 的 需要 而 写作 理智 代替 不了 我 的 写作 正 因为 此 我 在 很长 一段时间 是 一个 愤怒 和 冷漠 的 作家 这 不 只是 我 个人 面临 的 困难 几乎 所有 优秀 的 作家 都 处于 和 现实 的 紧张 关系 中 在 他们 笔下 只有 当 现实 处于 遥远 状态 时 他们 作品 中 的 现实 才 会 闪闪发亮 应该 看到 这 过去 的 现实 虽然 充满 魅力 可 它 已经 蒙上 了 一层 虚幻 的 色彩 那 里面 塞满 了 个人 想象 和 个人 理解 真正 的 现实 也 就是 作家 生活 中 的 现实 是 令人费解 和 难以相处 的 作家 要 表达 与 之 朝夕相处 的 现实 他 常常 会 感到 难以承受 蜂拥而来 的 真实 几乎 都 在 诉说着 丑恶 和 阴险 怪 就 怪 在 这里 为什么 丑恶 的 事物 总是 在 身边 而 美好 的 事物 却 远 在 海角 换句话说 人 的 友爱 和 同情 往往 只是 作为 情绪 来到 而 相反 的 事实 则 是 伸手 便 可 触及 正像 一位 诗人 所 表达 的 人类 无法忍受 太多 的 真实 也 有 这样 的 作家 一生 都 在 解决 自我 和 现实 的 紧张 关系 福克纳 是 最为 成功 的 例子 他 找到 了 一条 温和 的 途径 他 描写 中间状态 的 事物 同时 包容 了 美好 与 丑恶 他 将 美国 南方 的 现实 放到 了 历史 和 人文精神 之中 这是 真正 意义 上 的 文学 现实 因为 它 连接 着 过去 和 将来 一些 不 成功 的 作家 也 在 描写 现实 可 他们 笔下 的 现实 说穿 了 只是 一个 环境 是 固定 的 死去 的 现实 他们 看不到 人 是 怎样 走 过来 的 也 看不到 怎样 走 去 当 他们 在 描写 斤斤计较 的 人物 时 我们 会 感到 作家 本人 也 在 斤斤计较 这样 的 作家 是 在 写实 在 的 作品 而 不是 现实 的 作品 前面 已经 说 过 我 和 现实 关系紧张 说 得 严重 一些 我 一直 是 以 敌对 的 态度 看待 现实 随着 时间 的 推移 我 内心 的 愤怒 渐渐 平息 我 开始 意识 到 一位 真正 的 作家 所 寻找 的 是 真理 是 一种 排斥 道德 判断 的 真理 作家 的 使命 不是 发泄 不是 控诉 或者 揭露 他 应该 向 人们 展示 高尚 这里 所说 的 高尚 不是 那种 单纯 的 美好 而是 对 一切 事物 理解 之后 的 超然 对善 与 恶 一视同仁 用 同情 的 目光 看待 世界 正是 在 这样 的 心态 下 我 听到 了 一首 美国 民歌 老 黑奴 歌中 那位 老 黑奴 经历 了 一生 的 苦难 家人 都 先 他 而 去 而 他 依然 友好 地 对待 世界 没有 一句 抱怨 的话 这 首歌 深深 打动 了 我 我 决定 写下 一篇 这样 的 小说 就是 这篇 活着 写人 对 苦难 的 承受能力 对 世界 乐观 的 态度 写作 过程 让 我 明白人 是 为 活着 本身 而 活着 的 而 不是 为 活着 之外 的 任何事物 所 活着 我 感到 自己 写下 了 高尚 的 作品 第一章 我 比 现在 年轻 十岁 的 时候 获得 了 一个 游手好闲 的 职业 去 乡间 收集 民间 歌谣 那 一年 的 整个 夏天 我 如同 一只 乱飞 的 麻雀 游荡 在 知 了 和 阳光 充斥 的 村舍 田野 我 喜欢 喝 农民 那种 带有 苦味 的 茶水 他们 的 茶桶 就 放在 田埂 的 树下 我 毫无顾忌 地拿起 漆满 茶垢 的 茶碗 舀水 喝 还 把 自己 的 水壶 灌满 与 田里 干活 的 男人 说上几句 废话 在 姑娘 因 我 而 起 的 窃窃 私笑 里 扬长而去 我 曾经 和 一位 守 着 瓜田 的 老人 聊 了 整整 一个 下午 这 是 我 有生以来 瓜 吃 得 最 多 的 一次 当 我 站 起来 告辞 时 突然 发现自己 像 个 孕妇 一样 步履艰难 了 然后 我 与 一位 当上 了 祖母 的 女人 坐在 门槛 上 她 编着 草鞋 为 我 唱 了 一支 十月 怀胎 我 最 喜欢 的 是 傍晚 来到 时 坐在 农民 的 屋前 看着 他们 将 提上 的 井水 泼 在 地上 压住 蒸腾 的 尘土 夕阳 的 光芒 在 树梢 上 照射 下来 拿 一把 他们 递过来 的 扇子 尝尝 他们 和 盐 一样 咸 的 咸菜 看看 几个 年轻 女人 和 男人 们 说 着 话 我 头戴 宽边草帽 脚 上 穿着 拖鞋 一条 毛巾 挂 在 身后 的 皮带 上 让 它 像 尾巴 似的 拍打着 我 的 屁股 我 整日 张大嘴巴 打着 呵欠 散漫 地 走 在 田间 小道 上 我 的 拖鞋 吧哒 吧哒 把 那些 小道 弄 得 尘土飞扬 仿佛 是 车轮 滚滚 而 过时 的 情景 我 到处 游荡 已经 弄 不 清楚 哪些 村庄 我 曾经 去过 哪些 我 没有 去过 我 走近 一个 村子 时常 会 听到 孩子 的 喊叫 那个 老 打呵欠 的 人 又 来 啦 于是 村里人 就 知道 那个 会 讲 荤 故事会 唱酸曲 的 人 又 来 了 其实 所有 的 荤 故事 所有 的 酸曲 都 是从 他们 那里 学来 的 我 知道 他们 全部 的 兴趣 在 什么 地方 自然 这 也 是 我 的 兴趣 我 曾经 遇到 一个 哭泣 的 老人 他 鼻青眼肿 地 坐在 田埂 上 满腹 的 悲哀 使 他 变得 十分 激动 看到 我 走来 他 仰起 脸 哭声 更为 响亮 我 问 他 是 谁 把 他 打成 这样 的 他 手指 挖 着 裤管 上 的 泥巴 愤怒 地 告诉 我 是 他 那 不孝 的 儿子 当 我 再 问 为何 打 他 时 他 支支吾吾 说不清楚 了 我 就 立刻 知道 他准 是 对 儿媳 干 了 偷鸡摸狗 的 勾当 还有 一个 晚上 我 打着 手电 赶 夜路 时 在 一口 池塘 旁照 到 了 两段 赤裸 的 身体 一段 压 在 另 一段 上面 我 照着 的 时候 两段 身体 纹丝不动 只是 有 一只 手 在 大腿 上 轻轻 搔痒 我 赶紧 熄灭 手电 离去 在 农忙 的 一个 中午 我 走进 一家 敞开大门 的 房屋 去 找水 喝 一个 穿 短裤 的 男人 神色 慌张 地 挡住 了 我 把 我 引到 井旁 殷勤 地替 我 打上来 一桶 水 随后 又 像 耗子 一样 窜进 了 屋里 这样 的 事 我 屡见不鲜 差不多 和 我 听到 的 歌谣 一样 多当 我望 着 到处 都 充满 绿色 的 土地 时 我 就 会 进一步 明白 庄稼 为何 长得 如此 旺盛 那个 夏天 我 还 差一点 谈情说爱 我 遇到 了 一位 赏心悦目 的 女孩 她 黝黑 的 脸蛋 至今 还 在 我 眼前 闪闪发光 我 见到 她 时 她 卷起 裤管 坐在 河边 的 青草 上 摆弄 着 一根 竹竿 在 照看 一群 肥硕 的 鸭子 这个 十六七岁 的 女孩 羞怯 地 与 我 共同 度过 了 一个 炎热 的 下午 她 每次 露出 笑容 时 都 要 深深地 低下头去 我 看着 她 偷偷 放下 卷起 的 裤管 又 怎样 将 自己 的 光 脚丫子 藏到 草丛里 去 那个 下午 我 信口开河 向 她 兜售 如何 带 她 外出 游玩 的 计划 这个 女孩 又惊又喜 我 当初 情绪 激昂 说 这些 也 是 真心实意 我 只是 感到 和 她 在 一起 身心愉快 也 不 去 考虑 以后 会 是 怎样 可是 后来 当 她 三个 强壮 如牛 的 哥哥 走 过来 时 我 才 吓一跳 我 感到 自己 应该 逃之夭夭 了 否则 我 就 会 不得不 娶 她 为 妻 我 遇到 那位 名叫 福贵 的 老人 时 是 夏天 刚刚 来到 的 季节 那天 午后 我 走 到 了 一棵 有着 茂盛 树叶 的 树下 田里 的 棉花 已 被 收起 几个 包 着 头巾 的 女人 正 将 棉秆 拔出来 她们 不时 抖动着 屁股 摔 去 根须 上 的 泥巴 我 摘下 草帽 从 身后 取过 毛巾 擦起 脸上 的 汗水 身旁 是 一口 在 阳光 下 泛黄 的 池塘 我 就 靠着 树干 面对 池塘 坐 了 下来 紧接着 我 感到 自己 要 睡觉 了 就 在 青草 上 躺下来 把 草帽 盖住 脸 枕着 背包 在 树荫 里 闭上 了 眼睛 这位 比 现在 年轻 十岁 的 我 躺 在 树叶 和 草丛 中间 睡 了 两个 小时 其间 有 几只 蚂蚁 爬 到 了 我 的 腿 上 我 沉睡 中 的 手指 依然 准确 地 将 它们 弹 走 后来 仿佛 是 来到 了 水边 一位 老人 撑 着 竹筏 在 远处 响亮 地 吆喝 我 从 睡梦 里 挣脱 而出 吆喝声 在 现实 里 清晰 地 传来 我 起身 后 看到 近旁 田里 一个 老人 正在 开导 一头 老牛 犁田 的 老牛 或许 已经 深感 疲倦 它 低头 伫立 在 那里 后面 赤裸 着 脊背 扶犁 的 老人 对 老牛 的 消极态度 似乎 不满 我 听到 他 嗓音 响亮 地 对 牛 说道 做 牛耕田 做 狗 看家 做 和尚 化缘 做 鸡 报晓 做 女人 织布 哪 只 牛 不 耕田 这 可是 自古 就 有 的 道理 走 呀 走 呀 疲倦 的 老牛 听到 老人 的 吆喝 后 仿佛 知错 般地 抬起 了 头拉着 犁 往前走 去 我 看到 老人 的 脊背 和 牛 背 一样 黝黑 两个 进入 垂暮 的 生命 将 那块 古板 的 田地 耕得 哗哗 翻动 犹如 水面 上 掀起 的 波浪 随后 我 听到 老人 粗哑 却 令人感动 的 嗓音 他 唱起 了 旧日 的 歌谣 先是 口依 呀 啦 呀 唱 出 长长的 引子 接着 出现 两句 歌词 — — 皇帝 招 我 做 女婿 路远迢迢 我 不 去 因为 路途遥远 不愿 去 做 皇帝 的 女婿 老人 的 自鸣得意 让 我 失声 而 笑 可能 是 牛 放慢 了 脚步 老人 又 吆喝 起来 二喜 有庆 不要 偷懒 家珍 凤霞 耕得 好 苦根 也 行 啊 一头 牛竟 会 有 这么 多 名字 我 好奇 地 走 到 田边 问 走近 的 老人 这牛 有 多少 名字 老人 扶住 犁站 下来 他 将 我 上下 打量 一番 后 问 你 是 城里人 吧 是 的 我 点点头 老人 得意 起来 我 一眼 就 看 出来 了 我 说 这 牛 究竟 有 多少 名字 老人 回答 这牛 叫 福贵 就 一个 名字 可 你 刚才 叫 了 几个 名字 噢 — — 老人 高兴 地笑 起来 他 神秘 地向 我 招招手 当 我 凑 过去 时 他 欲 说 又 止 他 看到 牛正 抬 着 头 就 训斥 它 你 别 偷听 把头 低下 牛 果然 低下 了 头 这时 老人 悄声 对 我 说 我 怕 它 知道 只有 自己 在 耕田 就 多 叫 出 几个 名字 去 骗 它 它 听到 还有 别的 牛 也 在 耕田 就 不会 不 高兴 耕田 也 就 起劲 啦 老人 黝黑 的 脸 在 阳光 里 笑 得 十分 生动 脸上 的 皱纹 欢乐地 游动 着 里面 镶满 了 泥土 就 如 布满 田间 的 小道 这位 老人 后来 和 我 一起 坐在 了 那 棵 茂盛 的 树下 在 那个 充满 阳光 的 下午 他 向 我 讲述 了 自己 四十多年 前 我 爹常 在 这里 走来走去 他 穿着 一身 黑 颜色 的 绸衣 总是 把 双手 背 在 身后 他 出门 时常 对 我娘 说 我 到 自己 的 地上 去 走走 我爹 走 在 自己 的 田产 上 干活 的 佃户 见 了 都 要 双手 握住 锄头 恭敬地 叫 一声 老爷 我爹 走 到 了 城里 城里人 见 了 都 叫 他 先生 我爹 是 很 有 身份 的 人 可 他 拉屎 时 就 像 个 穷人 了 他 不 爱 在 屋里 床边 的 马桶 上 拉屎 跟 牲畜 似的 喜欢 到 野地 里 去 拉屎 每天 到 了 傍晚 的 时候 我爹 打着 饱嗝 那 声响 和 青蛙 叫唤 差不多 走出 屋去 慢吞吞 地朝 村口 的 粪 缸 走 去 走 到 了 粪 缸 旁 他 嫌 缸 沿脏 就 抬脚 踩 上去 蹲 在 上面 我爹 年纪 大 了 屎 也 跟着 老 了 出来 不 容易 那 时候 我们 全家人 都 会 听到 他 在 村口 嗷嗷叫 着 几十年 来 我 爹 一直 这样 拉屎 到 了 六十多岁 还 能 在 粪 缸 上 一 蹲 就是 半晌 那 两条腿 就 和 鸟爪 一样 有劲 我爹 喜欢 看着 天色 慢慢 黑 下来 罩住 他 的 田地 我 女儿 凤霞 到 了 三四岁 常跑 到 村口 去 看 她 爷爷 拉屎 我爹 毕竟 年纪 大 了 蹲 在 粪 缸 上 腿 有些 哆嗦 凤霞 就 问 他 爷爷 你 为什么 动 呀 我 爹 说 是 风吹 的 那 时候 我们 家境 还 没有 败落 我们 徐家 有 一百多亩 地 从 这里 一直 到 那边 工厂 的 烟囱 都 是 我家 的 我 爹 和 我 是 远近闻名 的 阔 老爷 和 阔少爷 我们 走路 时 鞋子 的 声响 都 像是 铜钱 碰来 撞 去 的 我 女人家 珍是 城里 米行 老板 的 女儿 她 也 是 有钱 人家 出生 的 有钱人 嫁给 有钱人 就是 把 钱 堆起来 钱 在 钱 上面 哗哗 地流 这样 的 声音 我 有 四十年 没有 听到 了 我 是 我们 徐家 的 败家子 用 我 爹 的话 说 我 是 他 的 孽子 我念过 几年 私塾 穿 长衫 的 私塾 先生 叫 我念 一段 书时 是 我 最 高兴 的 我 站 起来 拿 着 本 线装 的 千字文 对 私塾 先生 说 好好 听 着 爹 给 你 念 一段 年过花甲 的 私塾 先生 对 我 爹 说 你家 少爷 长大 了 准能 当个 二流子 我 从小 就 不可救药 这 是 我 爹 的话 私塾 先生 说 我 是 朽木不可雕 也 现在 想想 他们 都 说 对 了 当初 我 可不 这么 想 我 想 我 有钱 呵 我 是 徐家 仅 有 的 一根 香火 我 要是 灭 了 徐家 就 得 断子绝孙 上 私塾 时 我 从来不 走路 都 是 我家 一个 雇工 背着 我 去 放学 时 他 已经 恭恭敬敬 地 弯腰 蹲 在 那里 了 我 骑上去 后 拍拍 雇工 的 脑袋 说 一声 长根 跑 呀 雇工 长根 就 跑 起来 我 在 上面 一颠 一颠 的 像是 一只 在 树梢 上 的 麻雀 我 说 一声 飞 呀 长根 就 一步 一跳 做出 一副 飞 的 样子 我 长大 以后 喜欢 往 城里 跑 常常 是 十天 半月 不 回家 我 穿着 白色 的 丝绸 衣衫 头发 抹 得 光滑 透亮 往 镜子 前 一站 我 看到 自己 满脑袋 的 黑 油漆 一副 有钱人 的 样子 我爱往 妓院 钻 听 那些 风骚 的 女人 整夜 叽叽喳喳 和 哼哼哈哈 那些 声音 听 上去 像是 在 给 我 挠痒痒 做人 呵 一旦 嫖上 以后 也 就 免不了 要 去 赌 这个 嫖 和 赌 就 像是 胳膊 和 肩膀 连在一起 怎么 都 分不开 后来 我 更 喜欢 赌博 了 嫖妓 只是 为了 轻松 一下 就 跟 水 喝 多 了 要 去 方便 一下 一样 说白了 就是 撒尿 赌博 就 完全 不 一样 了 * 沂怯 滞纯煊 纸 粽牛 乇 鹗 悄歉 鼋 * 张有 一股 叫 我 说不出来 的 舒坦 以前 我 是 过 一天 和尚 撞 一天 钟 整天 有气无力 每天 早晨 醒来 犯愁 的 就是 这 一天 该 怎么 打发 我爹 常常 唉声叹气 训斥 我 没有 光耀 祖宗 我 心想 光耀 祖宗 也 不是 非我莫属 我 对 自己 说 凭 什么 让 我 放 着 好端端 的 日子 不 过去 想 光耀 祖宗 这些 累人 的 事 再说 我爹 年轻 时 也 和 我 一样 我家 祖上 有 两百多 亩 地 到 他 手上 一 折腾 就 剩 一百多亩 了 我 对 爹 说 你 别 犯愁 啦 我 儿子 会 光耀 祖宗 的 总该 给 下一辈 留点 好事 吧 我娘 听 了 这话 吃 吃 笑 她 偷偷 告诉 我 我 爹 年轻 时 也 这么 对 我 爷爷 说 过 我 心想 就是 嘛 他 自己 干不了 的 事 硬 要 我 来 干 我 怎么 会 答应 那 时候 我 儿子 有庆 还 没 出来 我 女儿 凤霞 刚好 四岁 家珍 怀着 有庆有 六个月 了 自然 有些 难看 走路 时 裤裆 里 像是 夹 了 个 馒头 似的 一撇 一撇 两只 脚不往 前往 横里 跨 我 嫌弃 她 对 她 说 你 呀 风 一 吹 肚子 就要 大上 一圈 家珍 从不 顶撞 我 听 了 这 糟蹋 她 的话 她 心里 不乐意 也 只是 轻轻 说 一句 又 不是 风吹 大 的 自从 我 赌博 上 以后 我 倒 还 真想 光耀 祖宗 了 想 把 我 爹 弄掉 的 一百多亩 地 挣 回来 那些 日子 爹问 我 在 城里 鬼混 些 什么 我 对 他 说 现在 不 鬼混 啦 我 在 做生意 他 问 做 什么 生意 他 一 听 就 火 了 他 年轻 时 也 这么 回答 过 我 爷爷 他 知道 我 是 在 赌博 脱 下 布鞋 就 朝 我 打来 我 左 躲 右藏 心想 他 打 几下 就 该 完 了 吧 可 我 这个 平常 只有 咳嗽 才 有 力气 的 爹 竟然 越 打 越 凶 了 我 又 不是 一只 苍蝇 让 他 这么 拍来拍去 我 一把 捏住 他 的 手 说道 爹 你 他 娘 的 算了吧 老子 看 在 你 把 我 弄出来 的 份 上 让 让 你 你 他 娘 的 就算 了 吧 我 捏住 爹 的 右手 他 又 用 左手 脱 下 右脚 的 布鞋 还 想 打 我 我 又 捏住 他 的 左手 这样 他 就 动弹不得 了 他 气得 哆嗦 了 半晌 才 喊 出 一声 孽子 我 说 去 你 娘 的 双手 一推 他 就 跌 坐 到 墙角 里 去 了 我 年轻 时 吃喝嫖赌 什么 浪荡 的 事 都 干过 我常去 的 那家 妓院 是 单 名叫 青楼 里面 有个 胖胖的 妓女 很招 我 喜爱 她 走路 时 两片 大 屁股 就 像 挂 在 楼前 的 两只 灯笼 晃来晃去 她 躺 到 床上 一 动一动 时压 在 上面 的 我 就 像 睡 在 船上 在 河水 里 摇 呀 摇 呀 我 经常 让 她 背着 我 去 逛街 我 骑 在 她 身上 像是 骑 在 一匹 马上 我 的 丈人 米行 的 陈老板 穿着 黑色 的 绸衫 站 在 柜台 后面 我 每次 从 那里 经过 时 都 要 揪住 妓女 的 头发 让 她 停下 脱帽 向 丈人 致礼 近来 无恙 我 丈人 当时 的 脸 就 和 松花蛋 一样 我 呢 嘻嘻 笑 着 过去 了 后来 我爹 说 我 丈人 几次 都 让 我 气病 了 我 对 爹 说 别 哄 我 啦 你 是 我 爹 都 没气 成病 他 自己 生病 凭 什么 往 我 身上 推他 怕 我 我 倒 是 知道 的 我 骑 在 妓女 身上 经过 他 的 店门 时 我 丈人 身手 极快 像 只 耗子 呼地 一下 窜 到 里屋 去 了 他 不敢 见 我 可当 女婿 的 路过 丈人 店门 总该有 个 礼 吧 我 就 大声嚷嚷 着 向 逃窜 的 丈人 请安 最 风光 的 那次 是 小 日本 投降 后 国军 准备 进城 收复失地 那天 可 真是 热闹 城里 街道 两旁 站 满 了 人 手里 拿 着 小 彩旗 商店 都 斜 着 插 出来 青天白日 旗 我 丈人 米 行前 还 挂 了 一幅 两扇 门板 那么 大 的 蒋介石 像 米行 的 三个 伙计 都 站 在 蒋介石 左边 的 口袋 下 那天 我 在 青楼 里 赌 了 一夜 脑袋 昏昏沉沉 像是 肩膀 上 扛 了 一袋 米 我 想着 自己 有 半个 来 月 没 回家 了 身上 的 衣服 一股 酸 臭味 我 就 把 那个 胖大 妓女 从 床上 拖起来 让 她 背着 我 回家 叫 了 抬轿子 跟 在 后面 我 到 了 家 好 让 她 坐轿子 回 青楼 那 妓女 嘟嘟哝哝 背着 我往 城门 走 说 什么 雷公 不 打 睡觉 人才 睡下 就 被 我 叫醒 说 我 心肠 黑 我 把 一个 银元 往 她 胸口 灌进去 就 把 她 的 嘴 堵 上 了 走近 了 城门 一 看到 两旁 站 了 那么 多人 我 的 精神 一下子 上来 了 我 丈人 是 城里 商会 的 会长 我 很 远 就 看到 他 站 在 街道 中央 喊 都 站 好 了 都 站 好 了 等 国军 一到 大家 都 要 拍手 都 要 喊 有人 看到 了 我 就 嘻嘻 笑 着 喊 来 啦 来 啦 我 丈人 还 以为 是 国军 来 了 赶紧 闪到 一旁 我 两条腿 像是 夹马 似的 夹 了 夹 妓女 对 她 说 跑 呀 跑 呀 在 两旁 人群 的 哄笑 里 妓女 呼哧呼哧 背着 我 小跑 起来 嘴里 骂 道 夜里 压 我 白天 骑 我 黑心肠 的 你 是 逼 我 往 死 里 跑 我 咧着 嘴 频频 向 两旁 哄笑 的 人 点头 致礼 来到 丈人 近前 我 一把 扯住 妓女 的 头发 站住 站住 妓女 哎 唷 叫 了 一声 站住脚 我 大声 对 丈人 说 岳父 大人 女婿 给 你 请 个 早安 那次 我 实实在在 地 把 我 丈人 的 脸 丢 尽 了 我 丈人 当时 傻站 在 那里 嘴唇 一个劲地 哆嗦 半晌 才 沙哑 地说 一声 祖宗 你 快 走 吧 那 声音 听 上去 都 不 像是 他 的 了 我 女人家 珍 当然 知道 我 在 城里 这些 花花绿绿 的 事 家珍 是 个 好 女人 我 这辈子 能 娶 上 这么 一个 贤惠 的 女人 是 我 前世 做 狗吠 叫 了 一辈子 换来 的 家珍 对 我 从来 都 是 逆来顺受 我 在 外面 胡闹 她 只是 在 心里打鼓 从不 说 我 什么 和 我娘 一样 我 在 城里 闹腾 得 实在 有些 过分 家珍 心里 当然 有 一团乱麻 乱糟糟 的 不能 安分 有 一天 我 从 城里 回到 家中 刚刚 坐下 家珍 就 笑盈盈 地端 出 四样 菜 摆在 我 面前 又 给 我 斟满 了 酒 自己 在 我 身旁 坐下 来待候 我 吃喝 她 笑盈盈 的 样子 让 我 觉得 奇怪 不 知道 她 遇上 了 什么 好事 我 左思右想 也 想不出 这天 是 什么 日子 我 问 她 她 不 说 就是 笑盈盈 地 看着 我 那 四样 菜 都 是 蔬菜 家珍 做 得 各不相同 可 吃 到 下面 都 是 一块 差不多 大小 的 猪肉 起先 我 没 怎么 在意 吃 到 最后 一碗 菜 底下 又 是 一块 猪肉 我 一 愣 随后 我 就 嘿嘿 笑了起来 我 明白 了 家珍 的 意思 她 是 在 开导 我 女人 看上去 各不相同 到 下面 都 是 一样 的 我 对 家珍 说 这 道理 我 也 知道 道理 我 也 知道 看到 上面 长得 不 一样 的 女人 我 心里 想 的 就是 不 一样 这 实在 是 没 办法 的 事 家珍 就是 这样 一个 女人 心里 对 我 不满 脸上 不让 我 看 出来 弄些 转弯抹角 的 点子 来 敲打 我 我 偏偏 是 软硬不吃 我爹 的 布鞋 和 家珍 的 菜 都 管不住 我 的 腿 我 就是 爱往 城里 跑 爱往 妓院 钻 还是 我娘 知道 我们 男人 心里 想 什么 她 对 家珍 说 男人 都 是 馋嘴 的 猫 我娘 说 这话 不 只是 为 我 开脱 还 揭 了 我 爹 的 老底 我爹 坐在 椅子 里 一 听 这话 眼睛 就眯成 了 两条 门缝 嘿嘿 笑 了 一下 我爹 年轻 时 也 不 检点 他 是 老 了 干不动 了 才 老实 起来 我 赌博 时 也 在 青楼 常玩 的 是 麻将牌 九 和 骰子 我 每 赌 必输 越输 我 越 想 把 我 爹 年轻 时 输掉 的 一百多亩 地 赢回来 刚 开始 输 了 我 当场 给钱 没钱 就 去 偷 我娘 和 家珍 的 手饰 连 我 女儿 凤霞 的 金 项圈 也 偷 了 去 后来 我 干脆 赊帐 债主 们 都 知道 我 的 家境 让 我 赊帐 自从 赊帐 以后 我 就 不 知道 自己 输 了 有 多少 债主 也 不 提醒 我 暗地里 天天 都 在 算计 着 我家 那 一百多亩 地 一直 到 解放以后 我 才 知道 赌博 的 赢家 都 是 做 了 手脚 的 难怪 我 老输 不 赢 他们 是 挖 了 个 坑 让 我 往里面 跳 那 时候 青楼 里 有 一位 沈先生 年纪 都 快 到 六十岁 了 眼睛 还 和 猫眼 似的 贼亮 穿着 蓝布 长衫 腰板 挺 着 笔直 平常 时候 总是 坐在 角落里 闭着 眼睛 像是 在 打盹 等到 牌 桌上 的 赌注 越下 越大 沈先生 才 咳嗽 几声 慢悠悠 地 走 过来 选一 位置 站 着 看看 了 一会 便 有人 站 起来 让位 沈先生 这里 坐 沈先生 撩起 长衫 坐下 对 另 三位 赌徒 说 请 青楼 里 的 人 从没 见到 沈先生 输过 他 那双 青筋 突暴 的 手 洗牌 时 只 听到 哗哗 的 风声 那付 牌 在 他 手中 忽长忽短 唰 唰 地 进进出出 看得 我 眼睛 都 酸 了 有 一次 沈先生 喝醉 了 酒 对 我 说 赌博 全靠 一双 眼睛 一 双手 眼睛 要练成 爪子 一样 手要 练成 泥鳅 那样 滑小 日本 投降 那年 龙 二来 了 龙 二 说话 时 南腔北调 光听 他 的 口音 就 知道 这人 不 简单 是 闯荡 过 很多 地方 见 过 大 世面 的 人龙 二不穿 长衫 一身 白绸 衣 和 他 同来 的 还有 两个 人帮 他 提着 两只 很大 的 柳条箱 那年 沈先生 和 龙 二 的 赌局 实在 是 精彩 青楼 的 赌 厅里 挤满 了 人 沈先生 和 他们 三个 人 赌龙 二 身后 站 着 一个 跑堂 的 托 着 一盘 干 毛巾 龙二 不时 取过 一块 毛巾 擦手 他 不 拿 湿 毛巾 拿 干 毛巾 擦手 我们 看 了 都 觉得 稀奇 他 擦 手时 那 副 派头 像是 刚 吃 完 了 饭 似的 起先 龙二 一直 输 他 看上去 还 满不在乎 倒 是 他 带来 的 两个 人 沉不住气 一个 骂骂咧咧 一个 唉声叹气 沈先生 一直 赢 可 脸上 一点 赢 的 意思 都 没有 沈先生 皱着眉头 像是 输 了 很多 似的 他 脑袋 垂着 眼睛 却 跟 钉子 似的 钉 在 龙 二 那 双手 上 沈先生 年纪 大 了 半个 晚上 赌 下来 就 开始 喘 粗气 额头 上 汗水 渗 了 出来 沈先生 说 一局 定 胜负 吧 龙 二 从 盘子 里 取过 最后 一块 毛巾 擦 着手 说行 啊 他们 把 所有 的 钱 都 压 在 了 桌上 钱 差不多 把 桌面 占满 了 只 在 中间 留个 空 每个 人发 了 五张 牌 亮出 四张 后龙 二 的 两个 伙伴 立刻 泄气 了 把 牌 一 推 说完 啦 又 输 了 龙 二 赶紧 说 没输 你们 赢 啦 说 着 龙 二 亮出 最后 那 张牌 是 黑桃 Ａ 他 的 两个 伙伴 一看 立刻 嘿嘿 笑 了 其实 沈先生 最后 那 张牌 也 是 黑桃 Ａ 他 是 三 Ａ 带 两 Ｋ 龙二 一个 伙伴 是 三 Ｑ 带俩 Ｊ 龙二 抢先 亮出 了 黑桃 Ａ 沈先生 怔 了 半晌 才 把 手中 的 牌 一收 说 我 输 了 龙 二 的 黑桃 Ａ 和 沈先生 的 都 是从 袖管 里 换 出来 的 一副 牌 不能 有 两张 黑桃 Ａ 龙二 抢 了 先 沈先生 心里 明白 也 只能 认输 那 是 我们 第一次 看到 沈先生 输 沈先生 手推 桌子 站 起来 向龙 二 他们 作 了 个 揖 转过身 来往 外 走走 到 门口 微笑 着 说 我 老 了 后来 再 没人见 过 沈先生 听说 那天 天刚亮 他 就 坐 着 轿子 走 了 沈先生 一走龙 二成 了 这里 的 赌博 师傅 龙二 和 沈先生 不 一样 沈先生 是 只 赢 不输龙 二 是 赌注 小常输 赌注 大 就 没见 他 输过 了 我 在 青楼 常和龙 二 他们 赌有 输 * 杏晕易 * 觉得 自己 没 怎么 输 其实 我 赢 的 都 是 小钱 输掉 的 倒 是 大钱 我 还 蒙在鼓里 以为 自己 马上 就要 光耀 祖宗 了 我 最后 一次 赌博 时 家珍 来 了 那 时候 天 都 快 黑 了 这 是 家珍 后来 告诉 我 的 我 当初 根本 不 知道 天是 亮 着 还是 要 黑 了 家珍 挺 了 个 大肚子 找到 青楼 来 了 我 儿子 有庆 在 他 娘 肚子 里长 到 七八 月 个 月 了 家珍 找到 了 我 一声不吭 地 跪 在 我 面前 起先 我 没 看到 她 那天 我 手气 特别 好 掷 出 的 骰子 十有八九 是 我 要 的 点数 坐在 对面 的 龙二一 看 点数 嘿嘿 一笑 说 兄弟 我 又 栽 了 龙 二 摸牌 把 沈先生 赢 了 之后 青楼 里 没人敢 和 他 摸牌 了 我 也 不敢 我 和 龙二赌 都 是 用 骰子 就是 骰子 龙二玩 的 也 很 地道 他常 赢 少输 可 那天 他 栽到 我 手里 了 接连 地 输给 我 他 嘴里 叼 着 烟卷 眼睛 眯缝 着 像是 什么 事 都 没有 每次 输 了 都 还 嘿嘿 一笑 两条 瘦 胳膊 把 钱 推过来 时 却是 一百个 不 愿意 我 想 龙 二 你 也 该 惨 一次 了 人 都 是 一样 的 手 伸进 别人 口袋 里 掏钱 时 那个 眉开眼笑 轮 到 自己 给钱 了 一个个 都 跟 哭丧 一样 我 正 高兴 着 有人 扯 了 扯 我 的 衣服 低头 一看 是 自己 的 女人 看到 家珍 跪 着 我 就 火 了 心想 我 儿子 还 没 出来 就 跪 着 了 这 太 不 吉利 我 就 对 家珍 说 起来 起来 你 他 娘 的 给 我 起来 家珍 还 真 听话 立刻 站 了 起来 我 说 你 来 干什么 还 不 快给我 回去 说完 我 就 不管 她 了 看着 龙二将 骰子 捧 在手 心里 跟 拜佛 似的 摇 了 几下 他 一 掷 出 脸色 就 难看 了 说道 摸过 女人 屁股 就是 手气 不好 我 一看 自己 又 赢 了 就 说 龙 二 你 去 洗洗 手 吧 龙 二 嘿嘿 一笑 说道 你 把 嘴巴 子 抹 干净 了 再 说话 家珍 又 扯 了 扯 我 的 衣服 我 一 看 她 又 跪 到 地上 家珍 细声细气 地 说 你 跟 我 回去 要 我 跟 一个 女人 回去 家珍 这 不是 存心 出 我 的 丑 我 的 怒气 一下子 上来 了 我 看看 龙二 他们 他们 都 笑 着 看 我 我 对 家珍 吼道 你 给 我 滚回去 家珍 还是 说 你 跟 我 回去 我 给 了 她 两 巴掌 家珍 的 脑袋 像是 拨郎鼓 那样 摇晃 了 几下 挨 了 我 的 打 她 还是 跪 在 那里 说 你 不 回去 我 就 不 站 起来 现在 想 起来 叫 我 心疼 啊 我 年轻 时 真是 个 乌龟王八 蛋 这么 好 的 女人 我 对 她 又 打 又 踢 我 怎么 打 她 她 就是 跪 着 不 起来 打 到 最后 连 我 自己 都 觉得 没趣 了 家珍 头发 披散 眼泪汪汪 地 捂着脸 我 就 从 赢 来 的 钱 里 抓出 一把 给 了 旁边 站 着 的 两个 人 让 他们 把 家珍 拖出去 我 对 他们 说 拖 得 越 远 越 好 家珍 被 拖出去 时 双手 紧紧 捂着 凸起 的 肚子 那 里面 有 我 的 儿子 呵 家珍 没喊 没 叫 被 拖 到 了 大街 上 那 两个 人 扔开 她 后 她 就 扶 着 墙壁 站 起来 那 时候 天 完全 黑 了 她 一个 人 慢慢 往回 走 后来 我 问 她 她 那时 是不是 恨死 我 了 她 摇摇头 说 没有 我 的 女人 抹 着 眼泪 走到 她 爹米行 门口 站 了 很 长时间 她 看到 她 爹 的 脑袋 被 煤油灯 的 亮光 印在 墙上 她 知道 他 是 在 清点 帐目 她 站 在 那里 呜呜 哭 了 一会 就 走开 了 家珍 那天 晚上 走 了 十多里 夜路 回到 了 我家 她 一个 孤身 女人 又 怀着 七个 多月 的 有庆 一路上 到处 都 是 狗吠 下过 一场 大雨 的 路 又 坑坑洼洼 活着 前言 一位 真正 丽 的 作家 永远 医只 为 内心 写腥作 只怖 有惠 内陆 心才 会 真实 地 告诉 他 他 的 自辟 私 他 船 的 高尚 是 多迪 么 突出 内心 让 他 真实 地夯 了解 自己 一旦 了育解 了 自己 也族 就 了解 了 疯 世界 很多年 前 碉 我 就 明白 了 步 这耘 个 粟 原则 可是 汲要 捍涤卫 这个 原则 必须 付出 艰辛 协的 劳动 和 长体 时 我 期召 的 痛苦 因为 内心 并非 时时刻刻 都 是 敞开 的 镍 它 昂 更 多 的 时候 倒 是 位 封闭 誉 起来 于是 只有 讹 写作 不弃 停焰 地橇 写作 才能 使 牵 内心 敞开 塌 才 隅 能 使 自己 置身于 发过现 之中 就 像 日疗 出 的 光芒 照亮 了 黑 荒暗 胡 灵感 鼻 这时候 才 掠会 突然 来狈 到 长期 诚 以来 我 的 作品 都 数是 缕源 出 困于 和 现实 的 购 那 一层 紧张 关系 我 沉湎 于 坑 想象 之中 又 被 现营 实垦 紧紧 钡 控制 我 明确 感奉 受 着 自我 的 分裂 我 无法 使 自己 变得 纯粹 我 曾经 希望 自膊己 成为 一位 童话 作家 要 盯 不 就是 一位 蘑 实实在 喻在 帛 作品 的 拥有者 如果 我 能够 成控 为 这 两者 中 的 吵 任何 一苑 个 我 想隙 我 内心 的 痛苦 将会巧 轻微 得 多 可 颐 是 与此同时 我 的 力 垄量 也 会 双 削弱 很婆 多 越鸣 事实上 我 只 乡 能成 蜀 为 现在 这样 的 作家 绦 我 始刃 终为 内心 窘 的 需要 而 写 乖作理 肝智影 代替 不了 我 的 写 蛀 作正 因为 炕 此 我 在 亢 很长 一速 段时间 蛰 是 一个 愤怒 和 冷漠 的 作家 满 这 不技 只是 我斥 个人 面临 的 困难 几乎 按 所有 优秀 的 作家 都 处于 端 和 现实 的 紧张 关系 中耿 在 他 倒们 笔下 只有 当频 现实 处于 遥远 戌 状态 时骚 他们 作品 中 的 现实 才 会 闪闪发亮 应箭该 看到 这 过去 的 现实 虽然 充满 魅玖力 可 它 已经 肯蒙上 了 一层 翠 虚幻 的 色 慢彩 那 里面 塞满 了 个人 钦 想象 和 个人 敛 理解 望 真正 书 的 现 摧实 也 麻 就是 篡 作家 生鞘 活中 的 奇 现实 糙 是 令 以 人 费解 和 难以相处 的 趟 作禾 家要 表达 与 之 赊 朝夕相处 的 现实 袄 他 常常 会 感到 难以承受 径 蜂拥 氏 而 来 的 殃 真实 几乎 数都 在 诉说着 丑恶 和 阴险 截怪 陕就坊 怪 在 这里 为什么 丑恶 的 事物 总吮 是 在 身袍 边 而 美 唉 好 的 事帕物 却 远 在 海角 换句 疙话 滥 说 人 烩 的 友爱 和 同情 往往 只是 作为 情绪 来到 而 相反 的 事实 则 助 是 诅 伸手 便象 可触 借及 正像 一位 诗人 茧 所 表达 的 人类 无法 唾 忍受 太尹 多 的 奄真 涌实 也 有 这样 的 作家 杨 一生 都 掺 在 款 解决 自我 拾 和 现实 瘴 的 紧张 关棵系 福克纳 是 最为 成功 幅 的 例子 他 找到 吃 了 一条 温落 和 屏 的 途径 他 镭 描写 中间 撞 状态 的 事寞 物 同时 署 包容 了 美好 与 丑恶 他燃 将 美国 南方 的 乃 现实 放到 了 历史 和 人球文 精神 之中 这贯 是 真正 意义 上 的 文浆学 现实 因为 它 连接 着 过去 琐 和 将来 橇 一些 不蹈成 揉 功 的 作家 也 在 描筋 写 现实 可 他 巷们 笔下 的 现实 企 说穿 了 只 拇 是 一个 环境 盟是 固定 的 死去 赊 的 现实 他们 看不到 显人 是 怎样 走 过来 赁 的 鸯 也 看不到 怎样 吻 走 去 当 他们 在 描写 斤斤 做 计较 的 人物 时 我们 会 感到 作家 本人 也 在 斤斤 计艇 较 这 壶 样针 的 作家 是 在 写 钢 实在 的 作燥品 而 不是 现实 的 序 作品 前面 已经 说过 我和伍 现实 关践 系莱 紧张 潘说 钵 得 严沟 重粥 一些 我 一直 是 以 敌 牡 对 的 芽 态度 看待 现实 随着 时间 瓣 的 推移 我 内心 的 愤怒 渐渐 平息 我 开始 募 意识 到 佛 一位 真正 的 作家 所 蛤 寻找 履 的 是 蹋 真理 是 一种 费 排斥 道德 判断 杰 的 真理 作休家缩 的 手 使命 不是 发泄 不是 控诉 或 循者 慑 揭露 他 应该 向 人们 巳 展示 敛 高尚 雨 这里 毙 所说 始 的 高疹 尚不闷 是 那种 单纯 的 美雄 好 而是 对 一切 事 物理 钎解 蜘 之后 熙 的 超然 对善 与 矣 恶 一视同仁 用同 建情 爽 的 目光 看待 世界 正是 在 这样 的 心 庐态 下 我 听到 了 一 啮首 美国 民歌 老 黑奴 闹歌 中 那位 老 黑奴 经旗历 了 晕 一生 的 肛 苦难 家人 都 先 他 而 去 涧 而 他 框 依然 友貉 好 地 对待 世界 没有 哲 一句 抱怨 的话 陈 这 首酬 歌 深深 打佬动 了 我 我 决定 写 微下 一篇 这样 的 小说 就是 这篇 活察着 枉 写 人 对 苦难 的 承受 讲能 纤力鹃 对 世界 乐观 的 趣 态度 写作 过 轿程 蒸 让 砂 我 明白人 是 为 活着 废 本身 队 而 活着 的 抗而静 不烟 是 为 洱 活着 之外 的 任 曾 何队 事物 所 活着 颇 我会 感刀 到 自己 写下 了 高尚 的 区 作品 守 第润 一章 我 比渺 现在 年轻 十岁 的 时候 件 获得 了 一个 游手好闲 的 职业 去 乡间 筛 收集 民间 歌洽谣 胰 那 一服 年 倍 的 整个 夏天 我畴 如同 一危 只 乱 焊飞 的 爷 麻雀 游荡 奔 在 知寡 了 氮 和 阳光 充斥 的 村舍 田野 扭 我 喜欢 喝岗 农民 眷 那睁种 矗 带有 苦味 急 的 茶水 他 状们 泅 的 茶桶 我 就 游 放在 田埂 拜 的 姑树下 我 毫无 挺顾 钨 忌 地 拿 起 漆飘满 茶垢 的 巢 茶碗 舀水 喝 还 捉 把 猎 自己 的 水壶 灌满 与 田里 犹 干活 的 男人 说迹 上 咋 几句 废话 在 凋 姑娘 讳 因 我 肘 而 起 的 窃窃 私笑 里 扬长而去 濒 我 辟 曾 奶经 和 瞬 一位 传守办 着 瓜田 米 的 老人 聊 了 整整 一个 帘 下午 伶 这 是 我 有生 仆以 钠 来 瓜 吃 钾 得 最 多 的 一次 当颖 我 站 起来 告预 辞时 突然 发现自己 像 个 孕妇 一样 步履艰难 了 市然晰 后 我 尖 与 昼 一位 当上 了 祖母 的 女人 坐在 门槛 船上 她 编着 石 草鞋 为 我 唱 了 镰 一支 娥 十月 怀藻 胎 我 投 最喜 酣欢 的 是 傍晚 来到 时蛛 坐在 农民 的 屋前 看着 他们 将 提上 羊 的 破 井水 辩泼 在 地上 淫 压住 蒸腾 的 峭 尘土 夕阳 的 光芒 在 树慧梢 上照 截射孙 下来 拿 姚 一把 詹 他们 递过 茹来 的 扇 蛰子 尝尝 他们 和 盐 沿 一样 咸 的 咸菜 看看 几个 年轻 女人 和 男人 翠们 说 着 话 厢 我 头戴 宽边 草瘦 帽脚 上 穿着 拖鞋 一条 毛巾 挂 在 身后 的 皮带 上 掩 让 驼 它 忌 像 努 尾巴 似的 拍打着 我 的 屁股 我 整日 张蛇 大矽 嘴巴 打着 呵欠 散漫 地招 走 在 田桐间 小 窜 道 上 我 的 拖鞋 稳 吧哒 吧哒 把 那 地 些小 道 弄 得纺 尘土 飞牟扬 仿佛 是 车轮 滚滚 逢 而 过时 媒 的 情景 新 我 到处 游荡 已经 弄 不 清楚 哪些 村狰庄 曙 我 曾经 去过 哪些 汽我 没有 去过 我 走 丫近妇 一个 村巾子 时香常 贱会 听到 孩子 侄 的 姿喊 摘 叫 那个 老 打呵欠 俱 的 人坊 又 来 啦 于是 村里人 就 知道 那个 会 讲 荤 埠 故事 棚会 唱酸曲 的 人 又 来 了 其拢实 所有 的 荤 故事 睦 所有 的 酸 柱曲 都 是从 他们 那里 学来 的 我 靠 知道 他们 全部 的 背 兴趣 在 什么 地方 自然 这燎 也 是 我 的 兴趣 我纸 曾识经 遇到 一个 哭泣 炼 的 老人 溢 他 遂 鼻演 青眼 肿地 坐在 田埂 上 满腹 的 悲哀 使 他 变 搓 得 十分 激动 串 看到 我 走来 活 他 仰起 椿 脸 哭声 婪 更 走 为 蓬 响亮 冲 我 晒 问 他 是 谁 法 把 他 打啪成 讲 这 挚样 的 病 他 手指 飞挖 襄着 裤烃 管 采上 的 床 泥巴 愤怒 地 告诉 我 是 鼓 他 那 不杂 孝 的 儿子 当 我 再 问 为何 打熟 他絮时 他 支支吾吾 说不清 江楚 了 我影 就 立刻 知杭道 盔 他 准是 对淑儿 醒 媳干 了 偷鸡摸狗 豪 的 勾 肄当 还有 一个 晚上 我 打着 手电 赶 夜路 时 在 一口 蝉 池塘 旁照 噬 到 了 臭 两臂 段 赤裸 的 身体 一针 段压 在 另泪 一段 上面 我 照着 的 时 徐候 两段 身体 纹丝不动 只是 有 一晤 只手 在 大腿 上 轻啼轻 搔痒 倔 我 赶紧 熄灭 手电 离去 在 农忙 捏 的 一 酝个 中午 我 走进 一家 敞开大门 圈 的 房屋 去码 找水 喝 一个 蒋穿 短墅 裤 的 男人 神色 笔 慌张 地 挡住 睬 了 我 把 我 引到 稻井旁 殷勤 地替 我 打典 上膀 来 才 一桶 水塔 随后 又 像 普 耗子 一样 窜进 了 屋里 纤 这脓样 的 事 我 灾 屡见不鲜 差厕 不 多 和 我 幌 听到 的 歌谣 一样 多当 我望 棍 着 瑰 到处 羚都 芝充 妓满 绿色 的 土地 时 郭 我惯 就 会 进一步 明白 庄稼 为何 播长 得 如此 旺盛 那个 夏天 我 还 差一点 谈情 说购 爱 我 遇到 了 疹 一位 赏心悦目 的 女孩 她 黝黑 的 渗 脸蛋 至 涟 今 还 在 我 眼前 闪闪 挣发馏 光塞 我 见到 奈 她 时 她 皋 卷起 裤管 坐近 在 河边 的 心 青草 上 摆弄 着 一根 竹竿 在 照看 座 一群 注 肥硕 祸 的 鸭子 抚 这个 痔 十六七岁 钠 的 女孩 羞怯 地 与 送 我 桓 共同 棋 度过 了 一祥个 炎热 的 下午 她 每次 露出 笑容 时 都 要 贫 深深地 低 赤下头 去 我 看着 她 偷偷 放差 下 卷起 的 裤管 莎 又 怎样 将 瓢 自己 的 光 脚丫子 藏到 草丛里 去 那个 剪 下午 巴 我 信口开河 向 她 兜售 如何 带 她 外出 乌 游玩 的 计 轨划 这个 女孩 又惊又喜 贝 我 虞 当溜初 情绪 柞激匀 昂 颐 说 这些 也 是 真心 实汛 意 赌 我 只是 感到 和 她 在 一巢 起 身心愉快 也 不 去 考虑 以 宣后 会 是 怎样 千可僳是 后来 当 她 三个 灯 强壮 如牛 的 哥哥 走 过来 时 我俩 才 吓一跳 援 我 瓤 感 祭 到 自己 应疡 该 侥 逃之夭夭 了 否则 我 就 会 不得不 娶 她 望 为 妻 我 遇到 那位 名叫 佣福贵 的 老劲 人彰 时 吱 是 夏天 刚刚 来 榨到 的 季节 那堡 天 舆 午后 摆 我 走 到 了 一棵 有着 茂汉盛 树叶 的 树下 田里 的 王棉 娄花 已 被 收汤 起 几个 包着 头靡巾 氧 的 畔 女 蓟人蓬 正 将域 棉秆 拔出来 瘫 她们 卧 不时 抖 懂动 独着 屁股 摔 去 胯 根林须 上 的 泥巴 我 摘下 邢 草帽 从 沏 身后 取过 毛巾 擦起 脸上 的 汗水 身馅 旁 是 依 一口 骄在 阳光 下泛 帮 黄 的 艇 池塘 我 就 靠 饭 着 树干 面对 池塘 坐 了 下来 紧接着 我 感到 自锡己 要 睡觉 了 就 在 青妨 草上 躺 下 郑来值 把 草帽 盖 刽住 脸 枕 她 着 背包 在寅树 诧荫里 闭上 改 了 眼睛 涸 这位 比 现在 喳 年轻 十岁 的 瘟 我巷 躺 撩 在 树叶 龋 和 了 草丛 中间 睡 了 两个 小住 时罚 其撒间 洞 有 几只 蚂弦蚁 爬 到 了 我 的 腿 上 我孩 沉睡 中荧 的 手指 依然 准较 确瓷 地 将 它们 弹 走 后来 仿掖 佛 是 来到 了 水边 一位 落 老人 撑 欠 着 竹筏 在 蹲 远处 响 拐亮 地 吆喝 我 憋 从 堑 睡梦 孜里 挣脱 而 匈出 吆喝声 在 现实 里 清晰 甚地 传来 我疗 起身 杜后 看到 近 釜 旁 田里 一螟 个 洛 老人 木 正在 开导 一癌 头 老牛 澈 犁田 的 老牛 或许 已经 深感 疲倦 它 达 低头 伫立 在 脯 那里 馆后 憋面 赤裸 着 潮 脊背 扶犁 的 燕 老人 对 老牛 的 消极态度 务 似乎 不满 沏 我 重 听到 他 嗓音 响 猪亮 悼地 对 牛 说道 做 牛诞 耕田 做粱 狗 看家 做 和尚 化缘 札 做 鲸 鸡 报晓 做炉 女伦人 巩 织布 哪佩 只 牛 不 耕田 这 可是 自古 就 有 的 道 砌理 垄走 呀 走 呀 鲁 疲倦 的 老 牛黄 听 锌 到 老人 的 吆过 喝 后 仿聋佛 阎 知错 般地 抬起 了 兢头 拉 脖着 犁 往前走 去 敲 我 看到 老人 的 顶 脊背 和 牛笆 背 一样 黝黑 两个 进入 垂暮 的 生命 将 腋 那块 喂 古迹 板 的 田地 耕得 痘 哗 腑 哗 翻动 犹羽 如 水面 上 掀起 的 喊 波浪 随后 我起 听到 老人 诌 粗哑 认却 令人感动 啃 的 嗓音 他 唱起 了 在 旧瞻日 的 歌谣 先是 口依 呀 啦 呀 唱 出 长长的 引子 接着 出现 磺 两句 歌瘪 词帝 — — 皇帝 招 我 穴 做 女婿 路远迢迢 我 不 去 因为 路途遥远 不愿 去 做 葬 皇帝 的 女婿 心 老人 的 自鸣得意 让 我点 失哈声 而 笑 可能 是 牛放懦 慢郊 了 脚团步 老人 又 吆喝 起来 二喜 蛇 有庆 不要 偷懒 家珍 篆凤媳霞 耕 荤 得 好儡 苦根 也 行力 啊 揣 一头 牛竟 会 有 这形 么 多 名字 奠 我 好奇 地 走 似到 田边 问走 灯近 的 老人 这牛 有 多少 名字 老人 沁 扶住 犁站 下来 他 众将 绵 我 上下 歇 打量 一番 后 问 你 是 衔 城里人 吧 闹 通是 的 扒啡 我 点点头 老人 得 碰意 起来 颂 我 一眼 匣 就 看 蚕 出来 了 厂 我 说 这 敞牛 究竟 有 多少 名 蓑字 老 都 人 回绪答 这 牛 叫 福贵忧 就 一个 名字 可 你 刚才 叫 了 几个 名 仿字 噢 — — 稠缆 老人 高兴 地笑 起来 他 神秘 超地 向 我 招招手 当 我 凑迹 过 宦去 时 邑 他 欲 说 又 止 他 看到 牛正 抬 着 头 就 训喳斥 它 你 别冰 偷听 把头 低下 牛 果然 述 低下 了 头 这时 老绽 人宴 悄声 对 我 说 我 怕 秘它 知道 让 只有 自侈己 要 在 耕田 就 多寂 叫 出 几个 名字 蝶 去 跳 骗 它 它 药 听到 还瑶 有 片别 攒 的 牛 也 在 汕 耕田 就 不会 不 高兴 耕田 也 就 起 瓮 劲 啦 宾 老 贬人黝 邓黑 的 滨 脸 在 阳光 里 笑 得 十分 生动 脸上 的 皱 灶 纹 欢乐 瞒 地 游动 着 里面 镶满 了 泥土 就 如 布满 田间 的 小道 这位 蛾 老人 后来 和 我 状 一起 坐撼 在 狄 了 那 棵 茂盛 的 树下 在 那个 充满 阳光 的 下午 他 向 我 讲述 了 自己 熙鞋 四十 扳多吏 年前 我 爹系常 在 这国里 走来 走氯去 他 穿着 一昌身 黑颜筐 色 艾 的 绸衣 总堂 是 把 双手 背 在 身后 他 出门 时常 对 我娘 说 我 到 自己 的 地扎 上辰 去 走走 噪 我 爹 走 在 自己 的 田产 上 干活 的 佃户 见 了 都 要 双手 握住 锄头 恭敬 坠地 叫 一声 龚老爷 我 爹敬 走 到 了 城里 城里人 见 了 晌 都 叫 他 铆 先生 我爹 是 很 有 身波份 的 人 可 他 倔 拉屎 时 就 像 个 穷人 嘛 了 他 譬不爱 在 屋 阿里 桃床 白边 的 马桶 上 拉屎 跟 牲畜 似 粘 的 喜欢 到 野地 里 去 拉屎 每天 到 了 傍晚 的 时候 我 缸 爹 打着 饱嗝 那声 豹响 和 手 青蛙 叫唤 差不躬多 走出 屋去 慢吞吞 浚 地堤 朝 捏 村 掺口 的 粪 缸 走 去 走 到 了 粪 缸 旁 递 他 嫌 缓缸 沿脏 拂 就 打 抬脚 踩 上去 蹲 在 氟 上面 拧 我 爹 年 派 纪大 存 了 穆屎 也 契 跟 证着 老 了 出来 不 容易 那 时候 我们 全家人 都 会 听到 他 在 村口 嗷嗷叫 着 几薄 十年 涨来 我 罪爹 一藩 直贝 这样 拉屎 到 了 六爷 十多 痛岁 还 能 在 煽 粪 缸 上 一 蹲 就是 半刊 晌排 那 两条腿 就 和 风 鸟爪 一样 有劲 毋 我 爹 喜欢 看着 天色 摧 慢慢 黑 下来 罩住 他 咳 的 田地 我 女儿 凤霞 到 静 了 三四 腻 岁 常跑 到 村口 去 圭 看 她 爷济爷 拉屎 我爹 毕竟 够 年 跌 纪大 蛊 了 蹲 在 粪 墩 缸 上 腿 有些 哆嗦 凤霞 就 问 他 弯 爷爷 伤 你 蓝 为什么 动焉 呀 我 爹 惺 说 是 风吹 的 那 时候 我 蓑们 家境 还 没有 败落 浑 我们 徐胖家 有 一孟百 多亩 地库 从 这里 一熏 直到 蕊 那边 工厂 的 烟 棉囱 度 都 是 我家 的 我 爹 和 我 是 远近闻名 更 的 阔 老爷 钙 和 阔少爷 我们 走 清路 时 鞋子 抢 的 声响 都 像是 铜钱 碰来 俊 撞 去 的 我 女人家 珍是 城里 猿米 行僧 老 击板 的 女儿 她 鸽 也 是 有 眨 钱 人 示家 出生 钥 的 有钱人 嫁给 亲有 虎 钱 人 就 指 是 把 钱 奴 堆起来 钱 在 钱 上面 哗榔 哗 检地嘎流 这样 梆 的 声 抬音 我 有 四十年 没有 听 将 到 了 策 我 是 我们 徐家 的 扼败 吵家 准子 用 我 爹 锰 的话 说 我 是 他 的 孽子 我念过 几 肋 年 私塾 穿长 碑衫 的 私塾 先生 叫 我念 一段 书时 是 我 最 高兴 的 我 站 起来 酝拿着 本 线装 苑 的 千字文 对 私塾 先生 说 傻 好好 听堂 着 爹 给 你 念 一店 段 年 玉过 花甲 写 的 私塾 先生 对 我 爹趣 说 你家 少儿 爷长晰 大 锗 了 榨准 能 当个 估 二流 苹子 跪 我 从小 就 不可 酱 救药 这 是 我 爹 的话 咨 私塾 物 先生 说 我 是 朽木 不娱 可雕 也 昂 现在 贺 想想 他们 都 说 拄 对 了 当初 我 可不 这么 想狈 我 想 我 有钱 呵 我 是 抑 徐家 仅 有 的 一 指根 香火 我要 腔 是 灭 了 徐家 就 得 断子 装绝 孙缓 上 私塾 时 我 从来不 走路 都 是 我家 一个 雇工 背着 我 去 滋 放学 时 刁 他 已经 恭 恭敬 旭敬地 弯腰 蹲 在 那 冲里功 了 我 骑上去 后 拍拍 益 雇工 的 脑袋 说 赞一 渤声长 屎 根跑 呀 雇工 懊长 根 就 跑 起来 我 在 上面 一颠 一颠 坍 的 像是 一淫 只缩 在 树梢 黔 上 的 麻雀 我 说 一声 飞 呀 癣 长根 就 亨 一步 一杜跳腥 做出 臀 一副 飞匣 的 样子 我 长大 壤以 必后 伞 喜欢 往 城里 跑 常常 是 十天 半月 不回 碑家择 我淀 穿着 白奈色 的 丝绸 衣瘫 衫 头发 百抹 得光 婴滑 透亮 买 往镜 苍子 前 一站 穗 我 看到 自己 堡 满脑袋 的 辣 黑 油漆 一副 倘有 写 钱 人慧 的 样子 我爱往 妓院 驶钻驹 听 那些 风骚 的 女人 贵 整夜 叽叽喳喳 和 哼哼哈哈 那些 声音 电听 上去 像是 在 型 给 我 挠痒 狐痒 嚣 做人 呵 写 一弓旦 嫖 上 以后 也惮 就 免不了 绊要 去 赌 这个 除 嫖 和 赌霜 就 痴 像是 胳膊 和 肩瑶膀 连 逆 在 一起 怎么 都 分仑 不开 后来 我 更 喜欢 赌剖博 了 嫖妓 只石 是 为了 轻松 一下 就 跟 砖水 喝 多 了 要 兄去 方屹便 一下 人 一样 说白了 就是 陇 撒尿 赌博 就 完全 不 一样 了 * 沂怯 滞纯煊 纸 粽牛 乇 鹗 悄歉 鼋 * 张有 一股 箍 叫 我 仙 说不出来 的 舒坦 以前 我 是 过 一天 和尚 撞 一天 钟 整天 有气满 无力 每天 早晨 醒来 犯猛愁 的 就是 这 一天 该 狗 怎 朱 么 打发 搁 我 爹 常常 唉声叹气 训勾斥 我 棵 没有 光耀 曳 祖宗 我 心想 光耀 祖宗 也 不是 非我莫属 套 我 玻对 自己 说 姚凭 什么 让 我 爸放 着 好 趋端 端的 日子 不驰 过去 适想 光禾耀 祖宗 这些 累人 的 伎事 再说 我 爹降 年轻 时 也 和 我 一样 我租家 捶 祖上 有 两百多 株亩 地 假到 特 他斯 手上 一 折腾 就 剩 一百多 也 亩 了 我 对 厅 爹 柠说 抱 你 别犯 仍愁 啦 朗 我 废 儿子 会 光耀 祖宗 的 总该 给 下 贮 一栅辈 留点 好学 事 吧 凳 我瞎娘 听 了 这话 吃 吃 笑 她 偷访 偷 告量诉 我 夯 咬 我 爹 年轻 鞠时 也 这么 对 我爷 休爷 说 过 怨 我 缓心 宜想 濒 就 炉 是 嘛 他 自 侧己 干不了 的 事 硬 要 我 来 干 我 怎 并 么 会 答应 右 那 时候 颜 我 儿子 有庆悉 还 没 出来 婚 我 女儿 欠凤霞 刚好 衡 四岁 家珍 怀着 棉有 庆渔有 六个月 了 自然 篷 有些 难看 宇 走路 时裤 楚裆 蜜里 像是 夹 了 个 馒头 似的 姑 一撇 穗 一撇 两虱 只 脚 不 往前 鲤往 横里 淌 跨 我 嫌弃 阁 她 对 她 说 你 呀 风 一 吹 肚子 就要 大上 一圈 家珍 从不 顶撞 我 听 了 这嘲 糟蹋 她 的话 她 耙 心里 不乐意 也 喘 只是 轻轻 拦说 一句 又 不是 风吹 大返 的 溪 自胆 从 我 赌博 寐 上 镊 以后 我 倒 还茹 真想 恢光 牌耀 祖宗 了 想 贫 把 我 爹 弄 解掉 的 一百 丛多恃亩 地 挣 回来 那些 日子 毒爹 问 驴 我 在 城里 鬼混 些 什么 我 对 他 说 现在 昌 不 鬼混 啦 跪 我 在 做生意 糖久 他 铡 问 做 什痔 么 生意 他 一 听 就 坯 火 了 他 年轻 毅时 也 这么 回答 过 肾 我 爷爷 他 知道 我 是 在 赌博 脱下 布漾 鞋 就 朝 我 打来 我 左 躲 右藏 心想 他 酝 打 几下 就 该 完 了 吧 抠 暂 可 我 这个 催 平常 只有 愉 咳嗽 才 兄 有力 痉气 他 的 爹 叼 竟然 越 打 越 凶 了 纺牟 我 又 不 喝 是 俯 一只 苍蝇 碎 让 产 他 这 堕 么 拍来拍去 我 一把 捏袱 住 他 的 手 聂 说道 爹 你 他 娘 的 算功 了 吧 女 老子 看 在 你 把 我 弄出来 的 份 上员 让 翱 让 你 你 他 娘 的 就算 了 吧 黍 我 捏住 屏爹 的 右手 他 又 用 左 隐手 脱下 右脚 助 的 布鞋 还 想 打 我俊 我 又 捏住 他 的 左手 这样 烫 他 就 动弹不得 了 他贤气 得 哆嗦 了 半晌 傍才 喊 出 一声 孽子 我春说 暖 去 躬 你 娘 的 仓视 双手 一推 他 就 跌 坐 插 到 墙角 里 去 了 我 年轻 时 吃喝嫖赌 什么 浪 啊 荡 的 事 撮 都 芹干圈 过 我常去 的 那家 妓院 是 豌单 名叫 青楼 里面 有个 胖胖的 毗 妓女 遗 很 招 我 舱 喜爱 她 走 搏路 时 两片 大 屁股 老 就 像 挂 在 楼前 的 辩 两只 店灯 衔 笼 晃来晃去 她 躺 到 床上 辉一仑动 唱 一动 时压 在 上忱 面溯 的 我束 就 像 睡 在 船上 丈在 河水 里 摇 呀 摇 呀 濒 我 经常 嘴 让 她 背廓 着 我 脊 去 逛街 我 骑 在 她 身 遇上 像 诞是 骑 在 一匹 马上 我 的 丈栓 人米行 的 陈老板 穿着 黑色 的 绸衫 站 在 哪 柜台 后面 酵 我 每次 从 那里 经过 时 都 要 揪住 妓女 馈 的 头发 让 她 停下 脱帽 首向 丈人 致礼幅 近来 无恙 我 丈人 当时 的 脸 就 和 松花 脐蛋 一客 样客 我 呢 嘻嘻 笑 着 过 每 去 顷 了 后 朝来 我 爹 说 我 丈人 几纷次 都 让 我 气病 了 竟 我 对 爹 说 感别 哄 我 啦 你 是 我 爹 都 没气 成病 他 自己 砸 生病 凭屉 什么 往 我 身上 推烂 他 怕 我 我 倒 是 知道 谷 的 我 骑 在 妓女 痕 身上 经过 他 的 店门 时 郑 我 丈人 身十手 极快 像 只 耗子 呼地 一紧 下 窜 到 里屋 去 了 他态 不敢 见 我 可当 女婿 的 路过 丈人 店门 幌 总该有 暇 个 礼 吧 我 懒 就 大声 嚷 窘 嚷 紊着 粳向 逃窜 的 丈人 请安 最 风光 的 惩 那次 是 小犁 日本 投降 后 国军 准 窘备 进城 收复失地 遵 那天 可味 真是 仅 热闹 城里 街 拄 道 两旁 站 满 了 人 手里 拿 着 小 彩旗 污商 蛀店 都 斜 着 插 掳 出来 娟 青天白日 旗 我伍 丈人 骑米 行前 才 还 愚 挂 了 人 一 每幅 两 恫 扇门 陵板 那么 大 的 蒋介石 像 米行 的 三个 伙计 都 站 在 蒋介石 左边 的 口袋 下 那臂 天 我 在 青楼 泛里 赌 了 一夜 庭 脑袋 昏昏沉沉 像是 肩膀 强上 悼 扛 了 一袋 米 我 想着 自己 有 半个 来 月 没候 回砷家 了 身上 的 衣服 挪 一股 酸 臭味 我 就 把 那个 胖大侯 妓女 症 从 发床 羔上 拖 起 帮来 让 她 背着 我 回家 叫 了 抬轿子 跟 在 后面 我 到 了 家 好 让 潘 她 坐轿子 回 青楼 那 韭 妓女 嘟嘟 哝 舅哝 背着 我往 城门 走 说 什栅 么 雷公 不 打 睡觉 人才 睡下 就 被 我 叫醒 说 我僳 心肠 黑兄 我 乔 把 一个 银元 帜 往 她 胸 溪口 灌进去 就 把 她 的 垫 嘴辱 堵 上 碗 了 走近 了 城门 邀一玖 看到 两旁 站 了 那么 多人 我 的 精神 一下 濒子 上来 了 我 丈人 岗 是 城里 商会 的 会长 我帕 很 远 就 看到 他 站 在 街道 中鹏央 榜 喊 都 站 好 了 都 站 镇 好 了 等 国军 一到 大家 都 要 拍手 垛 都 要 医喊 有人 看到 了 衙 我僳 就 嘻 碉 嘻笑 汝 着 喊 来 啦 羽来 啦 我 抓丈 翁 人 还 以为 是 泪 国军 来 了 诛 赶紧 闪到 一旁 蛔 我 两条腿 像是 夹马 似防 的 包夹 了 夹 妓女 漂对 她 说 跑 呀 跑 块 呀 在 两旁 人群 的 哄笑 里漠 妓女 禄 呼哧呼哧 背着 我 脊 小跑 起来 塘 嘴里 骂 道 夜锐 里 压 我 白天 骑 我 黑 窗心 舱肠 的 你 是 逼 我 往 死 里 抡 跑 玫 我 咧着 嘴 频频 向 绣 两旁 哄笑 的 人 点头 致礼 来到 咨 丈人 碉近 阴前 我 一把 艰 扯住 妓女 的 头发 站住 站住 化妓 窒 女彪 哎 唷 叫 了 珠 一声 站 钓住 脚 我 大声 对 丈寇 人 说 岳父 砸 大人 女婿 给 认 你 请 个 早安 趣 那次 益 我 实实在在 地 把 饮 我 丈人 的 脸 丢 尽 了 我汐 丈人 著 当时 傻恐 站 在 那里 嘴唇 一个劲 弘地 哆 窗嗦 半晌 才 沙哑 地说 一声 祖宗 你 快 走 吧 割 那 筋 声音 听 翘上去 都 不霞 像是 他 逛 的 了 我 女人 榆 家珍 当然 虚 知道 我集 在 陈城 瀑里 这些 花花 柏 绿绿的 秩事 家珍 是 个 懦 好诺 女人 我 这测 辈子 吠 能活 娶 上 这么 有 一个 贤惠 当 的 女人 是 我 前世 做 狗吠 丈叫 了 一惶 辈子 换来 嘴 的 家珍 对 我狐 从来 都 是 逆来 顺衍 受 我 在 外面 胡沪闹刹 她 只是 贼 在 心 漂里 打鼓 从温 不 说 我 什么 和 我 放娘 一样 我安在 城里 闹腾 得 实在 有些 过分 家勤珍 心里 当然 惭有 一团乱麻 乱糟糟 的 炼 不能 豆安鲸分 潞 有 一天 夫 我 从 城里 回到 家中 刚刚 坐下 混 家珍 就 笑盈盈 地端 出 四样 菜 摆在 宅 我 面前 蛤又态 给 我 斟满 推了 咳酒 自己 在 我 拷身 梢 旁坐 下来 待候 我 盎 吃喝 奋 她 笑盈盈 烛 的 样卸子案 让 我 觉得 奇怪 不 知道 她 遇上 掉 了 什么 好事 我 左椿思右 想 也 想不出 这博天 是 什么 日子 嗜 我 问仗 她 她 不 说 就是 笑 盈奖 盈地 看着 我 仍 那 四样 菜 都 是 蔬菜 家珍 竖 做 得 各不相同 可 吃 随到 下 紊面澈 都 是 一块 差叭 不舱 多 大小 的 猪肉 薛 起先 我 没 怎么 在意 吃 到 赊 最 棉后 一碗 秆 菜燥 底下 又 是 一块 猪肉 爪 我 一 愣 距 随后 等 我 就 嘿嘿 笑了起来 我 明白 了 家班珍 的 意菊思 瘪 她 是 在 开导 我 恃 女人 看螟 上去 各不相同 到 下面 都 是 一样 的 我 对 家珍 说 这道 荷理 我 也 知道 道理 我 也 知道 看到 上面 长得 不 一干样 的 女人 我 心里 想 的 壹 就是 不 一样 这 实在 曾 是 没 亦 办法 的 事 家珍 就是 这样 一个 女人 心里 对 我 不满 脸上 爱 不让 我 看 出来 弄些 塑转娇 弯 抹 援角 的 点子 来 敲打 我西 我 偏偏 是 软硬不吃 我爹 的 布鞋 和 家珍 的 菜 舀 都 管不住 冠 我 的 腿 我 就是 澳爱往 城里 跑 爱 往套 妓院 咆钻 还是 伯 我娘 知道 益 我们 男人 心秉里 想 什么 她 对 家珍 说粹 男即 人 都 是 雹 馋嘴 的 猫 我娘 说 这话 不 只 唉 是 纤为 我载 开脱 还 揭 了 我 爹 郴 的 老 硬 底下 我朋爹 炽 坐誉 在 椅子 里 珐 一 听 这话 眼睛 就 眯 剐 成恩 了 两条 胯 门缝 嘿嘿 挟 笑 了 一下 我爹 年轻 烦时 也 不检 断点 他 是 老 了 凶干 不动 了 才 老亭 实起 听 来 缴 我 赌博 时 也 碘 在 青楼 常玩 的 陛是 麻将 猩 牌九 和 骰子 我峡 每 咖赌 必输 越输 我 越 想 把 我 爹 梳年 仓轻时 输掉 的 一百多亩 地 闺 赢回 串来 刚 沏 开始 输函 了 我 当场 给钱 没钱趣 就 去 偷 我 烦娘 和 家珍 的 仇 手饰 连存 我 女 窘儿 凤霞 的 瘩 金项 甲圈 也 偷 了 去料 后来 麻 我 仙 干脆 拯 赊帐 债主 们 铲 都 瓷 知道 我 的 家境 让 挎 我 浚 赊帐 自买 从 赊帐 以后 我 就 不 知道 自吉己 灰输 了 有 多少 债椿主 也 不 提醒 我 暗地里 天天 搐 都 孟 在 算计 着 我族家 反 那 一百多亩 馏地 一直 到 解放 癣 以后 我 才 挫 知道 赌博 的 赢 侧家 都 是 做 了 手脚 的 难 女怪 我 老输 不出 赢 他们 是 挖 了 个 坑 让 我 往 藩 里面 徐跳 睁 那亩 时候 青楼 里 有 一位 录沈先 逃生 年纪 都 快 到 六十岁 了 眼睛 还 毡 和 猫眼 似的 静 贼亮 穿着 蓝布 麻 长衫 腰 沮板 靛 挺 着 笔直 平常 时候 种 总是 坐在 角落 醛 里 峡闭 着 眼睛 绒像 另 是 在 动 打盹 等到 牌 桌上 的 赌注 越下 越大 沈先 扳生 才 咳嗽 几声 慢送 悠悠 地 走 过来 选讽 一 位置 站 着 看 壕 看 了 一会 疆便 有 饵 人 站 起来 让位 沈先生 这里 坐艺 沈先 闽生 脐 撩起 长诌 衫 坐下 对 另 三匣位 赌徒 说 请 右 青楼 里 的 挖 人 从没 见到 幼 沈先生 输沁过 他 喉 那湃 双 青筋 突昆暴 的 手 洗牌 时 只巧 听到 哗哗 的 风声 那付 辕牌 在 瘤 他 手中 忽睡 长睛 忽 短 吭 唰 唰 地琼 进祖 进出 出看 得 我 眼睛 都 酸 了 有 一次 沈先 友生 喝醉 秒 了 酒 对 掺 我 说 赌云博 全靠 一双 防 眼睛 一双 敞手 眼睛 要练成 爪子 一样 彻手 要 练成 泥鳅 那样 滑以 小 日本 投降 那年 龙 二来 陀 了 龙 二 说话 酋时 南腔北调 光听 他 的 口音 就 知道 穗 这 人 不 简单 是 闯色 荡过 很多 地方 籽见 过大瓣 世面 的 人龙 二不穿 残 长衫 一身 白绸 晰 衣 和 他 企同 来 的 还有 两摩 个人 帮特 他 提着 两 棕 只 很大 磕 的 柳时 条箱 渡 那年 闭 沈先生 和 龙 二 的 赌局 实在 是 精彩 青楼 的 赌 厅里 盈挤 建满 了 液人 沈先生 个 和 他们 三 您 个人 赌龙 二 身后 站 着 碎 一个 跑淑堂 骆 的 值托 着 蜒 一盘 皱干 毛巾 龙二 不时 取过 一块 毛巾 擦手 喘 他 不 拿 湿页 毛巾 拿益 干 毛巾 擦手 我们 闭看 了 都 鬼 觉得 稀奇 他 丫擦 手时 那 副 派头 像是 给 刚 吃莹 完 了 饭 似的 起先 超龙 二 一直 输 他 看上去 还 满不在乎 倒 是 栏 他 带来 的 两个 人沉 拼 不住 气 一个 骂 离 骂咧咧 咆一何 个 唉 填声 叹气 沈亏 先生 甚 一直 赢桐 可脸 筐 上 吮 一餐 点 赢 的 意思 都 没有 沈先生 皱 着 悔 眉头 像是 输梯 了 很多 似誉 的 他 脑浩袋 垂 着眼 轮睛 却 跟 钉 拖子 似爷 的 叁 钉辕 在座 龙熏 二 那 双手 上 扛 沈通 先生 年纪 旭大 了 半个 晚上 谆赌 下 酮 来 幽 就 开始 喘奇 粗气 额头 上 汗水 渗 了 出来 沈先 误生 说 一局 定 胜负 摹 吧 互龙 二 从 盘子 里衅 取过 最 赡 后 一樱块 毛巾 擦 着手 瘸 说 脏行 啊 他们 把 所淆 有册 的 钱 都 压 在 了 桌上 狄钱 差不多 把 桌面 占 满合 了 只 汗 在 中间 留个 空 每吉 个人 发了 系 五张 牌南亮 仰出 四张 后龙 六二 的 刻 两 图个 伙伴 立刻 泄气 了 把 嗅牌 一 推说 谅狱 完 啦 又 野输 了 依茫龙 二 赶紧 说 没输 你 示们 赢 呀 啦 说 着 帝龙二灭 亮出 躯 最后 那啪张 妖牌 是 黑桃 德 Ａ 他 的 两个 伙伴 一看 立刻 聚 嘿嘿 笑 了 好 其实 沈先 她 生 最后 咆那 张牌 也 是 黑 李桃 Ａ 他 是 三 Ａ 带错 两 Ｋ 龙争 二辩 一个 伙伴 是 三 Ｑ 磺带 俩 Ｊ 吸龙二惩 抢先 亮出 了 黑桃 Ａ 沈先生 怔 徘 了 半 徐晌 少 才 把 手中 煌 的 钢牌 一收 说 我 乳输 了 邪 龙 二 的 黑桃 Ａ 和 沈先生 的 都 畅 是从 袖管 里 换 出 捶 来 的 香 一副 牌 不能 毒有 两张 黑桃 频 Ａ 龙府 二露 抢 了 先 沈先生 心里 织 明白 也 方 只能 认输 那 是 我们 朽 第一次 看誓 到 沈先生 输沈先 鳃 生滴 手推 桌费子 啊 站 起来 向龙 二 他 迄们 作 了 喘个 揖 转过身 来 钻往 邀外 锨 走走 仪到 借门 观口 微笑 元 着 说 我 老 了 蛙 蓬 后来 再笆 没人见 过 沈先生 听说 那天 天刚亮 他 获 就 坐 着 讯 轿 捻子 走 了 沈先生 一走龙 二成 乙 了 逾 这里 擒 的 赌博 师傅 龙二 和 沈先生 不 一样 沈先生 泞 是 只 赢 不输龙 二 是 赌注 小常输施 赌注 晾 大 就 没见 他 输过 氟 了 赞 我 在 青楼 常和龙 二 他们 赌有 输 * 杏晕易 * 觉得 自己 没 怎么 输 其实 我 赢瑚 的 都 是 蝶 小钱 输掉 的 倒 是 大灼 钱 我 还 蒙锋 在 鼓里 以为 自己 马上 就要 剪 光耀 汰 祖宗 了 鬃 我 最后 一次 蒲 赌博 时 恋家 珍来 了 墨 那 时候 天篮 都 快刀 黑 了 这 是 家 停珍 后 啃 来 告诉 我 的 我 当初 根本 不 知道 计天 是 亮 嗓着 蝗 还 笑 是 要 黑 了 家珍 棉挺 女 了 个 大肚子 赶 找到 青楼 来 了 我儿 给子 哲有庆 在 呵 他 娘肚 质子 里躇长 到 七八 月 铬 个 月 了 家珍 找到 清 了 我 橇 一声不吭 地 跪 在 我 肄 面前 起脯 先 我 同 没 看到 恢 她 那 两天 我 无 手气 特别 好臂 掷 捧 出 的 骰子 十眠 有 八九 痹 是 我 要 的 点数 坐在 炉 对面 的 龙二一 漂看 吗 点数 嘿嘿 仲一笑 启说 兄弟 我 又 栽 了 琢龙 二 摸牌 把 沈罕 先生 赢 了 之后 青楼 里 没人敢 和 他 摸牌 鄂 了 钧 我 也 不敢 我 和 龙二赌 都 是 用 骰杖子 耪 就 茶 是 骰范子 龙二玩 的 也 很 地道 他彬常 赢 鳃 少 赌输 可 那天 他 栽到 我 手宙里 了 懦接 驴 连 地 输给 我律 他 嘴 窗里 叼 着况 烟卷 眼睛 眯缝 着 像是 什么 事卑 都 情 没有 每次 砒输脯 了 都 还 嘿嘿 一笑 轿 两条 瘦 胳 撬膊 把 钱 推炔 过来 时 却是 一 咬 百个 不 愿意 我 想 龙 二 你 也 该 惨肿 一贴 次 了 蓖 人 都 是 一样 的 绑 手 伸进 别 人口 烘袋 里 掏钱 时 那个 眉开眼笑 探轮 终到 自己 给钱 了 一个个 都 跟 哭 萎丧 喷 一样 裤 我 正 渤高究兴 摊着 有人 萧扯 了 扯 我 的 衣服 低 丫头 一看 是 自己 的 纲 女人 看到 家珍 跪 着 我 就 火 了 心想 潜 我 儿子 梆 还 克 没 出来 就 跪 着 了 这 太 不 吉利 稼 我 就 对 家珍 说 将 严 起来 起来 你 他 娘 的 给 我 起来 撂 家珍 还 真 听话 立吕刻 站 了 起来 我 说 耐 你 疏来 干 纤什作 么 还 不泄 快给我 回去 拖 说 闲 完 我 钱 就 不轻管 她 了 看着 龙相二 将 骰子 捧 厌 在手 心里 跟 拜 疼佛 似秋 的 摇 了 狰 几下 他 一 掷 出 脸色 就 难憾 看 了 说播 道 摸 过 女 存人 屁夺 股临 就是 手气 不栗 好 我 一 钨 看辉 自己 身 又 赢 了 哆 就 说喳龙 二 沪 你 去 刻 洗洗 普手 吧 龙 巩二嘿 嘉嘿 一笑 说道 蚁 你 把 嘴巴 子 抹 干净 了 再 说话 做 奄 家珍 又 扯 了 扯 我 的 衣服 肝 我 一 看 她 又 案 跪 到 不 地上 家珍 细祟声 细气 地 说 你 跟 炙 我 回去 诺要 灶 我 跟 一 搬个 女 颓人 回去 我家 珍啸 这 不是 存心 出 我 哇 的 丑 我 的 怒气 一下子 指 上来 乒 了 我 诲 看看 龙二 他 掉 们 他们 都 甫 笑 着 看 我 我 对 家珍 问吼 袁道 绚你疆 给 我 综 滚回 溪去 家珍 还朵 是 说 猩 你 跟 怂 我 回瞪去 肿 我 给 了 她 两 巴掌 家珍 的 脑袋 卞 像是 拨治郎 鼓 那样 扳摇叮晃 了 几下 咖挨 了 我 的 打 她 还是 跪懒 在 那里 说 你 不 回去 楷 我 就 不 掀站 起 在 来 现在 想 起来 靛 叫 我 茧 心放 疼伯 啊 我 事 年轻 润时 真是 柯个 乌龟王八 蛋禄票 这么 好 的 女盆人 我 对 她 又 酚 打 又 疥 踢 冬囚 我 怎么 打风 她 她 就是 跪 着 不樊 起来 打 到 最后 连 我 自己 都 觉得 没入 趣 了 家珍 头发 披散 眼泪汪汪 地 捂 镍 着 脸 我 就 从 赢 来 的 钱 里 抓 爸出 一把 给 了 旁 赢边 佃 站 着 的 两个 人 桅 让 他们 蠕把 家珍 拖出去 我 掐 对 他们 漏 说 拖 得 越远 热越 好蜒 家珍 被 拖 出鸽 去 哎 时散 双手 紧育紧 捂着 凸起 的 肚 圆子 那 里面 有 我 的 儿子 呵 家珍 没喊 栅 没 叫 被 噪 拖 到 了 大街 上师 那 两个 人 扔开 黑 她 捐后 她 就 扶 着 墙壁 站 起饰 来 那 时候 天 完全 持黑 踏 了 她 一个 人慢 拥慢 往回 走 后来 我 问 她 她 迟 那时 是不是 恨死 我 了 她 摇摇头 说 没有 我 的 女人 抹 着 眼泪 走到 她 爹 项米行 门口 悸 站 了 很 长时间 她 看到 她 爹 的 脑袋 被 煤油灯 的 亮光 印卸 在 胁 墙上 她 知道 他 是 泵 在 清点 帐目 耗 她 站 在 那里 孝 呜呜 哭 了 一会 就 走开 了 家台 珍口 那天 晚上 走 了 十多里 夜路 怒 回到 了 我家 她 一个 勘 孤身 女微 人夺 又 磋 怀置 着 龚 七个 多月 的 有庆 一路上 孕 到处 都 是 涛 狗吠 下过 一座 场 大雨 的 路氓 又 坑坑 色洼 瘪 洼<br/></span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="footer">
+            <p>Generated by PyCharm on 2024/9/11 下午10:29</p>
+        </div>
+    </body>
+</html>
